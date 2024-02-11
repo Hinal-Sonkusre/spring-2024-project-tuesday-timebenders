@@ -12,9 +12,10 @@ public class ButtonDoorController : MonoBehaviour
 
 
    private bool isWeightOnButton = false;
+   private int playerCount = 0;
 
 
-   private void Update()
+    private void Update()
    {
        if (isWeightOnButton)
        {
@@ -47,7 +48,8 @@ public class ButtonDoorController : MonoBehaviour
    {
        if (collision.gameObject.CompareTag("Player"))
        {
-           isWeightOnButton = true;
+            playerCount++;
+            isWeightOnButton = true;
        }
    }
 
@@ -56,7 +58,11 @@ public class ButtonDoorController : MonoBehaviour
    {
        if (collision.gameObject.CompareTag("Player"))
        {
-           isWeightOnButton = false;
+            playerCount--;
+            if (playerCount == 0)
+            {
+                isWeightOnButton = false;
+            }
        }
    }
 }
