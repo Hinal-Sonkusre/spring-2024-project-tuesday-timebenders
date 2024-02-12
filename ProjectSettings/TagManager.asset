@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weight
   - Door
+  - Win
   layers:
   - Default
   - TransparentFX
