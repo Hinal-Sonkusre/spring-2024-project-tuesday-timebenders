@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float horizontal;
+    //private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
-    private bool isFacingRight = true;
+    //private bool isFacingRight = true;
+
+    public  float actionTimer = 0f; 
+    public List<ActionCommand> commands = new List<ActionCommand>(); 
+
+    private float lastHorizontalInput = 0f;
+    private bool wasJumping = false; 
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -23,49 +30,79 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if(Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-        if(Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-        if (Input.GetKeyUp(KeyCode.UpArrow) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        Flip();
+        actionTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        bool isGrounded = IsGrounded();
+        bool isJumping = Input.GetButton("Jump") && isGrounded;
+
+        if (horizontalInput != lastHorizontalInput)
+        {
+            RecordMove(horizontalInput);
+            lastHorizontalInput = horizontalInput; 
+        }
+        if (isJumping && !wasJumping)
+        {
+            RecordJump();
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            wasJumping = true;
+        }
+        else if (!isJumping)
+        {
+            wasJumping = false;
+        }
+
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
-    private void Flip()
+    
+
+    void RecordMove(float horizontal)
     {
-        if ((isFacingRight && horizontal < 0f) || (!isFacingRight && horizontal > 0f))
+        if (horizontal == 0)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            commands.Add(new ActionCommand
+            {
+                actionType = ActionCommand.ActionType.Stop,
+                delay = actionTimer
+            });
+            ResetActionTimer();
         }
+        else
+        {
+            commands.Add(new ActionCommand
+            {
+                actionType = ActionCommand.ActionType.Move,
+                horizontal = horizontal,
+                speed = speed,
+                delay = actionTimer
+            });
+            ResetActionTimer();
+        }
+       
     }
 
+    void RecordJump()
+    {
+        commands.Add(new ActionCommand
+        {
+            actionType = ActionCommand.ActionType.Jump,
+            jumpingPower = jumpingPower,
+            delay = actionTimer
+        });
+        ResetActionTimer();
+    }
+
+    private void ResetActionTimer()
+    {
+        actionTimer = 0f;
+    }
 }
