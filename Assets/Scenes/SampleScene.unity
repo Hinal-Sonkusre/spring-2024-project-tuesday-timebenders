@@ -234,7 +234,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 418437190}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
-  cloneSpawnPoint: {fileID: 418437203}
+  cloneSpawnPoint: {fileID: 275110839}
+  cloneLimit: 1
+  cloneCounterText: {fileID: 0}
+--- !u!1 &275110838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275110839}
+  m_Layer: 0
+  m_Name: SpawPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &275110839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275110838}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.97, y: -2.98, z: -0.059365943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277135347
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,11 +488,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!4 &418437203 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7044834714395221448, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
-  m_PrefabInstance: {fileID: 1217689765}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &418437205 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
@@ -810,7 +838,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.1508656
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1564,3 +1592,4 @@ SceneRoots:
   - {fileID: 472445284}
   - {fileID: 1831565374}
   - {fileID: 1571671845}
+  - {fileID: 275110839}
