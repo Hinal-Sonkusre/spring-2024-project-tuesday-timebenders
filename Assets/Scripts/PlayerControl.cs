@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         actionTimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Restart the current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void FixedUpdate()
