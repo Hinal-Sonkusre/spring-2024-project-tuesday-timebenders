@@ -13,7 +13,7 @@ public class SceneBoundry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.7f, 9.7f),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.4f, 9.4f),
         Mathf.Clamp(transform.position.y, -4.5f, 4.5f),
         transform.position.z);
         
