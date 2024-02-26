@@ -31,10 +31,6 @@ public class ClonePlayerManager : MonoBehaviour
             Debug.Log("Clone limit reached. Cannot create more clones.");
             return;
         }
-        if (cloneCounterText != null)
-        {
-            cloneCounterText.text = "Clones Left: " + (cloneLimit - cloneCount).ToString();
-        }
 
         Debug.Log("Creating Clone Player");
 
@@ -60,7 +56,11 @@ public class ClonePlayerManager : MonoBehaviour
 
         // Increment the clone count
         cloneCount++;
-
+        // Update the clone counter text after a clone is created
+        if (cloneCounterText != null)
+        {
+            cloneCounterText.text = "Clones Left: " + (cloneLimit - cloneCount).ToString();
+        }
         Debug.Log("Clone player created successfully!");
     }
 }
