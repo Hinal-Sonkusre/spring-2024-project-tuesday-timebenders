@@ -236,7 +236,7 @@ MonoBehaviour:
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 275110839}
   cloneLimit: 1
-  cloneCounterText: {fileID: 0}
+  cloneCounterText: {fileID: 1066270120}
 --- !u!1 &275110838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1038,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101700500540343334, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2719064002143499291, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: m_GravityScale
       value: 4
