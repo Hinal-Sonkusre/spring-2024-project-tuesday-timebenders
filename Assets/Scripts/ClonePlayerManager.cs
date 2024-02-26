@@ -39,58 +39,28 @@ public class ClonePlayerManager : MonoBehaviour
         Debug.Log("Creating Clone Player");
 
         // Check if references are assigned
-        if (mainPlayer == null)
+        if (mainPlayer == null || clonePlayerPrefab == null || cloneSpawnPoint == null)
         {
-            Debug.LogError("Main player reference not assigned!");
-            return;
-        }
-        if (clonePlayerPrefab == null)
-        {
-            Debug.LogError("Clone player prefab reference not assigned!");
-            return;
-        }
-        if (cloneSpawnPoint == null)
-        {
-            Debug.LogError("Clone spawn point reference not assigned!");
+            Debug.LogError("One or more references are not assigned!");
             return;
         }
 
         Debug.Log("Creating clone player instance");
 
-        // Determine the player to clone from
-        GameObject playerToCloneFrom = mainPlayer;
-
-        if (clonePlayerInstance != null)
-        {
-            playerToCloneFrom = clonePlayerInstance;
-        }
-
-        List<ActionCommand> originalCommands = playerToCloneFrom.GetComponent<PlayerControl>().commands;
-
-
+        List<ActionCommand> originalCommands = mainPlayer.GetComponent<PlayerControl>().commands;
         clonePlayerInstance = Instantiate(clonePlayerPrefab, cloneSpawnPoint.position, Quaternion.identity);
-        playerToCloneFrom.transform.position = cloneSpawnPoint.position;
-
-        if (clonePlayerInstance == null)
-        {
-            Debug.LogError("Failed to instantiate clone player!");
-            return;
-        }
-
-        AutoPlayerControl autoControl = playerToCloneFrom.GetComponent<AutoPlayerControl>();
-        if (autoControl != null)
-        {
+    
+        AutoPlayerControl autoControl = clonePlayerInstance.GetComponent<AutoPlayerControl>();
+        if (autoControl != null) {
             autoControl.SetCommands(new List<ActionCommand>(originalCommands));
         }
 
-        // Disable the PlayerControl script on the player from which the clone is created
-        playerToCloneFrom.GetComponent<PlayerControl>().enabled = false;
+        // Enable PlayerControl on the main player, ensure it remains controllable
+        mainPlayer.GetComponent<PlayerControl>().enabled = true;
 
-        clonePlayerInstance.GetComponent<PlayerControl>().enabled = true;
-
+        // Increment the clone count
         cloneCount++;
 
         Debug.Log("Clone player created successfully!");
     }
-
 }
