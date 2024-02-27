@@ -54,6 +54,9 @@ public class ClonePlayerManager : MonoBehaviour
         // Enable PlayerControl on the main player, ensure it remains controllable
         mainPlayer.GetComponent<PlayerControl>().enabled = true;
 
+        // Respawn main player at the spawn point
+        mainPlayer.transform.position = cloneSpawnPoint.position;
+
         // Increment the clone count
         cloneCount++;
         // Update the clone counter text after a clone is created
