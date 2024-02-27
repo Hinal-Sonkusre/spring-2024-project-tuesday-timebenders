@@ -1,14 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour {
     public List<ActionCommand> commands = new List<ActionCommand>();
     private float actionStartTime = 0f;
     private float speed = 8f;
     private float jumpingPower = 16f;
-    private Vector2 lastPosition;
-    private float positionRecordThreshold = 0.1f; // Adjust as needed for smoothness vs data size
+    private Vector2 lastRecordedPosition;
+
+    public float actionTimer = 0f;
+    private float lastHorizontalInput = 0f;
+    private float positionRecordThreshold = 0.000001f; // Record position if moved more than this distance
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -16,10 +20,12 @@ public class PlayerControl : MonoBehaviour {
 
     void Start() {
         actionStartTime = Time.time;
-        lastPosition = transform.position;
+        lastRecordedPosition = rb.position;
     }
 
     void Update() {
+        actionTimer += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.R)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -28,20 +34,40 @@ public class PlayerControl : MonoBehaviour {
         if (jumpKeyPressed && IsGrounded()) {
             PerformJump();
         }
-
-        if (Vector2.Distance(lastPosition, transform.position) > positionRecordThreshold) {
-            RecordPosition(); // Record the current position if it has changed significantly
-            lastPosition = transform.position;
-        }
     }
 
     private void FixedUpdate() {
         float horizontalInput = GetHorizontalInput();
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        RecordPositionIfNeeded();
+    }
+
+    private void RecordPositionIfNeeded() {
+        if (Vector2.Distance(rb.position, lastRecordedPosition) > positionRecordThreshold) {
+            commands.Add(new ActionCommand {
+                actionType = ActionCommand.ActionType.Move,
+                position = rb.position, // Current position
+                horizontal = lastHorizontalInput,
+                speed = speed,
+                delay = actionTimer
+            });
+            lastRecordedPosition = rb.position;
+            ResetActionTimer();
+        }
     }
 
     private float GetHorizontalInput() {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = 0f;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+            horizontal = -1;
+        } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+            horizontal = 1;
+        }
+
+        if (horizontal != lastHorizontalInput) {
+            lastHorizontalInput = horizontal;
+        }
+
         return horizontal;
     }
 
@@ -54,22 +80,17 @@ public class PlayerControl : MonoBehaviour {
         RecordJump();
     }
 
-    void RecordPosition() {
-        commands.Add(new ActionCommand {
-            actionType = ActionCommand.ActionType.Position,
-            position = transform.position,
-            delay = Time.time - actionStartTime
-        });
-        actionStartTime = Time.time; // Reset start time for the next action
-    }
-
     void RecordJump() {
         commands.Add(new ActionCommand {
             actionType = ActionCommand.ActionType.Jump,
-            position = transform.position,
+            position = rb.position, // Current position
             jumpingPower = jumpingPower,
-            delay = Time.time - actionStartTime
+            delay = actionTimer
         });
-        actionStartTime = Time.time; // Reset start time for the next action
+        ResetActionTimer();
+    }
+
+    private void ResetActionTimer() {
+        actionTimer = 0f;
     }
 }

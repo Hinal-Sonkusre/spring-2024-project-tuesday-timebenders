@@ -8,8 +8,7 @@ public class ActionCommand {
     public enum ActionType {
         Move,
         Jump,
-        Stop,
-        Position
+        Stop
     }
 
     public ActionType actionType;
