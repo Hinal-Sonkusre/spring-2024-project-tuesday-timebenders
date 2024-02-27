@@ -18,7 +18,7 @@ public class ClonePlayerManager : MonoBehaviour
     void Update()
     {
         // Check for user input to create a clone player
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             CreateClonePlayer();
         }
