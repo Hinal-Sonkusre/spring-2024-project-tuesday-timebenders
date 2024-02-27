@@ -26,7 +26,7 @@ public class AutoPlayerControl : MonoBehaviour
         {
             // Calculate interpolation progress
             float progress = (Time.time - moveStartTime) / moveDuration;
-            if (progress < 1.0f)
+            if (progress < 0.5f)
             {
                 // Smoothly interpolate the position of the clone
                 transform.position = Vector2.Lerp(startPosition, endPosition, progress);
@@ -59,7 +59,7 @@ public class AutoPlayerControl : MonoBehaviour
         switch (command.actionType) {
             case ActionCommand.ActionType.Move:
                 // Adjust velocity for movement if needed
-                rb.velocity = new Vector2(command.horizontal * command.speed, rb.velocity.y);
+                rb.velocity = new Vector2(command.horizontal * command.speed * 1.5f, rb.velocity.y);
                 break;
             case ActionCommand.ActionType.Jump:
                 rb.velocity = new Vector2(rb.velocity.x, command.jumpingPower);
