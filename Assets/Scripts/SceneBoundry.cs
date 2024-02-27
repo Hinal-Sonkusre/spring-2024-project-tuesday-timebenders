@@ -14,7 +14,7 @@ public class SceneBoundry : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9.7f, 9.7f),
-        Mathf.Clamp(transform.position.y, -4.7f, 4.7f),
+        Mathf.Clamp(transform.position.y, -5.0f, 5.0f),
         transform.position.z);
         
     }
