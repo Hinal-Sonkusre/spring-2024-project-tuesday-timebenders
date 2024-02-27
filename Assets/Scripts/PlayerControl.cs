@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour {
         actionTimer += Time.deltaTime;
         
         if (Input.GetKeyDown(KeyCode.R)) {
+            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
