@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2402320668100103811}
   - component: {fileID: 6631897376690189879}
   - component: {fileID: 101700500540343334}
+  - component: {fileID: -9041413624013956770}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -108,6 +109,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands: []
   currentCommandIndex: 0
+--- !u!58 &-9041413624013956770
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002110677584309239}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6ef3fa4eaf8d4443ab2fd2155c2459ea, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4694649067511047061
 GameObject:
   m_ObjectHideFlags: 0
