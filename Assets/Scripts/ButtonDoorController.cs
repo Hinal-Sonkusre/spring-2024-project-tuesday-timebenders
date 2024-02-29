@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ButtonDoorController : MonoBehaviour
 {
    public SpriteRenderer buttonRenderer;
@@ -10,10 +9,8 @@ public class ButtonDoorController : MonoBehaviour
    public Color inactiveColor;
    public GameObject door;
 
-
    private bool isWeightOnButton = false;
    private int playerCount = 0;
-
 
     private void Update()
    {
@@ -35,8 +32,6 @@ public class ButtonDoorController : MonoBehaviour
        // Open the door (e.g., by rotating it or moving it up)
        door.SetActive(false);
    }
-
-
    private void CloseDoor()
    {
        // Close the door (e.g., by rotating it back or moving it down)
