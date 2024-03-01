@@ -56,7 +56,8 @@ public class ClonePlayerManager : MonoBehaviour
 
         // Respawn main player at the spawn point
         mainPlayer.transform.position = cloneSpawnPoint.position;
-
+        mainPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
+        
         // Increment the clone count
         cloneCount++;
         // Update the clone counter text after a clone is created

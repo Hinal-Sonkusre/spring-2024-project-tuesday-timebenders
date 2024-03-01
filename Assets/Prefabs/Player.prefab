@@ -75,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2bed7a4d00c4b2b9b79b591f3667ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionTimer: 0
   commands: []
+  actionTimer: 0
   rb: {fileID: 2719064002143499291}
   groundCheck: {fileID: 642585146732372777}
   groundLayer:
