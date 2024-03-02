@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour {
     private float jumpingPower = 16f;
     private Vector2 lastRecordedPosition;
 
+    public bool dashAbility = false;
     private bool isFacingRight = true;
     private bool canDash = true;
     private bool isDashing;
@@ -49,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
         }
 
         bool dashKeyPressed = Input.GetKeyDown(KeyCode.Z);
-        if (dashKeyPressed && canDash) {
+        if (dashKeyPressed && canDash && dashAbility) {
             StartCoroutine(PerformDash());
         }
     }
