@@ -10,6 +10,8 @@ public class PlayerControl : MonoBehaviour {
     private float jumpingPower = 16f;
     private Vector2 lastRecordedPosition;
 
+    public bool dashAbility = false;
+
     public float actionTimer = 0f;
     private float lastHorizontalInput = 0f;
     private float positionRecordThreshold = 0.000001f; // Record position if moved more than this distance
