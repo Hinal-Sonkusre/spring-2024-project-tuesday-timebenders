@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private TrailRenderer tr;
 
     void Start() {
         actionStartTime = Time.time;
@@ -120,6 +121,7 @@ public class PlayerControl : MonoBehaviour {
 
         canDash = false;
         isDashing = true;
+        tr.emitting = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         if (isFacingRight) {
@@ -133,6 +135,7 @@ public class PlayerControl : MonoBehaviour {
 
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+        tr.emitting = false;
     }
     
     void RecordDash() {
