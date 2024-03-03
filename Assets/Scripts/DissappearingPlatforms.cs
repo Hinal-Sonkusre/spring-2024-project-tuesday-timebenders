@@ -78,7 +78,7 @@ private void Update()
         Platform3.SetActive(true);
     }
 
-        private void AppearSpikes()
+    private void AppearSpikes()
     {
         spikesDown.SetActive(true);
         spikesUp.SetActive(false);
