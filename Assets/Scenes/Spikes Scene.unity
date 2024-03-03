@@ -1180,7 +1180,8 @@ MonoBehaviour:
   buttonRenderer: {fileID: 817556872}
   activeColor: {r: 1, g: 0.7402893, b: 0, a: 0}
   inactiveColor: {r: 1, g: 0, b: 0.057308674, a: 0}
-  Platform: {fileID: 1359667100}
+  Platform1: {fileID: 118964553}
+  Platform2: {fileID: 1080742206}
 --- !u!1001 &853300414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1762,6 +1763,11 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!1 &1080742206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4700976893002835480, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+  m_PrefabInstance: {fileID: 1914666404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107871005
 GameObject:
   m_ObjectHideFlags: 0
