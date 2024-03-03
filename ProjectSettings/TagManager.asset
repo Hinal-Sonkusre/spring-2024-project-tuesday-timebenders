@@ -8,7 +8,6 @@ TagManager:
   - Door
   - Win
   - Spikes
-  - Button
   layers:
   - Default
   - TransparentFX
