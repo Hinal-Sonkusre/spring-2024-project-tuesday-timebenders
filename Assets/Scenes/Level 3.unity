@@ -1921,7 +1921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4740355319738089940, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.47
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 4740355319738089940, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2168,7 +2168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: spikesDown.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: platforms.Array.data[0]
@@ -2680,7 +2680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.07
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2793,6 +2793,8 @@ SceneRoots:
   - {fileID: 341500238}
   - {fileID: 1033257188778916008}
   - {fileID: 7330099131033037730}
+  - {fileID: 768373190}
+  - {fileID: 495277657}
   - {fileID: 472445284}
   - {fileID: 86907709}
   - {fileID: 1831565374}
@@ -2802,5 +2804,3 @@ SceneRoots:
   - {fileID: 1733158176}
   - {fileID: 1599012407}
   - {fileID: 1142876483}
-  - {fileID: 768373190}
-  - {fileID: 495277657}
