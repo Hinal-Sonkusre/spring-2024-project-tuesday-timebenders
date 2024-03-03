@@ -133,10 +133,10 @@ public class PlayerControl : MonoBehaviour {
         yield return new WaitForSeconds(dashingTime);
         rb.gravityScale = originalGravity;
         isDashing = false;
+        tr.emitting = false;
 
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
-        tr.emitting = false;
     }
     
     void RecordDash() {
