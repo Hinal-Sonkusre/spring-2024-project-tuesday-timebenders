@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Controls Screen.unity
     guid: 1b23ae806a3d74228bef96fdbf9ace02
   - enabled: 1
-    path: Assets/Scenes/Disappearing Platforms.unity
+    path: Assets/Scenes/Trial Scenes/Disappearing Platforms.unity
     guid: 788f65e4e71604c5d89219a52e0af42d
   - enabled: 1
-    path: Assets/Scenes/Spikes Scene.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 4c8bb822a26ef4e568d897841845f9e3
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
