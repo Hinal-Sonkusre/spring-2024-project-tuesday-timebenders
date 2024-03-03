@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainToPlay : MonoBehaviour
+public class MainToLevels : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void GoToStart()
+    public void GoToLevelSelection()
     {
-        SceneManager.LoadScene("Spikes Scene");
+        SceneManager.LoadScene("Level Selection");
     }
 
     // Update is called once per frame

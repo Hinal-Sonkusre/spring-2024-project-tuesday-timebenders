@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainToPlay : MonoBehaviour
+public class Level1Button : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void GoToStart()
+    public void GoToLevel1()
     {
         SceneManager.LoadScene("Spikes Scene");
     }
