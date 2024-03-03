@@ -7,9 +7,9 @@ public class DisappearingPlatforms : MonoBehaviour
     public SpriteRenderer buttonRenderer;
     public Color activeColor;
     public Color inactiveColor;
-    public GameObject Platform;
     public GameObject Platform1;
     public GameObject Platform2;
+    public GameObject Platform3;
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
@@ -66,16 +66,16 @@ private void Update()
     private void OpenDoor()
     {
         // Open the door (e.g., by rotating it or moving it up)
-        Platform.SetActive(false);
         Platform1.SetActive(false);
         Platform2.SetActive(false);
+        Platform3.SetActive(false);
     }
     private void CloseDoor()
     {
         // Close the door (e.g., by rotating it back or moving it down)
-        Platform.SetActive(true);
         Platform1.SetActive(true);
         Platform2.SetActive(true);
+        Platform3.SetActive(true);
     }
 
         private void AppearSpikes()
