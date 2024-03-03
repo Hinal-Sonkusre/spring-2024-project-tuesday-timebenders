@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
@@ -18,7 +19,22 @@ public class Goal : MonoBehaviour
         if(collision.tag == "Player")
         {
             winText.enabled = true; // Show the text when player collides
-            Time.timeScale = 0; // Pause the game
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                SceneManager.LoadScene("Level 1");
+            }
+            if (SceneManager.GetActiveScene().name == "Level 1")
+            {
+                SceneManager.LoadScene("Level 2");
+            }
+            if (SceneManager.GetActiveScene().name == "Level 2")
+            {
+                SceneManager.LoadScene("Level 3");
+            }
+            if (SceneManager.GetActiveScene().name == "Level 3")
+            {
+                Time.timeScale = 0;
+            }
         }
     }
 }
