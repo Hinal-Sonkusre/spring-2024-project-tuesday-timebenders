@@ -9,6 +9,7 @@ public class DisappearingPlatforms : MonoBehaviour
     public Color inactiveColor;
     public GameObject Platform1;
     public GameObject Platform2;
+    public GameObject Platform3;
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
@@ -67,24 +68,23 @@ private void Update()
         // Open the door (e.g., by rotating it or moving it up)
         Platform1.SetActive(false);
         Platform2.SetActive(false);
+        Platform3.SetActive(false);
     }
     private void CloseDoor()
     {
         // Close the door (e.g., by rotating it back or moving it down)
         Platform1.SetActive(true);
         Platform2.SetActive(true);
+        Platform3.SetActive(true);
     }
 
         private void AppearSpikes()
     {
-       
         spikesDown.SetActive(true);
         spikesUp.SetActive(false);
     }
-
         private void DisappearSpikes()
     {
-        
         spikesDown.SetActive(false);
         spikesUp.SetActive(true);
     }
@@ -97,6 +97,7 @@ private void Update()
             isWeightOnButton = true;
         }
     }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
