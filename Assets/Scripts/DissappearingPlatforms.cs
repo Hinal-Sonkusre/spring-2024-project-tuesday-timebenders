@@ -8,9 +8,13 @@ public class DisappearingPlatforms : MonoBehaviour
     public Color activeColor;
     public Color inactiveColor;
     public GameObject Platform;
+    public GameObject Platform1;
+    public GameObject Platform2;
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
+    public GameObject spikesDown;
+    public GameObject spikesUp;
 
 private void Update()
 {
@@ -18,11 +22,13 @@ private void Update()
     {
         buttonRenderer.transform.localScale = Vector3.one * 1.1f; // Slightly larger
         CloseDoor();
+        AppearSpikes();
     }
     else
     {
         buttonRenderer.transform.localScale = Vector3.one; // Normal size
         OpenDoor();
+        DisappearSpikes();
     }
 }
 
@@ -61,11 +67,26 @@ private void Update()
     {
         // Open the door (e.g., by rotating it or moving it up)
         Platform.SetActive(false);
+        Platform1.SetActive(false);
+        Platform2.SetActive(false);
     }
     private void CloseDoor()
     {
         // Close the door (e.g., by rotating it back or moving it down)
         Platform.SetActive(true);
+        Platform1.SetActive(true);
+        Platform2.SetActive(true);
+    }
+
+        private void AppearSpikes()
+    {
+        spikesDown.SetActive(true);
+        spikesUp.SetActive(false);
+    }
+    private void DisappearSpikes()
+    {
+        spikesDown.SetActive(false);
+        spikesUp.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -76,6 +97,7 @@ private void Update()
             isWeightOnButton = true;
         }
     }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
