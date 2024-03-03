@@ -12,6 +12,8 @@ public class DisappearingPlatforms : MonoBehaviour
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
+    public GameObject spikesDown;
+    public GameObject spikesUp;
 
 private void Update()
 {
@@ -19,11 +21,13 @@ private void Update()
     {
         buttonRenderer.transform.localScale = Vector3.one * 1.1f; // Slightly larger
         CloseDoor();
+        AppearSpikes();
     }
     else
     {
         buttonRenderer.transform.localScale = Vector3.one; // Normal size
         OpenDoor();
+        DisappearSpikes();
     }
 }
 
@@ -69,6 +73,20 @@ private void Update()
         // Close the door (e.g., by rotating it back or moving it down)
         Platform1.SetActive(true);
         Platform2.SetActive(true);
+    }
+
+        private void AppearSpikes()
+    {
+       
+        spikesDown.SetActive(true);
+        spikesUp.SetActive(false);
+    }
+
+        private void DisappearSpikes()
+    {
+        
+        spikesDown.SetActive(false);
+        spikesUp.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
