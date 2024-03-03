@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Controls Screen.unity
     guid: 1b23ae806a3d74228bef96fdbf9ace02
   - enabled: 1
-    path: Assets/Scenes/_ Level.unity
+    path: Assets/Scenes/Disappearing Platforms.unity
     guid: 788f65e4e71604c5d89219a52e0af42d
   m_configObjects: {}
