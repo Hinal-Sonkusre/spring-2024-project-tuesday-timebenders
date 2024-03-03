@@ -77,12 +77,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commands: []
+  dashAbility: 0
   actionTimer: 0
   rb: {fileID: 2719064002143499291}
   groundCheck: {fileID: 642585146732372777}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  tr: {fileID: 0}
 --- !u!114 &6631897376690189879
 MonoBehaviour:
   m_ObjectHideFlags: 0
