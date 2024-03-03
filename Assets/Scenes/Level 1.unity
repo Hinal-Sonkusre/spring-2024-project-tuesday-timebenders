@@ -198,11 +198,11 @@ PrefabInstance:
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: spikesUp.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 785386324}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: spikesUp.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 572670956}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: platforms.Array.data[0]
       value: 
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: spikesDown.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 819678949}
     - target: {fileID: 9036010835382610557, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Name
       value: DP Button
