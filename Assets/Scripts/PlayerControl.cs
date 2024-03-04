@@ -23,13 +23,21 @@ public class PlayerControl : MonoBehaviour {
     private float lastHorizontalInput = 0f;
     private float positionRecordThreshold = 0.000001f; // Record position if moved more than this distance
 
+    public int currentLevel;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
 
+    // void awake()
+    // {
+    //             int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+    // }
+
     void Start() {
+
         int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+        Debug.Log(currentLevel);
         analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
         string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
         analyticsScript.TrackLevelStart(playerId,currentLevel); // Track level start.

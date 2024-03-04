@@ -592,7 +592,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 449491954}
+      addedObject: {fileID: 449491958}
   m_SourcePrefab: {fileID: 100100000, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
 --- !u!114 &449491952 stripped
 MonoBehaviour:
@@ -610,46 +610,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
   m_PrefabInstance: {fileID: 449491951}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &449491954
-CircleCollider2D:
+--- !u!96 &449491955 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 3202242995607739161, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+  m_PrefabInstance: {fileID: 449491951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &449491958
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449491953}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6ef3fa4eaf8d4443ab2fd2155c2459ea, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!96 &449491955 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 3202242995607739161, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
-  m_PrefabInstance: {fileID: 449491951}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd277a18c662e4c0084c1126db98604f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612411184
 GameObject:
   m_ObjectHideFlags: 0
