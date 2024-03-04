@@ -40,10 +40,11 @@ public class Goal : MonoBehaviour
         
         if(collision.tag == "Player")
         {
-
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            Debug.Log(currentLevel);
             string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            analyticsScript.TrackLevelCompletion(playerId,1);
+            analyticsScript.TrackLevelCompletion(playerId,currentLevel);
 
         }
     }
