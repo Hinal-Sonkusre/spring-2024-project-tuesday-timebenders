@@ -281,6 +281,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 198913974}
     - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+      propertyPath: inactiveColor.b
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+      propertyPath: inactiveColor.g
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+      propertyPath: inactiveColor.r
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
       propertyPath: doors.Array.size
       value: 1
       objectReference: {fileID: 0}

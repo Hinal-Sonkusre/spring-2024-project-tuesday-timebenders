@@ -184,6 +184,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1367601746}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: activeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: activeColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: activeColor.g
+      value: 0.095608756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: activeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: inactiveColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: inactiveColor.b
+      value: 0.43543077
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: inactiveColor.g
+      value: 0.43543077
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: inactiveColor.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: spikesUp.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -223,6 +255,22 @@ PrefabInstance:
       propertyPath: spikesDown.Array.data[1]
       value: 
       objectReference: {fileID: 819678949}
+    - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.45710218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45710218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
     - target: {fileID: 9036010835382610557, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Name
       value: DP Button
