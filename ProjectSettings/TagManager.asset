@@ -9,6 +9,7 @@ TagManager:
   - Win
   - Spikes
   - Dash
+  - TagA
   layers:
   - Default
   - TransparentFX

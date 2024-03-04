@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
+    public AnalyticsScript analyticsScript;
     public List<ActionCommand> commands = new List<ActionCommand>();
     private float actionStartTime = 0f;
     private float speed = 8f;
@@ -28,6 +29,10 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private TrailRenderer tr;
 
     void Start() {
+        int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+        analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+        string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+        analyticsScript.TrackLevelStart(playerId,currentLevel); // Track level start.
         actionStartTime = Time.time;
         lastRecordedPosition = rb.position;
     }
