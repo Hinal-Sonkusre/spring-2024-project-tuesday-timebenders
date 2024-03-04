@@ -8,7 +8,8 @@ public class ActionCommand {
     public enum ActionType {
         Move,
         Jump,
-        Stop
+        Stop,
+        Dash
     }
 
     public ActionType actionType;
@@ -17,4 +18,6 @@ public class ActionCommand {
     public float horizontal;
     public float jumpingPower; 
     public float speed;
+    public float dashingPower;
+    public float dashingTime;
 }

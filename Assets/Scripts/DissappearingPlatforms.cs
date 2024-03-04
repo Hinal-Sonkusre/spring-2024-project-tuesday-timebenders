@@ -7,65 +7,75 @@ public class DisappearingPlatforms : MonoBehaviour
     public SpriteRenderer buttonRenderer;
     public Color activeColor;
     public Color inactiveColor;
-    public GameObject Platform;
+    public List<GameObject> platforms; // List of platforms
+    public List<GameObject> spikesDown; // List of spikesDown
+    public List<GameObject> spikesUp; // List of spikesUp
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
+    private Vector3 originalScale; // Store the original scale of the button
 
-private void Update()
-{
-    if (isWeightOnButton)
+    private void Start()
     {
-        buttonRenderer.transform.localScale = Vector3.one * 1.1f; // Slightly larger
-        CloseDoor();
+        originalScale = buttonRenderer.transform.localScale; // Store the original scale of the button
     }
-    else
+
+    private void Update()
     {
-        buttonRenderer.transform.localScale = Vector3.one; // Normal size
-        OpenDoor();
+        if (isWeightOnButton)
+        {
+            buttonRenderer.color = activeColor;
+            buttonRenderer.transform.localScale = originalScale * 1.2f; // Scale the button up by 20%
+            CloseDoor();
+            AppearSpikes();
+        }
+        else
+        {
+            buttonRenderer.color = inactiveColor;
+            buttonRenderer.transform.localScale = originalScale; // Reset the button to its original scale
+            OpenDoor();
+            DisappearSpikes();
+        }
     }
-}
-
-// For Rotation instead of Scale Change
-// private void Update()
-// {
-//     if (isWeightOnButton)
-//     {
-//         buttonRenderer.transform.rotation = Quaternion.Euler(0, 0, 15); // Rotate 15 degrees
-//         CloseDoor();
-//     }
-//     else
-//     {
-//         buttonRenderer.transform.rotation = Quaternion.identity; // No rotation
-//         OpenDoor();
-//     }
-// }
-
-// For Opacity Change instead of Scale Change
-// private void Update()
-// {
-//     if (isWeightOnButton)
-//     {
-//         buttonRenderer.color = new Color(buttonRenderer.color.r, buttonRenderer.color.g, buttonRenderer.color.b, 1f); // Fully opaque
-//         CloseDoor();
-//     }
-//     else
-//     {
-//         buttonRenderer.color = new Color(buttonRenderer.color.r, buttonRenderer.color.g, buttonRenderer.color.b, 0.5f); // Semi-transparent
-//         OpenDoor();
-//     }
-// }
-
 
     private void OpenDoor()
     {
-        // Open the door (e.g., by rotating it or moving it up)
-        Platform.SetActive(false);
+        foreach (GameObject platform in platforms)
+        {
+            platform.SetActive(false); // Deactivate each platform
+        }
     }
+
     private void CloseDoor()
     {
-        // Close the door (e.g., by rotating it back or moving it down)
-        Platform.SetActive(true);
+        foreach (GameObject platform in platforms)
+        {
+            platform.SetActive(true); // Activate each platform
+        }
+    }
+
+    private void AppearSpikes()
+    {
+        foreach (GameObject spike in spikesDown)
+        {
+            spike.SetActive(true); // Activate each spike in spikesDown
+        }
+        foreach (GameObject spike in spikesUp)
+        {
+            spike.SetActive(false); // Deactivate each spike in spikesUp
+        }
+    }
+
+    private void DisappearSpikes()
+    {
+        foreach (GameObject spike in spikesDown)
+        {
+            spike.SetActive(false); // Deactivate each spike in spikesDown
+        }
+        foreach (GameObject spike in spikesUp)
+        {
+            spike.SetActive(true); // Activate each spike in spikesUp
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
