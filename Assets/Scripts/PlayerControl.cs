@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour {
     public bool dashAbility = false;
     private bool isFacingRight = true;
     private bool canDash = true;
-    private bool isDashing;
+    public bool isDashing = false;
     private float dashingPower = 16f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;

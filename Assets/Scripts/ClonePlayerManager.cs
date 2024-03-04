@@ -20,7 +20,11 @@ public class ClonePlayerManager : MonoBehaviour
         // Check for user input to create a clone player
         if (Input.GetKeyDown(KeyCode.T))
         {
-            CreateClonePlayer();
+            PlayerControl playerControl = mainPlayer.GetComponent<PlayerControl>();
+            if (playerControl != null && !playerControl.isDashing)
+            {
+                CreateClonePlayer();
+            }
         }
     }
 
