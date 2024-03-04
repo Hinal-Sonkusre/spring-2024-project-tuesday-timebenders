@@ -13,18 +13,26 @@ public class DisappearingPlatforms : MonoBehaviour
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
+    private Vector3 originalScale; // Store the original scale of the button
+
+    private void Start()
+    {
+        originalScale = buttonRenderer.transform.localScale; // Store the original scale of the button
+    }
 
     private void Update()
     {
         if (isWeightOnButton)
         {
-            buttonRenderer.transform.localScale = Vector3.one * 1.1f; // Slightly larger
+            buttonRenderer.transform.localScale = originalScale * 1.1f; // Slightly larger
+            buttonRenderer.color = activeColor;
             CloseDoor();
             AppearSpikes();
         }
         else
         {
-            buttonRenderer.transform.localScale = Vector3.one; // Normal size
+            buttonRenderer.transform.localScale = originalScale; // Original size
+            buttonRenderer.color = inactiveColor;
             OpenDoor();
             DisappearSpikes();
         }
