@@ -13,6 +13,8 @@ public class AutoPlayerControl : MonoBehaviour
     private float nextCommandTime = 0f;
     public int currentCommandIndex = 0;
 
+    private bool shouldMove = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,14 +23,19 @@ public class AutoPlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime)
+        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove)
         {
             ExecuteCommand(commands[currentCommandIndex]);
             currentCommandIndex++; 
             if (currentCommandIndex < commands.Count)
             {
                 nextCommandTime = Time.time + commands[currentCommandIndex].delay;
+            } else {
+                shouldMove = false;
             }
+        }
+        if (!shouldMove) {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 
