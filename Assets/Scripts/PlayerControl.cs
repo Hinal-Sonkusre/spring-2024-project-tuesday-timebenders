@@ -62,7 +62,7 @@ public class PlayerControl : MonoBehaviour {
             PerformJump();
         }
 
-        bool dashKeyPressed = Input.GetKeyDown(KeyCode.Z);
+        bool dashKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
         if (dashKeyPressed && canDash && dashAbility) {
             StartCoroutine(PerformDash());
         }
