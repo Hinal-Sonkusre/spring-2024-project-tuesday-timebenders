@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectible : MonoBehaviour
 {
     public int value = 1;
+    [SerializeField] public Text Dash;
     //public PlayerControl player_control;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //player_control.dashAbility = true;
+        Dash.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,8 +28,10 @@ public class Collectible : MonoBehaviour
             PlayerControl playerControl = collision.gameObject.GetComponent<PlayerControl>();
             if (playerControl != null)
             {
-                playerControl.dashAbility = true; // Enable the dash ability for the player
+                playerControl.dashAbility = true;
+                 // Enable the dash ability for the player
                 Debug.Log("Dash Ability Enabled!");
+                Dash.enabled = true;
             }
             Collect();
             Destroy(gameObject);
