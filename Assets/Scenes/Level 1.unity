@@ -637,8 +637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 864, y: 472}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 353, y: 188}
+  m_SizeDelta: {x: 110.2916, y: 21.0522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663800857
 MonoBehaviour:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1236,7 +1236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.1022, y: 25.632}
+  m_AnchoredPosition: {x: 13.1022, y: 16}
   m_SizeDelta: {x: 465.2693, y: 200.8597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &914852206
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25612548, g: 1, b: 0.08018869, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.16190934, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1373,7 +1373,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2469555938246886761, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: Wall 1
       objectReference: {fileID: 0}
     - target: {fileID: 2556789942384460004, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1599,8 +1599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -412, y: 397}
-  m_SizeDelta: {x: 668.0916, y: 76.2269}
+  m_AnchoredPosition: {x: -210, y: 170.3}
+  m_SizeDelta: {x: 338.4888, y: 38.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167998145
 MonoBehaviour:
@@ -1624,7 +1624,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -1888,11 +1888,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 141
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1924,8 +1924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517, y: 435}
-  m_SizeDelta: {x: 457.3606, y: 76.2269}
+  m_AnchoredPosition: {x: -290.9, y: 200.55061}
+  m_SizeDelta: {x: 174.7533, y: 29.1256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1353985202
 PrefabInstance:
@@ -2466,7 +2466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469555938246886761, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_Name
-      value: HighGround
+      value: ' HighGround 1'
       objectReference: {fileID: 0}
     - target: {fileID: 2469555938246886761, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_Layer
@@ -2703,7 +2703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2469555938246886761, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_Name
-      value: HighGround (1)
+      value: HighGround 2
       objectReference: {fileID: 0}
     - target: {fileID: 2556789942384460004, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_LocalScale.x
@@ -2842,7 +2842,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2469555938246886761, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_Name
-      value: Wall (1)
+      value: Wall 2
       objectReference: {fileID: 0}
     - target: {fileID: 2556789942384460004, guid: 37258f85a7bc34a29a9a491512cae23f, type: 3}
       propertyPath: m_LocalScale.x
@@ -3030,6 +3030,8 @@ SceneRoots:
   - {fileID: 1107871009}
   - {fileID: 932724472}
   - {fileID: 1659129085}
+  - {fileID: 543976077}
+  - {fileID: 556827990}
   - {fileID: 1943669053}
   - {fileID: 2074645761}
   - {fileID: 1002358425}
@@ -3047,7 +3049,5 @@ SceneRoots:
   - {fileID: 1645986718}
   - {fileID: 882828840}
   - {fileID: 195232950}
-  - {fileID: 543976077}
-  - {fileID: 556827990}
   - {fileID: 2759346543923050737}
   - {fileID: 7312193126944579188}
