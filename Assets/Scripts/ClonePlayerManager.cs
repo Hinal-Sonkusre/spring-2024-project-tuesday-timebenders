@@ -67,7 +67,7 @@ public class ClonePlayerManager : MonoBehaviour
         // Update the clone counter text after a clone is created
         if (cloneCounterText != null)
         {
-            cloneCounterText.text = "Clones Left: " + (cloneLimit - cloneCount).ToString();
+            cloneCounterText.text = "Time Travel Limit: " + (cloneLimit - cloneCount).ToString();
         }
         Debug.Log("Clone player created successfully!");
     }

@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 158302269}
   - component: {fileID: 158302268}
   m_Layer: 5
-  m_Name: Clone Counter
+  m_Name: TT limit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,8 +283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -274.0982, y: 157.1003}
-  m_SizeDelta: {x: 113.9823, y: 19.7337}
+  m_AnchoredPosition: {x: -252.99, y: 157.1003}
+  m_SizeDelta: {x: 156.21, y: 19.7337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158302268
 MonoBehaviour:
@@ -319,7 +319,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Clones Left: 1'
+  m_Text: 'Time Travel Limit: 1'
 --- !u!222 &158302269
 CanvasRenderer:
   m_ObjectHideFlags: 0
