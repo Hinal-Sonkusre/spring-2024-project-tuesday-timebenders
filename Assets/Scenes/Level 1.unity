@@ -826,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1478242590235838540, guid: a1b9896838e314c1da64b38c27a6a90d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3471
+      value: -1.309
       objectReference: {fileID: 0}
     - target: {fileID: 1478242590235838540, guid: a1b9896838e314c1da64b38c27a6a90d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -932,7 +932,7 @@ Transform:
   m_GameObject: {fileID: 819678949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3, y: -3.26, z: 0.11460073}
+  m_LocalPosition: {x: 8.3, y: -3.192, z: 0.11460073}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1534,7 +1534,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.300928
+  orthographic size: 7.1491323
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1599,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: 170.3}
+  m_AnchoredPosition: {x: -215.09999, y: 171.84941}
   m_SizeDelta: {x: 338.4888, y: 38.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167998145
@@ -1924,7 +1924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290.9, y: 200.55061}
+  m_AnchoredPosition: {x: -296, y: 202.1}
   m_SizeDelta: {x: 174.7533, y: 29.1256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1353985202
@@ -2150,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1478242590235838540, guid: a1b9896838e314c1da64b38c27a6a90d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3471
+      value: -1.309
       objectReference: {fileID: 0}
     - target: {fileID: 1478242590235838540, guid: a1b9896838e314c1da64b38c27a6a90d, type: 3}
       propertyPath: m_LocalPosition.z
