@@ -10,10 +10,22 @@ public class ClonePlayerManager : MonoBehaviour
 
     private GameObject clonePlayerInstance; // Reference to the instantiated clone player
 
-    public int cloneLimit = 1; 
-    private int cloneCount = 0;
+    public int timeTravelLimit = 1; 
+    public int spawnTimes = 0;
+    public int timeTravelTimes = 0; // Add this line to track time travel count
 
-    public UnityEngine.UI.Text cloneCounterText;
+    public UnityEngine.UI.Text timeTravelText;
+
+    void Start() {
+        // Add code to increment spawn times for the initial spawn
+        spawnTimes++;
+        Debug.Log("Initial spawn, spawnTimes: " + spawnTimes);
+        if (timeTravelText != null)
+        {
+            timeTravelText.text = "Time Travel Limit: " + (timeTravelLimit - timeTravelTimes).ToString();
+            Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
+        }
+    }
 
     void Update()
     {
@@ -24,19 +36,19 @@ public class ClonePlayerManager : MonoBehaviour
             if (playerControl != null && !playerControl.isDashing)
             {
                 CreateClonePlayer();
+                // timeTravelTimes++; // Increment time travel count here
+                // Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
             }
         }
     }
 
     void CreateClonePlayer()
     {
-        if (cloneCount >= cloneLimit)
+        if (timeTravelTimes >= timeTravelLimit)
         {
             Debug.Log("Clone limit reached. Cannot create more clones.");
             return;
         }
-
-        Debug.Log("Creating Clone Player");
 
         // Check if references are assigned
         if (mainPlayer == null || clonePlayerPrefab == null || cloneSpawnPoint == null)
@@ -45,30 +57,52 @@ public class ClonePlayerManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Creating clone player instance");
+    // Instantiate and set up the clone
+    PlayerControl playerControl = mainPlayer.GetComponent<PlayerControl>();
+    if (playerControl.commandSessions.Count >= spawnTimes) { // Adjusted to check against spawnTimes
+        List<ActionCommand> commandsForClone = playerControl.commandSessions[spawnTimes - 1]; // Adjust for zero-based index
 
-        List<ActionCommand> originalCommands = mainPlayer.GetComponent<PlayerControl>().commands;
         clonePlayerInstance = Instantiate(clonePlayerPrefab, cloneSpawnPoint.position, Quaternion.identity);
-    
         AutoPlayerControl autoControl = clonePlayerInstance.GetComponent<AutoPlayerControl>();
         if (autoControl != null) {
-            autoControl.SetCommands(new List<ActionCommand>(originalCommands));
+            autoControl.SetCommands(new List<ActionCommand>(commandsForClone));
         }
+    } 
+    else {
+        Debug.LogError("No command session available for this clone.");
+        return;
+    }
 
-        // Enable PlayerControl on the main player, ensure it remains controllable
-        mainPlayer.GetComponent<PlayerControl>().enabled = true;
+        // List<ActionCommand> originalCommands = mainPlayer.GetComponent<PlayerControl>().commands;
+        // clonePlayerInstance = Instantiate(clonePlayerPrefab, cloneSpawnPoint.position, Quaternion.identity);
+    
+        // AutoPlayerControl autoControl = clonePlayerInstance.GetComponent<AutoPlayerControl>();
+        // if (autoControl != null) {
+        //     autoControl.SetCommands(new List<ActionCommand>(originalCommands));
+        // }
 
-        // Respawn main player at the spawn point
-        mainPlayer.transform.position = cloneSpawnPoint.position;
-        mainPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
+    // Enable PlayerControl on the main player, ensure it remains controllable
+    mainPlayer.GetComponent<PlayerControl>().enabled = true;
+
+    // Respawn main player at the spawn point
+    mainPlayer.transform.position = cloneSpawnPoint.position;
+    mainPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
         
-        // Increment the clone count
-        cloneCount++;
-        // Update the clone counter text after a clone is created
-        if (cloneCounterText != null)
-        {
-            cloneCounterText.text = "Time Travel Limit: " + (cloneLimit - cloneCount).ToString();
-        }
-        Debug.Log("Clone player created successfully!");
+    // Increment the time travel times
+    timeTravelTimes++;
+    // playerControl.StartNewCommandSession();
+    playerControl.StartNewCommandSession();
+
+
+    // Update the time travel text after a clone is created
+    if (timeTravelText != null)
+    {
+        timeTravelText.text = "Time Travel Limit: " + (timeTravelLimit - timeTravelTimes).ToString();
+        Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
+    }
+
+    // Increment spawn times after main player is respawned
+    spawnTimes++;
+    Debug.Log("Clone created, spawnTimes: " + spawnTimes);
     }
 }
