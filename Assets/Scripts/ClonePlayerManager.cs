@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClonePlayerManager : MonoBehaviour
 {
+    private List<GameObject> clonePlayerInstances = new List<GameObject>();
     public GameObject mainPlayer; // Reference to the main player GameObject
     public GameObject clonePlayerPrefab; // Reference to the clone player prefab
     public Transform cloneSpawnPoint; // The position where the clone player will spawn
@@ -36,6 +37,7 @@ public class ClonePlayerManager : MonoBehaviour
             if (playerControl != null && !playerControl.isDashing)
             {
                 CreateClonePlayer();
+
                 // timeTravelTimes++; // Increment time travel count here
                 // Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
             }
@@ -64,11 +66,14 @@ public class ClonePlayerManager : MonoBehaviour
 
         clonePlayerInstance = Instantiate(clonePlayerPrefab, cloneSpawnPoint.position, Quaternion.identity);
         AutoPlayerControl autoControl = clonePlayerInstance.GetComponent<AutoPlayerControl>();
-        if (autoControl != null) {
+        if (autoControl != null) 
+        {
             autoControl.SetCommands(new List<ActionCommand>(commandsForClone));
+            clonePlayerInstances.Add(clonePlayerInstance);
         }
     } 
-    else {
+    else 
+    {
         Debug.LogError("No command session available for this clone.");
         return;
     }
@@ -87,6 +92,16 @@ public class ClonePlayerManager : MonoBehaviour
     // Respawn main player at the spawn point
     mainPlayer.transform.position = cloneSpawnPoint.position;
     mainPlayer.transform.localScale = new Vector3(1f, 1f, 1f);
+    // After respawning the main player, respawn all clones
+    foreach (var clone in clonePlayerInstances)
+    {
+        clone.transform.position = cloneSpawnPoint.position; // Or any logic for positioning
+        clone.SetActive(true); // Make sure the clone is active
+        AutoPlayerControl autoControl = clone.GetComponent<AutoPlayerControl>();
+        if (autoControl != null) {
+            autoControl.ResetAndStartCommands(); // Reset and start command execution
+        }
+    }
         
     // Increment the time travel times
     timeTravelTimes++;
