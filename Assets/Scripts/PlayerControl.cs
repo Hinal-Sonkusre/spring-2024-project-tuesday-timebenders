@@ -131,7 +131,7 @@ public class PlayerControl : MonoBehaviour {
         rb.gravityScale = 0;
         rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = 1; // Assuming default gravity scale is 1
+        rb.gravityScale = 4; // Assuming default gravity scale is 1
         isDashing = false;
         tr.emitting = false;
         yield return new WaitForSeconds(dashingCooldown);
