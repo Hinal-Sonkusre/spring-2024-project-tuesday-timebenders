@@ -98,4 +98,13 @@ public class AutoPlayerControl : MonoBehaviour
             nextCommandTime = Time.time + commands[0].delay;
         }
     }
+    public void ResetAndStartCommands()
+    {
+        currentCommandIndex = 0; // Reset command index to the start
+        shouldMove = true;
+        if (commands.Count > 0)
+        {
+            nextCommandTime = Time.time + commands[0].delay; // Ensure the first command starts immediately or after its specified delay
+        }
+    }
 }
