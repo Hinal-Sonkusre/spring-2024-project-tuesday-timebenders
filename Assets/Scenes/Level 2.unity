@@ -2049,8 +2049,8 @@ MonoBehaviour:
   mainPlayer: {fileID: 449491953}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1481256920}
-  cloneLimit: 1
-  cloneCounterText: {fileID: 612411185}
+  timeTravelLimit: 4
+  timeTravelText: {fileID: 612411185}
 --- !u!4 &1841552621
 Transform:
   m_ObjectHideFlags: 0
