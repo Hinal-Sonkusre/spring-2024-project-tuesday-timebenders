@@ -11,8 +11,8 @@ public class ClonePlayerManager : MonoBehaviour
     private GameObject clonePlayerInstance; // Reference to the instantiated clone player
 
     public int timeTravelLimit = 1; 
-    public static int spawnTimes = 0;
-    public static int timeTravelTimes = 0; // Add this line to track time travel count
+    public int spawnTimes = 0;
+    public int timeTravelTimes = 0; // Add this line to track time travel count
 
     public UnityEngine.UI.Text timeTravelText;
 
