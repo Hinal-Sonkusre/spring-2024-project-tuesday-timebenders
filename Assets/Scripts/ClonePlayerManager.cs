@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClonePlayerManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ClonePlayerManager : MonoBehaviour
     public int timeTravelTimes = 0; // Add this line to track time travel count
 
     public UnityEngine.UI.Text timeTravelText;
+    public TMP_Text cloneTextPrefab;
 
     void Start() {
         // Add code to increment spawn times for the initial spawn
@@ -71,6 +73,10 @@ public class ClonePlayerManager : MonoBehaviour
             autoControl.SetCommands(new List<ActionCommand>(commandsForClone));
             clonePlayerInstances.Add(clonePlayerInstance);
         }
+        // Instantiate the TextMeshPro text above the clone and set its text
+        TMP_Text cloneTextInstance = Instantiate(cloneTextPrefab, clonePlayerInstance.transform.position + Vector3.up * 1.2f, Quaternion.identity);
+        cloneTextInstance.transform.SetParent(clonePlayerInstance.transform);
+        cloneTextInstance.text = "Time Traveler " + spawnTimes.ToString();
     } 
     else 
     {
