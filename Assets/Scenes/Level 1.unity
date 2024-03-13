@@ -2112,7 +2112,10 @@ MonoBehaviour:
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1645986718}
   timeTravelLimit: 4
+  spawnTimes: 0
+  timeTravelTimes: 0
   timeTravelText: {fileID: 1290111707}
+  cloneTextPrefab: {fileID: 5630332135292843942, guid: 28b15c9371092430f976a897166de6c0, type: 3}
 --- !u!4 &1456764478
 Transform:
   m_ObjectHideFlags: 0
