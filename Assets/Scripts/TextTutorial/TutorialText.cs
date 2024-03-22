@@ -1,9 +1,9 @@
 using UnityEngine;
-using TMPro; // Uncomment if using TextMeshPro
+using TMPro; 
 
 public class PlatformTrigger : MonoBehaviour
 {
-    public TMP_Text hintText; // Uncomment if using TextMeshPro
+    public TMP_Text hintText; 
 
     void Start()
     {
