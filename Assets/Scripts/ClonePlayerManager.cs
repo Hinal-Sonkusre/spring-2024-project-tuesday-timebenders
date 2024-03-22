@@ -74,7 +74,7 @@ public class ClonePlayerManager : MonoBehaviour
             clonePlayerInstances.Add(clonePlayerInstance);
         }
         // Instantiate the TextMeshPro text above the clone and set its text
-        TMP_Text cloneTextInstance = Instantiate(cloneTextPrefab, clonePlayerInstance.transform.position + Vector3.up * 1.2f, Quaternion.identity);
+        TMP_Text cloneTextInstance = Instantiate(cloneTextPrefab, clonePlayerInstance.transform.position + Vector3.up * 0.4f, Quaternion.identity);
         cloneTextInstance.transform.SetParent(clonePlayerInstance.transform);
         cloneTextInstance.text = "Time Traveler " + spawnTimes.ToString();
     } 
