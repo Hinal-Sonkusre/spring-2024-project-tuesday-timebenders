@@ -172,11 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonRenderer: {fileID: 5196090151287177034}
-  activeColor: {r: 1, g: 0.7402893, b: 0, a: 0}
-  inactiveColor: {r: 1, g: 0, b: 0.057308674, a: 0}
-  platforms:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  activeColor: {r: 1, g: 0.7402893, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0.057308674, a: 1}
+  platforms: []
   spikesDown: []
   spikesUp: []
