@@ -10,7 +10,7 @@ public class UnifiedUIController : MonoBehaviour
     public bool useTriggerForHintText = true;
 
     // For Delayed Display
-    public float delayBeforeAppear = 5f;
+    public float delayBeforeAppear = 1f;
     public TMP_Text delayedTextComponent;
     public Image delayedImageComponent;
     public bool useDelayedDisplay = true;
