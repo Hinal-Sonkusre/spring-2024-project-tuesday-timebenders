@@ -36,6 +36,10 @@ public class Goal : MonoBehaviour
             {
                 Time.timeScale = 0;
             }
+            if (SceneManager.GetActiveScene().name == "Level 4")
+            {
+                Time.timeScale = 0;
+            }
         }
         
         if(collision.tag == "Player")
