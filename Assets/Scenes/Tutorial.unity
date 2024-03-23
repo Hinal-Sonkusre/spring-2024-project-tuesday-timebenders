@@ -3392,9 +3392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98101b097759544afa82fb17bf544d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeAppear: 2.5
-  textComponent: {fileID: 1630835059}
-  imageComponent: {fileID: 145579273}
 --- !u!114 &1630835059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4032,15 +4029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2a8b580e4674e57a2d91e64ac5f67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textsToHide:
-  - {fileID: 1771892628}
-  - {fileID: 1630835059}
-  - {fileID: 112324891}
-  textsToShow:
-  - {fileID: 733246088}
-  imagesToHide:
-  - {fileID: 145579273}
-  imagesToShow: []
 --- !u!114 &2016672308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4053,16 +4041,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d04be41689b45acaa27584ca853c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintText: {fileID: 0}
+  hintText: {fileID: 112324891}
   useTriggerForHintText: 1
-  delayBeforeAppear: 5
-  delayedTextComponent: {fileID: 0}
-  delayedImageComponent: {fileID: 0}
+  delayBeforeAppear: 1
+  delayedTextComponent: {fileID: 1630835059}
+  delayedImageComponent: {fileID: 145579273}
   useDelayedDisplay: 1
   toggleKey: 116
-  textsToHide: []
-  textsToShow: []
-  imagesToHide: []
+  textsToHide:
+  - {fileID: 1771892628}
+  - {fileID: 1630835059}
+  - {fileID: 112324891}
+  textsToShow:
+  - {fileID: 733246088}
+  imagesToHide:
+  - {fileID: 145579273}
   imagesToShow: []
 --- !u!1001 &1033257188778916008
 PrefabInstance:
