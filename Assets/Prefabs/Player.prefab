@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyticsScript: {fileID: 0}
-  commands: []
   dashAbility: 0
   isDashing: 0
   actionTimer: 0

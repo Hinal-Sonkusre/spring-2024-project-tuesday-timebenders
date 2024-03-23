@@ -57,11 +57,26 @@ public class ButtonDoorController : MonoBehaviour
             playerCount++;
             isWeightOnButton = true;
         }
+
+         if (collision.gameObject.CompareTag("Clone"))
+        {
+            playerCount++;
+            isWeightOnButton = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
+            playerCount--;
+            if (playerCount == 0)
+            {
+                isWeightOnButton = false;
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Clone"))
         {
             playerCount--;
             if (playerCount == 0)

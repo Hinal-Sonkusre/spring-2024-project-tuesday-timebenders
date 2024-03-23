@@ -36,6 +36,20 @@ public class Collectible : MonoBehaviour
             Collect();
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Clone"))
+        {
+            PlayerControl playerControl = collision.gameObject.GetComponent<PlayerControl>();
+            if (playerControl != null)
+            {
+                playerControl.dashAbility = true;
+                 // Enable the dash ability for the player
+                Debug.Log("Dash Ability Enabled!");
+                Dash.enabled = true;
+            }
+            Collect();
+            Destroy(gameObject);
+        }
     }
 
     void Collect()

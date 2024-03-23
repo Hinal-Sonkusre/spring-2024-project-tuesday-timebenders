@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2719064002143499291}
   - component: {fileID: 1922731084124474964}
   - component: {fileID: 3191037584213554658}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: ClonePlayer
-  m_TagString: Player
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642585146732372777}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174968065003014592}
   - component: {fileID: 379819825169715569}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 5008979500789047397}
   - component: {fileID: 180507129972916484}
   - component: {fileID: 8958048360602960268}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8096501648937074197}
   - component: {fileID: 586523754731718939}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
