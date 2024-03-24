@@ -48,6 +48,10 @@ public class PlayerControl : MonoBehaviour {
         if (isDashing) return;
 
         if (Input.GetKeyDown(KeyCode.R)) {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
