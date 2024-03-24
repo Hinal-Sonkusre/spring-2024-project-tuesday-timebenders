@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Trial Scenes/Disappearing Platforms.unity
     guid: 788f65e4e71604c5d89219a52e0af42d
   - enabled: 1
+    path: Assets/Scenes/Tutorial 0.unity
+    guid: 4835d8fcc190945e289dbf6d5eabc7c5
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 55408034048c94fbcbd4c73beb25c35f
   - enabled: 1

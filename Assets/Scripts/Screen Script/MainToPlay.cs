@@ -8,7 +8,7 @@ public class MainToPlay : MonoBehaviour
     // Start is called before the first frame update
     public void GoToStart()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial 0");
     }
 
     // Update is called once per frame

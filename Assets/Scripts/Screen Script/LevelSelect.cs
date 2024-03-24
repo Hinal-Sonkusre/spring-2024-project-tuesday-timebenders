@@ -5,7 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-
+    public void GoToTutorial0()
+    {
+        SceneManager.LoadScene("Tutorial 0");
+        Time.timeScale = 1f; // Resume the game
+    }
+    
+    public void GoToTutorial1()
+    {
+        SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1f; // Resume the game
+    }
     public void GoToLevel1()
     {
         SceneManager.LoadScene("Level 1");
