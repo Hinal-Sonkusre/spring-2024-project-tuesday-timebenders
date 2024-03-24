@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level3Button : MonoBehaviour
+public class TutorialTransition : MonoBehaviour
 {
-    public void GoToLevel3()
+    // Start is called before the first frame update
+    public void nextButton()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Tutorial");
     }
 
     // Update is called once per frame
