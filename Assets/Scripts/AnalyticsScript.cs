@@ -20,6 +20,11 @@ public class AnalyticsScript : MonoBehaviour
     private string entryIdForPlayerId2 = "entry.732915141";
     private string entryIdForLevelNumber2 = "entry.411012388"; 
     private string entryIdForDeathCause = "entry.2113584476"; // Replace XXXX with your actual field ID for death cause
+
+    private string formUrl3 = "https://docs.google.com/forms/d/e/1FAIpQLSeXQ6XqAI6j__F7MgAJjufODrq5fBy0x4na_805CsEvByr2Ig/formResponse";
+    private string entryIdForPlayerId3 = "entry.320752607";
+    private string entryIdForLevelNumber3 = "entry.621891126";
+    private string entryIdForClonesUsed3 = "entry.1033664906";
     // Call this method when a level starts
     public void TrackLevelStart(string playerId, int para_level)
     {
@@ -35,6 +40,11 @@ public class AnalyticsScript : MonoBehaviour
     public void TrackDeathAnalytics(string playerId, int levelNumber, string causeOfDeath)
     {
         StartCoroutine(SendDeathAnalyticsToGoogleForm(playerId, levelNumber, causeOfDeath));
+    }
+
+    public void TrackCloneAnalytics(string playerId, int levelNumber, int clonesUsed)
+    {
+        StartCoroutine(SendCloneAnalyticsToGoogleForm(playerId, levelNumber, clonesUsed));
     }
 
     private IEnumerator SendDataToGoogleForm(string playerId, int levelNumber)
@@ -102,6 +112,28 @@ public class AnalyticsScript : MonoBehaviour
                 }
             }
         }
+
+    public IEnumerator SendCloneAnalyticsToGoogleForm(string playerId, int levelNumber, int clonesUsed)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField(entryIdForPlayerId3, playerId);
+        form.AddField(entryIdForLevelNumber3, levelNumber.ToString());
+        form.AddField(entryIdForClonesUsed3, clonesUsed.ToString()); // Add clones used to form
+
+        using (UnityWebRequest www = UnityWebRequest.Post(formUrl3, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Level completion form submit error: " + www.error);
+            }
+            else
+            {
+                Debug.Log("Level completion form submitted successfully.");
+            }
+        }
+    }
 }
 
 
