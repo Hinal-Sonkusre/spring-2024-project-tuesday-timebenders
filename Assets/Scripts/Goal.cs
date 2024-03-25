@@ -11,6 +11,7 @@ public class Goal : MonoBehaviour
     [SerializeField] public PlayerControl playerControl; // Reference to the player's control script
     [SerializeField] public ClonePlayerManager clonePlayerManager;
     [SerializeField] private StarRating starRating;
+
     public int NumberOfTimeTravels;
 
     void Awake()
