@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
     [SerializeField] public Text winText;
     [SerializeField] public PlayerControl playerControl; // Reference to the player's control script
     [SerializeField] public ClonePlayerManager clonePlayerManager;
-
+    [SerializeField] private StarRating starRating;
     public int NumberOfTimeTravels;
 
     void Awake()
@@ -30,6 +30,17 @@ public class Goal : MonoBehaviour
         {
             winText.enabled = true; // Show the text when player collides
                 Time.timeScale = 0;
+
+            // Set the star rating based on the number of clones used
+
+            if (starRating != null && clonePlayerManager != null)
+            {
+                starRating.SetStarRating(clonePlayerManager.timeTravelTimes);
+            }
+            else
+            {
+                Debug.LogError("StarRating or ClonePlayerManager component is missing.");
+            }
         }
         
         if(collision.tag == "Player")
