@@ -1936,10 +1936,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae407ec1b1cf46f586bb828478de580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 0}
+  winText: {fileID: 840404223}
   playerControl: {fileID: 1659129087}
   clonePlayerManager: {fileID: 1456764477}
-  starRating: {fileID: 0}
+  starRating: {fileID: 2327139661683665658}
   NumberOfTimeTravels: 0
 --- !u!61 &853300417
 BoxCollider2D:
@@ -4624,6 +4624,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4660541252240069652, guid: 3060860c2029b49a696a0fb74def3588, type: 3}
   m_PrefabInstance: {fileID: 2327139661683665656}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2327139661683665658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4825964223528622831, guid: 3060860c2029b49a696a0fb74def3588, type: 3}
+  m_PrefabInstance: {fileID: 2327139661683665656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b412aabb032804451b3cdbd47142f52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2759346543923050737
 PrefabInstance:
   m_ObjectHideFlags: 0
