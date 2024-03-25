@@ -51,7 +51,6 @@ public class Goal : MonoBehaviour
             string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
             NumberOfTimeTravels = clonePlayerManager.timeTravelTimes;
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            analyticsScript.TrackCloneAnalytics(playerId, currentLevel, NumberOfTimeTravels);
             analyticsScript.TrackLevelCompletion(playerId,currentLevel);
 
         }
