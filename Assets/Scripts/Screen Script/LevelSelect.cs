@@ -40,4 +40,10 @@ public class LevelSelect : MonoBehaviour
         Time.timeScale = 1f; // Resume the game
     }
 
+    public void GoToLevel5()
+    {
+        SceneManager.LoadScene("Level 5");
+        Time.timeScale = 1f; // Resume the game
+    }
+
 }
