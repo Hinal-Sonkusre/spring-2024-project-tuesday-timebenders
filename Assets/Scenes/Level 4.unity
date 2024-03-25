@@ -1558,6 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 289850206}
+  nextLevelMenu: {fileID: 1367119892}
   isPaused: 0
 --- !u!1 &639101313 stripped
 GameObject:

@@ -2095,6 +2095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 408454003}
+  nextLevelMenu: {fileID: 803383718}
   isPaused: 0
 --- !u!1001 &1002358425
 PrefabInstance:

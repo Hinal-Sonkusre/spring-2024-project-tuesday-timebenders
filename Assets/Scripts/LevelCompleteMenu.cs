@@ -4,15 +4,27 @@ using UnityEngine.SceneManagement;
 public class NextLevelTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject nextLevelMenu;
+    private PauseMenu pauseMenu; // Reference to the PauseMenu script
+
+    void Start()
+    {
+        pauseMenu = FindObjectOfType<PauseMenu>(); // Find the PauseMenu script
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             // Show the next level menu when player reaches the goal
-            Debug.Log("reached finish, menu should open");
+            Debug.Log("Reached finish, menu should open");
             nextLevelMenu.SetActive(true);
             Time.timeScale = 0f; // Pause the game
+
+            // Ensure pause menu is not active
+            if (pauseMenu != null)
+            {
+                pauseMenu.pauseMenu.SetActive(false);
+            }
         }
     }
 
@@ -23,28 +35,22 @@ public class NextLevelTrigger : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Tutorial 0")
         {
             SceneManager.LoadScene("Tutorial");
-            Time.timeScale = 1f; // Resume the game
         }
-
-        if (SceneManager.GetActiveScene().name == "Tutorial")
+        else if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             SceneManager.LoadScene("Level 1");
-            Time.timeScale = 1f; // Resume the game
         }
         else if (SceneManager.GetActiveScene().name == "Level 1")
         {
             SceneManager.LoadScene("Level 2");
-            Time.timeScale = 1f; // Resume the game
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
             SceneManager.LoadScene("Level 3");
-            Time.timeScale = 1f; // Resume the game
         }
         else if (SceneManager.GetActiveScene().name == "Level 3")
         {
             SceneManager.LoadScene("Level 4");
-            Time.timeScale = 1f; // Resume the game
         }
 
         Time.timeScale = 1f; // Resume the game
@@ -55,5 +61,7 @@ public class NextLevelTrigger : MonoBehaviour
         // Implement logic to return to the main menu
         // Example: SceneManager.LoadScene("MainMenuScene");
         SceneManager.LoadScene("Main Menu");
+
+        Time.timeScale = 1f; // Resume the game
     }
 }

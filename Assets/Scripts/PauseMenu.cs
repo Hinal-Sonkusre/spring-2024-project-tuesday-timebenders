@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject nextLevelMenu; // Reference to the NextLevelMenu GameObject
     public bool isPaused;
+
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -15,9 +17,9 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !nextLevelMenu.activeSelf) // Check if nextLevelMenu is not active
         {
-            if(isPaused)
+            if (isPaused)
             {
                 ResumeGame();
             }
@@ -27,12 +29,12 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-
     }
 
     public void ResumeGame()

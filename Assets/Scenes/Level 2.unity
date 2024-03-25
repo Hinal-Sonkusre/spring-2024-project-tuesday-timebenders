@@ -1874,6 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1595787557}
+  nextLevelMenu: {fileID: 725953363}
   isPaused: 0
 --- !u!1 &861602973
 GameObject:
