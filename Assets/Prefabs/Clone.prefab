@@ -47,7 +47,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 0}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 0}
-  timeTravelLimit: 4
+  timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
   timeTravelText: {fileID: 0}
