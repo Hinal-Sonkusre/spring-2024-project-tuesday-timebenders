@@ -52,7 +52,10 @@ public class NextLevelTrigger : MonoBehaviour
         {
             SceneManager.LoadScene("Level 4");
         }
-
+        else if (SceneManager.GetActiveScene().name == "Level 4")
+        {
+            SceneManager.LoadScene("Level 5");
+        }
         Time.timeScale = 1f; // Resume the game
     }
 
