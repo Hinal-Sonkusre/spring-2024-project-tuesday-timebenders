@@ -2272,7 +2272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time Travel Limit: 1'
+  m_Text: 'Time Travel Limit: 3'
 --- !u!222 &1057952583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3018,7 +3018,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 1659129086}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1645986718}
-  timeTravelLimit: 4
+  timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
   timeTravelText: {fileID: 0}

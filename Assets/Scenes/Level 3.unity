@@ -1412,7 +1412,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time Travel Limit: 1'
+  m_Text: 'Time Travel Limit: 3'
 --- !u!222 &612411186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4216,6 +4216,10 @@ PrefabInstance:
       propertyPath: cloneSpawnPoint
       value: 
       objectReference: {fileID: 1481256920}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: timeTravelLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8311638663812699027, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: m_Name
       value: Clone

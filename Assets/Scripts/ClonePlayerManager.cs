@@ -15,7 +15,7 @@ public class ClonePlayerManager : MonoBehaviour
     private List<TMP_Text> cloneTextInstances = new List<TMP_Text>();
 
 
-    public int timeTravelLimit = 1; 
+    public int timeTravelLimit = 3; 
     public int spawnTimes = 0;
     public int timeTravelTimes = 0; // Add this line to track time travel count
 
