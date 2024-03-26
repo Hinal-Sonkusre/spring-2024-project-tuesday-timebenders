@@ -12,6 +12,8 @@ public class ClonePlayerManager : MonoBehaviour
 
     private GameObject clonePlayerInstance; // Reference to the instantiated clone player
     private TMP_Text cloneTextInstance; // Reference to the instantiated clone text
+    private List<TMP_Text> cloneTextInstances = new List<TMP_Text>();
+
 
     public int timeTravelLimit = 1; 
     public int spawnTimes = 0;
@@ -44,10 +46,14 @@ public class ClonePlayerManager : MonoBehaviour
         }
 
         // Update the position of the clone text
-        if (cloneTextInstance != null && clonePlayerInstance != null)
+        for (int i = 0; i < clonePlayerInstances.Count; i++)
         {
-            cloneTextInstance.transform.position = clonePlayerInstance.transform.position + Vector3.up * 0.4f;
+            if (i < cloneTextInstances.Count)
+            {
+                cloneTextInstances[i].transform.position = clonePlayerInstances[i].transform.position + Vector3.up * 0.4f;
+            }
         }
+
     }
 
     void CreateClonePlayer()
@@ -78,8 +84,13 @@ public class ClonePlayerManager : MonoBehaviour
                 clonePlayerInstances.Add(clonePlayerInstance);
             }
             // Instantiate the TextMeshPro text above the clone and set its text
-            cloneTextInstance = Instantiate(cloneTextPrefab, clonePlayerInstance.transform.position + Vector3.up * 0.4f, Quaternion.identity);
-            cloneTextInstance.text = "Time Traveler " + spawnTimes.ToString();
+        if (cloneTextInstance != null) {
+                Destroy(cloneTextInstance.gameObject);  // Destroy the previous instance if it exists
+            }
+        TMP_Text newCloneTextInstance = Instantiate(cloneTextPrefab, clonePlayerInstance.transform.position + Vector3.up * 0.4f, Quaternion.identity);
+        newCloneTextInstance.text = "Time Traveler " + spawnTimes.ToString();
+        cloneTextInstances.Add(newCloneTextInstance);
+
         } 
         else 
         {
