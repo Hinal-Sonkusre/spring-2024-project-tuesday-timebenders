@@ -161,7 +161,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0}
+  m_BackGroundColor: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -665,9 +665,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nA/D TO MOVE LEFT/RIGHT\nW TO JUMP\n\nPRESS T TO CREATE A COPY OF YOUR
-    PAST SELF\n\nPOWER UPS: \nDASH (DIAMOND SHAPED)\nPICK UP AND PRESS SHIFT TO DASH
-    FORWARD\n\nUSE ESCAPE KEY TO PAUSE GAME"
+  m_text: "\n\nA/D & Left/Right ARROW KEYS: LEFT/RIGHT\n\nW/UP ARROW KEY/ SPACEBAR:
+    JUMP\n\nPRESS T TO CREATE A COPY OF YOUR SELF \n\nCOLLECTIBLE:\nDASH (DIAMOND
+    SHAPED)\nSHIFT: DASH\n\nESCAPE KEY: PAUSE GAME\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
