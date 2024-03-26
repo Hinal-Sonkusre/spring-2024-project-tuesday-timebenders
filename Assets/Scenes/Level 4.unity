@@ -529,6 +529,14 @@ PrefabInstance:
       propertyPath: spikesDown.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.data[0]
+      value: 
+      objectReference: {fileID: 19170573}
     - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Color.b
       value: 0.6
@@ -3794,6 +3802,14 @@ PrefabInstance:
       propertyPath: spikesDown.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.data[0]
+      value: 
+      objectReference: {fileID: 639101313}
     - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Color.b
       value: 0.6

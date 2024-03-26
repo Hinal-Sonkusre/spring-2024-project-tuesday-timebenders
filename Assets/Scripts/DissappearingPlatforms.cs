@@ -7,9 +7,9 @@ public class DisappearingPlatforms : MonoBehaviour
     public SpriteRenderer buttonRenderer;
     public Color activeColor;
     public Color inactiveColor;
-    public List<GameObject> platforms; // List of platforms
-    public List<GameObject> spikesDown; // List of spikesDown
-    public List<GameObject> spikesUp; // List of spikesUp
+    public List<GameObject> platformsAppear; // List of platforms
+    public List<GameObject> ObstaclesAppear; // List of ObstaclesAppear
+    public List<GameObject> ObstaclesDisappear; // List of ObstaclesDisappear
 
     private bool isWeightOnButton = false;
     private int playerCount = 0;
@@ -40,7 +40,7 @@ public class DisappearingPlatforms : MonoBehaviour
 
     private void OpenDoor()
     {
-        foreach (GameObject platform in platforms)
+        foreach (GameObject platform in platformsAppear)
         {
             platform.SetActive(false); // Deactivate each platform
         }
@@ -48,7 +48,7 @@ public class DisappearingPlatforms : MonoBehaviour
 
     private void CloseDoor()
     {
-        foreach (GameObject platform in platforms)
+        foreach (GameObject platform in platformsAppear)
         {
             platform.SetActive(true); // Activate each platform
         }
@@ -56,25 +56,25 @@ public class DisappearingPlatforms : MonoBehaviour
 
     private void AppearSpikes()
     {
-        foreach (GameObject spike in spikesDown)
+        foreach (GameObject spike in ObstaclesAppear)
         {
-            spike.SetActive(true); // Activate each spike in spikesDown
+            spike.SetActive(true); // Activate each spike in ObstaclesAppear
         }
-        foreach (GameObject spike in spikesUp)
+        foreach (GameObject spike in ObstaclesDisappear)
         {
-            spike.SetActive(false); // Deactivate each spike in spikesUp
+            spike.SetActive(false); // Deactivate each spike in ObstaclesDisappear
         }
     }
 
     private void DisappearSpikes()
     {
-        foreach (GameObject spike in spikesDown)
+        foreach (GameObject spike in ObstaclesAppear)
         {
-            spike.SetActive(false); // Deactivate each spike in spikesDown
+            spike.SetActive(false); // Deactivate each spike in ObstaclesAppear
         }
-        foreach (GameObject spike in spikesUp)
+        foreach (GameObject spike in ObstaclesDisappear)
         {
-            spike.SetActive(true); // Activate each spike in spikesUp
+            spike.SetActive(true); // Activate each spike in ObstaclesDisappear
         }
     }
 

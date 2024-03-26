@@ -392,6 +392,46 @@ PrefabInstance:
       propertyPath: spikesDown.Array.data[1]
       value: 
       objectReference: {fileID: 819678949}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesAppear.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesAppear.Array.data[0]
+      value: 
+      objectReference: {fileID: 1554688175}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesAppear.Array.data[1]
+      value: 
+      objectReference: {fileID: 819678949}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.data[0]
+      value: 
+      objectReference: {fileID: 1720122405}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100091784}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: platformsAppear.Array.data[2]
+      value: 
+      objectReference: {fileID: 1367601746}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.data[0]
+      value: 
+      objectReference: {fileID: 785386324}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.data[1]
+      value: 
+      objectReference: {fileID: 572670956}
     - target: {fileID: 5196090151287177034, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Color.a
       value: 1
