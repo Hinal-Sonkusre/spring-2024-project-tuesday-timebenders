@@ -4151,7 +4151,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075252222}
   m_CullTransparentMesh: 1
---- !u!1001 &1033257188778916008
+--- !u!1001 &2144429617
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4159,83 +4159,67 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 431072727}
-    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: doors.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: doors.Array.data[0]
-      value: 
-      objectReference: {fileID: 768373191}
-    - target: {fileID: 931516871631529390, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: doors.Array.data[1]
-      value: 
-      objectReference: {fileID: 1723060174}
-    - target: {fileID: 2110614800995737807, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: m_Name
-      value: DP Button 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.04
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 1.75
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812946032174753714, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+    - target: {fileID: 3659972195480373994, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8240836848496102895, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: m_Color.b
-      value: 0.6431373
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8240836848496102895, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8980392
-      objectReference: {fileID: 0}
-    - target: {fileID: 8240836848496102895, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
-      propertyPath: m_Color.r
-      value: 0.50980395
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.data[0]
+      value: 
+      objectReference: {fileID: 1723060174}
+    - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: ObstaclesDisappear.Array.data[1]
+      value: 
+      objectReference: {fileID: 768373191}
+    - target: {fileID: 9036010835382610557, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
+      propertyPath: m_Name
+      value: DP Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e3624c3ad957c4fac8c5fb96ef62594c, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
 --- !u!1001 &7330099131033037730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4314,7 +4298,6 @@ SceneRoots:
   - {fileID: 341500238}
   - {fileID: 1651614255}
   - {fileID: 101189543}
-  - {fileID: 1033257188778916008}
   - {fileID: 1332639532}
   - {fileID: 7330099131033037730}
   - {fileID: 768373190}
@@ -4328,3 +4311,4 @@ SceneRoots:
   - {fileID: 2049633595}
   - {fileID: 1281702383}
   - {fileID: 1723060173}
+  - {fileID: 2144429617}
