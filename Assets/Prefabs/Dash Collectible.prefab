@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 700105189761994293}
   - component: {fileID: 2713782529144802710}
   m_Layer: 0
-  m_Name: Dash
+  m_Name: Dash Collectible
   m_TagString: Dash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

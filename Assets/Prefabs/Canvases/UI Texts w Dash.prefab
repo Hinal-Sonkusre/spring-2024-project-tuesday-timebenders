@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5760349863255912779}
   - component: {fileID: 4720703565291774712}
   m_Layer: 5
-  m_Name: Dash
+  m_Name: DashText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 415.39783, y: 241.32677}
+  m_AnchoredPosition: {x: 415.39783, y: 253}
   m_SizeDelta: {x: 67.7123, y: 19.1742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384512362667758153

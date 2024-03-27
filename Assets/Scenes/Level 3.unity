@@ -1982,7 +1982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7095666036418905052, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
       propertyPath: m_Name
-      value: Dash
+      value: Dash Collectible
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
