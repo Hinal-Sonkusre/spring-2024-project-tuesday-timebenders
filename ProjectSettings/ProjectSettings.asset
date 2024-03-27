@@ -669,7 +669,13 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: 39ad33db-f712-4ef8-8778-149c51f438f8
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
+  qualitySettingsNames:
+  - Very Low
+  - Low
+  - Medium
+  - High
+  - Very High
+  - Ultra
   projectName: TimeTraveler
   organizationId: ashley30
   cloudEnabled: 0
