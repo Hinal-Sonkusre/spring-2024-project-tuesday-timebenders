@@ -10,7 +10,8 @@ public class TextSequenceManager : MonoBehaviour
     public Text fourthText;
     public Text fifthText;
     public Text sixthText;
-    public GameObject additionalObject; // Reference to the additional GameObject to appear alongside the sixth text
+    public GameObject flagObject; // Reference to the flag GameObject
+    public GameObject blockObject; // Reference to the block GameObject
 
     // Delays
     public float firstTextDelay = 1f;
@@ -25,7 +26,7 @@ public class TextSequenceManager : MonoBehaviour
 
     void Start()
     {
-        HideAllTextsAndObject();
+        HideAllTexts();
         StartCoroutine(InitialSequence());
     }
 
@@ -38,7 +39,7 @@ public class TextSequenceManager : MonoBehaviour
         }
     }
 
-    private void HideAllTextsAndObject()
+    private void HideAllTexts()
     {
         firstText.gameObject.SetActive(false);
         secondText.gameObject.SetActive(false);
@@ -46,7 +47,6 @@ public class TextSequenceManager : MonoBehaviour
         fourthText.gameObject.SetActive(false);
         fifthText.gameObject.SetActive(false);
         sixthText.gameObject.SetActive(false);
-        additionalObject.SetActive(false);
     }
 
     private void HandleTKeyPress()
@@ -66,7 +66,7 @@ public class TextSequenceManager : MonoBehaviour
         StartCoroutine(ShowAndHideFourthText(fourthTextDelayAfterT, fourthTextVisibilityDuration));
         StartCoroutine(DelayedTextActivation(fifthText, fifthTextDelayAfterT));
         StartCoroutine(DelayedTextActivation(sixthText, sixthTextDelayAfterT));
-        StartCoroutine(DelayedObjectActivation(additionalObject, additionalObjectDelayAfterT));
+        StartCoroutine(DelayedObjectActivation(flagObject, additionalObjectDelayAfterT)); // Show the flag object
     }
 
     IEnumerator InitialSequence()
@@ -101,5 +101,7 @@ public class TextSequenceManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         objectToActivate.SetActive(true);
+        // Deactivate the block object when the flag object is activated
+        blockObject.SetActive(false);
     }
 }
