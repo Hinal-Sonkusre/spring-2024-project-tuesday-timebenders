@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winText: {fileID: 0}
-  playerControl: {fileID: 0}
+  playerControl: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
   clonePlayerManager: {fileID: 0}
   starRating: {fileID: 0}
   NumberOfTimeTravels: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f84b2a0fa78a422babb068f0d435484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelMenu: {fileID: 0}
+  nextLevelMenu: {fileID: 6961522479642919686, guid: 3d680963265434f77b7345e2e4616174, type: 3}
 --- !u!1 &5704115119586630236
 GameObject:
   m_ObjectHideFlags: 0
