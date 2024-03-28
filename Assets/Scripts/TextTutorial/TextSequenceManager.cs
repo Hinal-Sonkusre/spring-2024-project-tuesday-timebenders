@@ -10,22 +10,22 @@ public class TextSequenceManager : MonoBehaviour
     public Text fourthText;
     public Text fifthText;
     public Text sixthText;
-    public Button nextButton;
+    public GameObject additionalObject; // Reference to the additional GameObject to appear alongside the sixth text
 
     // Delays
     public float firstTextDelay = 1f;
-    public float secondThirdTextAndButtonDelay = 5f;
+    public float secondThirdTextDelay = 5f;
     public float fourthTextDelayAfterT = 2f; // Adjusted to start from T press
     public float fourthTextVisibilityDuration = 5f; // Fourth text visible duration
     public float fifthTextDelayAfterT = 10f; // Adjusted to start from T press
     public float sixthTextDelayAfterT = 15f; // Adjusted to start from T press
+    public float additionalObjectDelayAfterT = 15f; // Delay for the additional object after T press
 
     private bool tKeyPressed = false;
-    private float tKeyPressTime = 0f; // Track the time T was pressed
 
     void Start()
     {
-        HideAllTextsAndButton();
+        HideAllTextsAndObject();
         StartCoroutine(InitialSequence());
     }
 
@@ -34,12 +34,11 @@ public class TextSequenceManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T) && !tKeyPressed)
         {
             tKeyPressed = true;
-            tKeyPressTime = Time.time; // Record the time T was pressed
             HandleTKeyPress();
         }
     }
 
-    private void HideAllTextsAndButton()
+    private void HideAllTextsAndObject()
     {
         firstText.gameObject.SetActive(false);
         secondText.gameObject.SetActive(false);
@@ -47,18 +46,17 @@ public class TextSequenceManager : MonoBehaviour
         fourthText.gameObject.SetActive(false);
         fifthText.gameObject.SetActive(false);
         sixthText.gameObject.SetActive(false);
-        nextButton.gameObject.SetActive(false);
+        additionalObject.SetActive(false);
     }
 
     private void HandleTKeyPress()
     {
         tKeyPressed = true;
         
-        // Check if the second text has already been activated. If not, activate the third text and button immediately.
+        // Check if the second text has already been activated. If not, activate the third text immediately.
         if (!secondText.gameObject.activeInHierarchy)
         {
             thirdText.gameObject.SetActive(true);
-            nextButton.gameObject.SetActive(true);
         }
         
         // Hide the second text if it's already visible (or skip showing it altogether).
@@ -68,22 +66,21 @@ public class TextSequenceManager : MonoBehaviour
         StartCoroutine(ShowAndHideFourthText(fourthTextDelayAfterT, fourthTextVisibilityDuration));
         StartCoroutine(DelayedTextActivation(fifthText, fifthTextDelayAfterT));
         StartCoroutine(DelayedTextActivation(sixthText, sixthTextDelayAfterT));
+        StartCoroutine(DelayedObjectActivation(additionalObject, additionalObjectDelayAfterT));
     }
-
 
     IEnumerator InitialSequence()
     {
         yield return new WaitForSeconds(firstTextDelay);
         firstText.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(secondThirdTextAndButtonDelay - firstTextDelay);
+        yield return new WaitForSeconds(secondThirdTextDelay);
         // Only show second text if T hasn't been pressed
         if (!tKeyPressed)
         {
             secondText.gameObject.SetActive(true);
         }
         thirdText.gameObject.SetActive(true);
-        nextButton.gameObject.SetActive(true);
     }
 
     IEnumerator ShowAndHideFourthText(float delayBeforeShowing, float visibilityDuration)
@@ -98,5 +95,11 @@ public class TextSequenceManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         textToActivate.gameObject.SetActive(true);
+    }
+
+    IEnumerator DelayedObjectActivation(GameObject objectToActivate, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        objectToActivate.SetActive(true);
     }
 }
