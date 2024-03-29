@@ -9,6 +9,8 @@ public class ClonePlayerManager : MonoBehaviour
     public GameObject mainPlayer; // Reference to the main player GameObject
     public GameObject clonePlayerPrefab; // Reference to the clone player prefab
     public Transform cloneSpawnPoint; // The position where the clone player will spawn
+    //newnew
+    [SerializeField] private StarDisplay starDisplay;
 
     private GameObject clonePlayerInstance; // Reference to the instantiated clone player
     private TMP_Text cloneTextInstance; // Reference to the instantiated clone text
@@ -129,5 +131,7 @@ public class ClonePlayerManager : MonoBehaviour
         // Increment spawn times after main player is respawned
         spawnTimes++;
         Debug.Log("Clone created, spawnTimes: " + spawnTimes);
+
+        starDisplay.SetStarRating(timeTravelTimes);
     }
 }
