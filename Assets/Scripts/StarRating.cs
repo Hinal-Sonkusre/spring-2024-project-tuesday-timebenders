@@ -9,6 +9,7 @@ public class StarRating : MonoBehaviour
     public GameObject star2; // Assign in Unity Inspector
     public GameObject star3; // Assign in Unity Inspector
     public TMP_Text feedbackText;
+    private int totalStarsEarned;
 
     // Call this function with the number of clones used
     public void SetStarRating(int clonesUsed)
@@ -26,6 +27,7 @@ public class StarRating : MonoBehaviour
             // 1 star for 3 or more clones
             star1.SetActive(true);
             feedbackText.text = "Good effort!";
+            totalStarsEarned += 1;
         }
         else if (clonesUsed == 2)
         {
@@ -33,6 +35,7 @@ public class StarRating : MonoBehaviour
             star1.SetActive(true);
             star2.SetActive(true);
             feedbackText.text = "Great job!";
+            totalStarsEarned += 2;
         }
         else if (clonesUsed <= 1) // This considers 0 or 1 clones as the best outcome
         {
@@ -41,6 +44,16 @@ public class StarRating : MonoBehaviour
             star2.SetActive(true);
             star3.SetActive(true);
             feedbackText.text = "Perfect!";
+            totalStarsEarned += 3;
         }
+        // Save the total stars earned to PlayerPrefs
+        PlayerPrefs.SetInt("TotalStarsEarned", totalStarsEarned);
+        PlayerPrefs.Save();
+    }
+
+    // Function to retrieve the total stars earned
+    public int GetTotalStarsEarned()
+    {
+        return PlayerPrefs.GetInt("TotalStarsEarned", 0);
     }
 }
