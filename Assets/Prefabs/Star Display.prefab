@@ -159,8 +159,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660541252240069652}
-  - component: {fileID: 4825964223528622831}
   - component: {fileID: 527494485711514097}
+  - component: {fileID: 9172351268771903273}
   m_Layer: 5
   m_Name: Star Display
   m_TagString: Untagged
@@ -190,22 +190,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 193.6641, y: 62.1257}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4825964223528622831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162184154850960697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b412aabb032804451b3cdbd47142f52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star1: {fileID: 5091318489026388356}
-  star2: {fileID: 7747986307394427176}
-  star3: {fileID: 21545345159207942}
-  feedbackText: {fileID: 0}
 --- !u!223 &527494485711514097
 Canvas:
   m_ObjectHideFlags: 0
@@ -229,6 +213,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
+--- !u!114 &9172351268771903273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162184154850960697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star1: {fileID: 5091318489026388356}
+  star2: {fileID: 7747986307394427176}
+  star3: {fileID: 21545345159207942}
+  TTLimit: 1
 --- !u!1 &7747986307394427176
 GameObject:
   m_ObjectHideFlags: 0
