@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   analyticsScript: {fileID: 0}
-  commands: []
   dashAbility: 0
   isDashing: 0
   actionTimer: 0
@@ -135,9 +134,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.040873185, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.54087317
 --- !u!96 &3202242995607739161
 TrailRenderer:
   serializedVersion: 3
@@ -498,9 +497,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039188147, y: 0}
+  m_Offset: {x: 0.042457998, y: 0}
   serializedVersion: 2
-  m_Radius: 0.53918815
+  m_Radius: 0.542458
 --- !u!1 &8986391520578910794
 GameObject:
   m_ObjectHideFlags: 0
