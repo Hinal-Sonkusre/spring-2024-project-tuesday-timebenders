@@ -30,6 +30,8 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
+    public bool isOnPlatform;
+    public Rigidbody2D platformRb;
 
     void Start() {
         currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
@@ -62,7 +64,12 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate() {
         if (isDashing) return;
-        HandleMovement();
+        // HandleMovement();
+        if (isOnPlatform) {
+            rb.velocity = new Vector2(platformRb.velocity.x, rb.velocity.y);
+        } else {
+            HandleMovement();
+        }
     }
 
     public void StartNewCommandSession() {
