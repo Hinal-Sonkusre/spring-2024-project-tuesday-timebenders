@@ -1,62 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MovingPlatforms : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
-    public Transform platform;
-    public Transform startPoint;
-    public Transform endPoint;
-    private int direction = 1;
-    public float speed = 2.0f;
-    private Vector2 previousPosition;
-
-    void Start() 
-    {
-        previousPosition = platform.position;
-    }
+    public Transform posA, posB;
+    public float speed;
+    Vector3 targetPos;
+    private void Start()
+        {
+            targetPos = posB.position;
+        }
     private void Update()
     {
-        Vector2 target = currentMovementTarget();
-        platform.position = Vector2.MoveTowards(platform.position, target, speed * Time.deltaTime);        
-        float distance = (target - (Vector2)platform.position).magnitude;
-        if (distance < 0.1f)
+    if(Vector2.Distance(transform.position, posA.position) < 0.05f)
         {
-            direction *= -1;
+            targetPos = posB.position;
+        
         }
-        previousPosition = platform.position;
-
-    }
-
-    private Vector2 currentMovementTarget()
+    if(Vector2.Distance(transform.position, posB.position) < 0.05f)
     {
-        if (direction == 1)
-        {
-            return startPoint.position;
-        }
-        else
-        {
-            return endPoint.position;
-        }
+        targetPos = posA.position;
     }
-
-    private void OnDrawGizmos()
+        transform.position = Vector3.MoveTowards (transform.position, targetPos, speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (platform != null && endPoint != null)
+        if(collision.CompareTag("Player"))
         {
-            Gizmos.DrawLine(platform.transform.position, startPoint.position);
-            Gizmos.DrawLine(platform.transform.position, endPoint.position);
+            collision.transform.parent = transform;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    { 
-        if (transform.position.y < collision.transform.position.y-0.55f)
-        collision.transform.SetParent(transform);
-    }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (gameObject.activeInHierarchy)
-        collision.transform.SetParent(null);
+        if(collision.CompareTag("Player"))
+        {
+            collision.transform.parent = null;
+        }
     }
 }
+
