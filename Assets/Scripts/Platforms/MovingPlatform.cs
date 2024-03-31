@@ -1,40 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class MovingPlatform : MonoBehaviour
 {
     public Transform posA, posB;
     public float speed;
     Vector3 targetPos;
+    PlayerControl movementController;
+    Rigidbody2D rb2d;
+    Vector3 moveDirection;
+    private void Awake() 
+        {
+        movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        rb2d = GetComponent<Rigidbody2D>();
+        }
     private void Start()
         {
             targetPos = posB.position;
+            DirectionCalculate();
         }
     private void Update()
     {
-    if(Vector2.Distance(transform.position, posA.position) < 0.05f)
-        {
-            targetPos = posB.position;
-        
-        }
-    if(Vector2.Distance(transform.position, posB.position) < 0.05f)
-    {
-        targetPos = posA.position;
+        if(Vector2.Distance(transform.position, posA.position) < 0.05f)
+            {
+                targetPos = posB.position;
+                DirectionCalculate();
+            }
+        if(Vector2.Distance(transform.position, posB.position) < 0.05f)
+            {
+                targetPos = posA.position;
+                DirectionCalculate();
+            }
     }
-        transform.position = Vector3.MoveTowards (transform.position, targetPos, speed * Time.deltaTime);
+
+    private void FixedUpdate()
+    {
+        rb2d.velocity = moveDirection * speed;
+    }
+    void DirectionCalculate()
+    {
+        moveDirection = (targetPos - transform.position).normalized;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            collision.transform.parent = transform;
+            movementController.isOnPlatform = true;
+            movementController.platformRb = rb2d;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            collision.transform.parent = null;
+            movementController.isOnPlatform = false;
         }
     }
 }

@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posA: {fileID: 843556664}
   posB: {fileID: 901636145}
-  speed: 2
+  speed: 3
 --- !u!61 &326126624
 BoxCollider2D:
   m_ObjectHideFlags: 0
