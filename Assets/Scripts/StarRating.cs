@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StarRating : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class StarRating : MonoBehaviour
     public GameObject star2; // Assign in Unity Inspector
     public GameObject star3; // Assign in Unity Inspector
     public TMP_Text feedbackText;
+    private int totalStarsEarned;
+    public int TTLimit = 1;
 
     // Call this function with the number of clones used
     public void SetStarRating(int clonesUsed)
@@ -20,27 +23,44 @@ public class StarRating : MonoBehaviour
 
         feedbackText.text = "";
 
-        // Determine the number of stars to show
-        if (clonesUsed >= 3)
-        {
-            // 1 star for 3 or more clones
-            star1.SetActive(true);
-            feedbackText.text = "Good effort!";
-        }
-        else if (clonesUsed == 2)
-        {
-            // 2 stars for 2 clones
-            star1.SetActive(true);
-            star2.SetActive(true);
-            feedbackText.text = "Great job!";
-        }
-        else if (clonesUsed <= 1) // This considers 0 or 1 clones as the best outcome
-        {
-            // 3 stars for 0 or 1 clone
+        if(clonesUsed <= TTLimit) {
+            // 3 stars if the number of clones used is within the maximum limit
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
             feedbackText.text = "Perfect!";
+
+            ChangeStarRating(3, SceneManager.GetActiveScene().name);
+        } else if(clonesUsed == TTLimit + 1) {
+            // 2 stars if one more clone is used than the maximum limit
+            star1.SetActive(true);
+            star2.SetActive(true);
+            feedbackText.text = "Great job!";
+
+            ChangeStarRating(2, SceneManager.GetActiveScene().name);
+        } else {
+            // 1 star for any other case
+            star1.SetActive(true);
+            feedbackText.text = "Good effort!";
+
+            ChangeStarRating(1, SceneManager.GetActiveScene().name);
+        }
+    }
+
+    // Function to retrieve the total stars earned
+    public int GetTotalStarsEarned()
+    {
+        return PlayerPrefs.GetInt("TotalStarsEarned", 0);
+    }
+
+    private void ChangeStarRating(int starNum, string levelName) {
+        int curStarNum = PlayerPrefs.GetInt(levelName + "StarNumber", 0);
+        if(curStarNum < starNum) {
+            PlayerPrefs.SetInt(levelName + "StarNumber", starNum);
+            PlayerPrefs.Save();
+
+            PlayerPrefs.SetInt("TotalStarsEarned", GetTotalStarsEarned() - curStarNum + starNum);
+            PlayerPrefs.Save();
         }
     }
 }
