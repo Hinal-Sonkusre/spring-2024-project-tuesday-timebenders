@@ -59,6 +59,40 @@ public class NextLevelTrigger : MonoBehaviour
         Time.timeScale = 1f; // Resume the game
     }
 
+    public void ReplayLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial 0")
+        {
+            SceneManager.LoadScene("Tutorial 0");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+            SceneManager.LoadScene("Level 3");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 4")
+        {
+            SceneManager.LoadScene("Level 4");
+        }
+
+        else if (SceneManager.GetActiveScene().name == "Level 5")
+        {
+            SceneManager.LoadScene("Level 5");
+        }
+        Time.timeScale = 1f; // Resume the game
+    }
+
     public void ReturnToMainMenu()
     {
         // Implement logic to return to the main menu
