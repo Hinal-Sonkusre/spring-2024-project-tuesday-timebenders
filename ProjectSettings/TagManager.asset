@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Dash
   - TagA
+  - Clone
   layers:
   - Default
   - TransparentFX

@@ -460,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 326126617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: -0.11, z: 0}
+  m_LocalPosition: {x: -4.53, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1007,6 +1007,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
   m_PrefabInstance: {fileID: 851256307}
   m_PrefabAsset: {fileID: 0}
+--- !u!96 &762540752 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 3202242995607739161, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+  m_PrefabInstance: {fileID: 851256307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &843556663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1037,7 @@ Transform:
   m_GameObject: {fileID: 843556663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.82, y: -0.14, z: 0}
+  m_LocalPosition: {x: -9, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1050,6 +1055,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 101700500540343334, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: tr
+      value: 
+      objectReference: {fileID: 762540752}
     - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: isOnPlatform
       value: 0
@@ -1136,7 +1149,7 @@ Transform:
   m_GameObject: {fileID: 901636144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -0.15, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

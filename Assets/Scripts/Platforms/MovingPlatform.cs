@@ -10,10 +10,12 @@ public class MovingPlatform : MonoBehaviour
     PlayerControl movementController;
     Rigidbody2D rb2d;
     Vector3 moveDirection;
+    private Vector3 startPosition;
     private void Awake() 
         {
         movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         rb2d = GetComponent<Rigidbody2D>();
+        startPosition = transform.position;
         }
     private void Start()
         {
@@ -32,6 +34,13 @@ public class MovingPlatform : MonoBehaviour
                 targetPos = posA.position;
                 DirectionCalculate();
             }
+        if (Input.GetKeyDown(KeyCode.T))
+            {
+                transform.position = startPosition; // Reset the position to the initial position
+                rb2d.velocity = Vector2.zero; // Reset the velocity to zero
+                targetPos = posB.position; // Set the target position to posB
+                DirectionCalculate(); // Recalculate the direction
+            }
     }
 
     private void FixedUpdate()
@@ -42,20 +51,22 @@ public class MovingPlatform : MonoBehaviour
     {
         moveDirection = (targetPos - transform.position).normalized;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
     {
-        if(collision.CompareTag("Player"))
-        {
-            movementController.isOnPlatform = true;
-            movementController.platformRb = rb2d;
-        }
+        movementController.isOnPlatform = true;
+        movementController.platformRb = rb2d;
     }
-    private void OnTriggerExit2D(Collider2D collision)
+}
+
+private void OnTriggerExit2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
     {
-        if(collision.CompareTag("Player"))
-        {
-            movementController.isOnPlatform = false;
-        }
+        movementController.isOnPlatform = false;
     }
+}
+
 }
 
