@@ -79,28 +79,44 @@ public class PlayerControl : MonoBehaviour {
     void HandleMovement() {
         float horizontalInput = GetHorizontalInput();
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-        RecordPositionIfNeeded();
+
+        // Record the move command with the horizontal input
+        ActionCommand moveCommand = new ActionCommand {
+            actionType = ActionCommand.ActionType.Move,
+            horizontal = horizontalInput,
+            speed = speed,
+            delay = actionTimer
+        };
+        RecordCommand(moveCommand);
+        ResetActionTimer();
     }
 
-    void RecordPositionIfNeeded() {
-        if (Vector2.Distance(rb.position, lastRecordedPosition) > positionRecordThreshold) {
-            ActionCommand moveCommand = new ActionCommand {
-                actionType = ActionCommand.ActionType.Move,
-                position = rb.position,
-                horizontal = lastHorizontalInput,
-                speed = speed,
-                delay = actionTimer
-            };
-            RecordCommand(moveCommand);
-            lastRecordedPosition = rb.position;
-            ResetActionTimer();
-        }
+
+    void RecordMovementIfNeeded() {
+        ActionCommand moveCommand = new ActionCommand {
+            actionType = ActionCommand.ActionType.Move,
+            horizontal = lastHorizontalInput,
+            speed = speed,
+            delay = actionTimer
+        };
+        RecordCommand(moveCommand);
+        ResetActionTimer();
     }
 
-    void HandleJump() {
+
+    void HandleJump(){
         bool jumpKeyPressed = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow);
         if (jumpKeyPressed && IsGrounded()) {
             PerformJump();
+
+            ActionCommand jumpCommand = new ActionCommand {
+                actionType = ActionCommand.ActionType.Jump,
+                jumpPressed = true,
+                jumpingPower = jumpingPower,
+                delay = actionTimer
+            };
+            RecordCommand(jumpCommand);
+            ResetActionTimer();
         }
     }
 
@@ -108,8 +124,18 @@ public class PlayerControl : MonoBehaviour {
         bool dashKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
         if (dashKeyPressed && canDash && dashAbility) {
             StartCoroutine(PerformDash());
+
+            ActionCommand dashCommand = new ActionCommand {
+                actionType = ActionCommand.ActionType.Dash,
+                dashingPower = dashingPower,
+                dashingTime = dashingTime,
+                delay = actionTimer
+            };
+            RecordCommand(dashCommand);
+            ResetActionTimer();
         }
     }
+
 
     void PerformJump() {
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -119,13 +145,14 @@ public class PlayerControl : MonoBehaviour {
     void RecordJump() {
         ActionCommand jumpCommand = new ActionCommand {
             actionType = ActionCommand.ActionType.Jump,
-            position = rb.position,
+            jumpPressed = true,
             jumpingPower = jumpingPower,
             delay = actionTimer
         };
         RecordCommand(jumpCommand);
         ResetActionTimer();
     }
+
 
     private IEnumerator PerformDash() {
         RecordDash();
@@ -135,7 +162,7 @@ public class PlayerControl : MonoBehaviour {
         rb.gravityScale = 0;
         rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = 4; // Assuming default gravity scale is 1
+        rb.gravityScale = 4; 
         isDashing = false;
         tr.emitting = false;
         yield return new WaitForSeconds(dashingCooldown);
@@ -145,7 +172,6 @@ public class PlayerControl : MonoBehaviour {
     void RecordDash() {
         ActionCommand dashCommand = new ActionCommand {
             actionType = ActionCommand.ActionType.Dash,
-            position = rb.position,
             dashingPower = dashingPower,
             dashingTime = dashingTime,
             delay = actionTimer
@@ -153,6 +179,7 @@ public class PlayerControl : MonoBehaviour {
         RecordCommand(dashCommand);
         ResetActionTimer();
     }
+
 
     private void ResetActionTimer() {
         actionTimer = 0f;

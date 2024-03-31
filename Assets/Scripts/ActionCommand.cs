@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
-
 [System.Serializable]
 public class ActionCommand {
     public enum ActionType {
@@ -14,10 +9,10 @@ public class ActionCommand {
 
     public ActionType actionType;
     public float delay; 
-    public Vector2 position; // Store the player's position
-    public float horizontal;
-    public float jumpingPower; 
+    public float horizontal; // Record horizontal input
+    public bool jumpPressed; // Record if jump was pressed
     public float speed;
+    public float jumpingPower; 
     public float dashingPower;
     public float dashingTime;
 }
