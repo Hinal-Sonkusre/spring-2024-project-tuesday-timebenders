@@ -13,7 +13,7 @@ public class DestructiblePlatform : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Clone"))
         {
             playerCount++; // Increment the counter when a player enters
             PlayerControl playerControl = other.GetComponent<PlayerControl>();
@@ -27,7 +27,7 @@ public class DestructiblePlatform : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Clone"))
         {
             playerCount--; // Decrement the counter when a player exits
             PlayerControl playerControl = other.GetComponent<PlayerControl>();
