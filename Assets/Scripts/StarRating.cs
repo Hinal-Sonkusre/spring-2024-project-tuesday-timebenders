@@ -54,6 +54,9 @@ public class StarRating : MonoBehaviour
     }
 
     private void ChangeStarRating(int starNum, string levelName) {
+        if(levelName == "Tutorial 0" || levelName == "Tutorial") {
+            return;
+        }
         int curStarNum = PlayerPrefs.GetInt(levelName + "StarNumber", 0);
         if(curStarNum < starNum) {
             PlayerPrefs.SetInt(levelName + "StarNumber", starNum);
