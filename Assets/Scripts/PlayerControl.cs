@@ -68,6 +68,7 @@ public class PlayerControl : MonoBehaviour {
     public void StartNewCommandSession() {
         currentSessionIndex++;
         commandSessions.Add(new List<ActionCommand>());
+        actionTimer = 0f;
     }
 
     void RecordCommand(ActionCommand command) {
