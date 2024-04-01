@@ -55,7 +55,7 @@ public class PlayerControl : MonoBehaviour {
             int currentLevel = LevelManager.Instance.CurrentLevelNumber;
             string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart");
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart In Game");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
