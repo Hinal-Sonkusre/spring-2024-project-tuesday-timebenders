@@ -21,36 +21,37 @@ public class AutoPlayerControl : MonoBehaviour
         ResetCommands();
     }
 
-    void FixedUpdate()
+void FixedUpdate()
+{
+    if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove)
     {
-        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove)
+        ExecuteCommand(commands[currentCommandIndex]);
+        currentCommandIndex++; 
+        if (currentCommandIndex < commands.Count)
         {
-            ExecuteCommand(commands[currentCommandIndex]);
-            currentCommandIndex++; 
-            if (currentCommandIndex < commands.Count)
-            {
-                nextCommandTime = Time.time + commands[currentCommandIndex].delay;
-            } else {
-                shouldMove = false;
-            }
-        }
-        if (!shouldMove) {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            nextCommandTime = Time.time; // Set the next command time to the current time
+        } else {
+            shouldMove = false;
         }
     }
+    if (!shouldMove) {
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+}
 
-
-    void ExecuteCommand(ActionCommand command) {
-        switch (command.actionType) {
-            case ActionCommand.ActionType.Move:
-                rb.velocity = new Vector2(command.horizontal * command.speed, rb.velocity.y);
-                if (command.horizontal < 0) {
-                    isFacingRight = false;
-                    transform.localScale = new Vector3(-1f, 1f, 1f);
-                } else if (command.horizontal > 0) {
-                    isFacingRight = true;
-                    transform.localScale = new Vector3(1f, 1f, 1f);
-                }
+void ExecuteCommand(ActionCommand command) {
+    float offset = 0; // Adjust this value as needed
+    switch (command.actionType) {
+        case ActionCommand.ActionType.Move:
+            float adjustedSpeed = command.horizontal * command.speed - offset;
+            rb.velocity = new Vector2(adjustedSpeed, rb.velocity.y);
+            if (command.horizontal < 0) {
+                isFacingRight = false;
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            } else if (command.horizontal > 0) {
+                isFacingRight = true;
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
                 break;
             case ActionCommand.ActionType.Jump:
                 if (command.jumpPressed) {
