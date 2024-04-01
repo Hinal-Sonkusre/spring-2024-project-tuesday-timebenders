@@ -12,7 +12,6 @@ public class PlayerControl : MonoBehaviour {
     private float speed = 8f;
     private float jumpingPower = 16f;
     private Vector2 lastRecordedPosition;
-    private bool levelCompleted = false;
 
     public bool dashAbility = false;
     private bool isFacingRight = true;
@@ -48,9 +47,6 @@ public class PlayerControl : MonoBehaviour {
         actionTimer += Time.deltaTime;
 
         if (isDashing) return;
-
-        if (levelCompleted)
-            return;
 
         if (Input.GetKeyDown(KeyCode.R)) {
             int currentLevel = LevelManager.Instance.CurrentLevelNumber;
@@ -183,10 +179,5 @@ private void FixedUpdate() {
 
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer) != null;
-    }
-
-    public void SetLevelCompleted(bool completed)
-    {
-        levelCompleted = completed;
     }
 }

@@ -41,8 +41,6 @@ public class Goal : MonoBehaviour
             {
                 Debug.LogError("StarRating or ClonePlayerManager component is missing.");
             }
-
-            playerControl.SetLevelCompleted(true);
         }
         
         if(collision.tag == "Player")
