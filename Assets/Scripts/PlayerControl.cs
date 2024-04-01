@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
     public float actionTimer = 0f;
     private float lastHorizontalInput = 0f;
     private float positionRecordThreshold = 0.000001f;
+    public GameObject nextLevelMenu; // Reference to the NextLevelMenu GameObject
 
     public int currentLevel;
     [SerializeField] private Rigidbody2D rb;
@@ -49,12 +50,15 @@ public class PlayerControl : MonoBehaviour {
         if (isDashing) return;
 
         if (Input.GetKeyDown(KeyCode.R)) {
+            if (nextLevelMenu != null && !nextLevelMenu.activeSelf)
+            {
             int currentLevel = LevelManager.Instance.CurrentLevelNumber;
             string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
             analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         }
 
         HandleJump();

@@ -1954,6 +1954,10 @@ PrefabInstance:
       propertyPath: actionTimer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: nextLevelMenu
+      value: 
+      objectReference: {fileID: 522298792}
     - target: {fileID: 2719064002143499291, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: m_GravityScale
       value: 4
