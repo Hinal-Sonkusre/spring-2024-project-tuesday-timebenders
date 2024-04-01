@@ -132,6 +132,6 @@ public class ClonePlayerManager : MonoBehaviour
         spawnTimes++;
         Debug.Log("Clone created, spawnTimes: " + spawnTimes);
 
-        starDisplay.SetStarRating(timeTravelTimes);
+        starDisplay.SetStarDisplay(timeTravelTimes);
     }
 }
