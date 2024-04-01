@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !nextLevelMenu.activeSelf) // Check if nextLevelMenu is not active
+        if (Input.GetKeyDown(KeyCode.Tab) && !nextLevelMenu.activeSelf) // Check if nextLevelMenu is not active
         {
             if (isPaused)
             {

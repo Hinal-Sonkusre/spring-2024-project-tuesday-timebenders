@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuforTutorial : MonoBehaviour
 {
     public GameObject pauseMenu;
+     public GameObject nextLevelMenu; // Reference to the NextLevelMenu GameObject
 public bool isPaused;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public bool isPaused;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // Check if nextLevelMenu is not active
+        if (Input.GetKeyDown(KeyCode.Tab) && !nextLevelMenu.activeSelf) // Check if nextLevelMenu is not active
         {
             if (isPaused)
             {
