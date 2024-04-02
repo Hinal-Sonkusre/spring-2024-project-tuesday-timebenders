@@ -265,7 +265,6 @@ MonoBehaviour:
   mainPlayer: {fileID: 418437190}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 275110839}
-  starDisplay: {fileID: 1579866701}
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
@@ -2382,17 +2381,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4660541252240069652, guid: b96103d415f664a2eb3c014b0d429085, type: 3}
   m_PrefabInstance: {fileID: 1579866699}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1579866701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9172351268771903273, guid: b96103d415f664a2eb3c014b0d429085, type: 3}
-  m_PrefabInstance: {fileID: 1579866699}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1588288709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3142,6 +3130,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2713782529144802710, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
       propertyPath: Dash
+      value: 
+      objectReference: {fileID: 209698397}
+    - target: {fileID: 2713782529144802710, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
+      propertyPath: ListofText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713782529144802710, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
+      propertyPath: ListofText.Array.data[0]
       value: 
       objectReference: {fileID: 209698397}
     - target: {fileID: 5552536694492495250, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
