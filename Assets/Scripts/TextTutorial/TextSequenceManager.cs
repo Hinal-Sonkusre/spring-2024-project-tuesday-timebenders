@@ -7,6 +7,7 @@ public class TextSequenceManager : MonoBehaviour
     public Text firstText;
     public Text secondText;
     public Text thirdText;
+    public GameObject playerImg;
     public Text fourthText;
     public Text fifthText;
     public Text sixthText;
@@ -44,6 +45,7 @@ public class TextSequenceManager : MonoBehaviour
         firstText.gameObject.SetActive(false);
         secondText.gameObject.SetActive(false);
         thirdText.gameObject.SetActive(false);
+        playerImg.gameObject.SetActive(false);
         fourthText.gameObject.SetActive(false);
         fifthText.gameObject.SetActive(false);
         sixthText.gameObject.SetActive(false);
@@ -57,6 +59,7 @@ public class TextSequenceManager : MonoBehaviour
         if (!secondText.gameObject.activeInHierarchy)
         {
             thirdText.gameObject.SetActive(true);
+            playerImg.gameObject.SetActive(true);
         }
         
         // Hide the second text if it's already visible (or skip showing it altogether).
@@ -81,6 +84,8 @@ public class TextSequenceManager : MonoBehaviour
             secondText.gameObject.SetActive(true);
         }
         thirdText.gameObject.SetActive(true);
+        playerImg.gameObject.SetActive(true);
+
     }
 
     IEnumerator ShowAndHideFourthText(float delayBeforeShowing, float visibilityDuration)
