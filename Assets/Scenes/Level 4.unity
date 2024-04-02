@@ -317,6 +317,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4660541252240069652, guid: b96103d415f664a2eb3c014b0d429085, type: 3}
   m_PrefabInstance: {fileID: 81094164}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &81094166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9172351268771903273, guid: b96103d415f664a2eb3c014b0d429085, type: 3}
+  m_PrefabInstance: {fileID: 81094164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86907707
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +375,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 418437190}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 275110839}
+  starDisplay: {fileID: 81094166}
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
