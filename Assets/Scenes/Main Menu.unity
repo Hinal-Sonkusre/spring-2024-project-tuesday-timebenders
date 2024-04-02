@@ -476,7 +476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Disclaimer- Runs on Google chrome only
+  m_text: 'Disclaimer - Runs on Google chrome only
 
 '
   m_isRightToLeft: 0
