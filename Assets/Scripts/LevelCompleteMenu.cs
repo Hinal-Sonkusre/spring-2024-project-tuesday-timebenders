@@ -57,6 +57,14 @@ public class NextLevelTrigger : MonoBehaviour
         {
             SceneManager.LoadScene("Level 5");
         }
+        else if (SceneManager.GetActiveScene().name == "Level 5")
+        {
+            SceneManager.LoadScene("Level 6");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 6")
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         Time.timeScale = 1f; // Resume the game
     }
 
@@ -118,6 +126,14 @@ public class NextLevelTrigger : MonoBehaviour
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
             analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 5");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 6")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 6");
         }
         Time.timeScale = 1f; // Resume the game
     }
