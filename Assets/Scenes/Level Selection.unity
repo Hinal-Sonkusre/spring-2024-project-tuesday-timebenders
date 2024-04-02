@@ -643,9 +643,9 @@ GameObject:
   m_Component:
   - component: {fileID: 242783808}
   - component: {fileID: 242783810}
-  - component: {fileID: 242783809}
+  - component: {fileID: 242783811}
   m_Layer: 5
-  m_Name: Level 5 Stars
+  m_Name: Level 6 Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,21 +673,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1, y: -78}
   m_SizeDelta: {x: 190.96, y: 30.2596}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &242783809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242783807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241f5016a7d866541a43f5413b828b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star1: {fileID: 898881236}
-  star2: {fileID: 1875855956}
-  star3: {fileID: 1239461366}
 --- !u!223 &242783810
 Canvas:
   m_ObjectHideFlags: 0
@@ -711,6 +696,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
+--- !u!114 &242783811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242783807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c15ee14ea3c74f72a89b105b370c8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star1: {fileID: 898881236}
+  star2: {fileID: 1875855956}
+  star3: {fileID: 1239461366}
 --- !u!1 &266916787
 GameObject:
   m_ObjectHideFlags: 0
