@@ -30,7 +30,7 @@ public class ClonePlayerManager : MonoBehaviour
         Debug.Log("Initial spawn, spawnTimes: " + spawnTimes);
         if (timeTravelText != null)
         {
-            timeTravelText.text = "Time Travel Limit: " + (timeTravelLimit - timeTravelTimes).ToString();
+            timeTravelText.text = "X " + (timeTravelLimit - timeTravelTimes).ToString();
             Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
         }
     }
@@ -124,7 +124,7 @@ public class ClonePlayerManager : MonoBehaviour
         // Update the time travel text after a clone is created
         if (timeTravelText != null)
         {
-            timeTravelText.text = "Time Travel Limit: " + (timeTravelLimit - timeTravelTimes).ToString();
+            timeTravelText.text = "X " + (timeTravelLimit - timeTravelTimes).ToString();
             Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
         }
 
