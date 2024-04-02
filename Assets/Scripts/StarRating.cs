@@ -35,13 +35,13 @@ public class StarRating : MonoBehaviour
             // 2 stars if one more clone is used than the maximum limit
             star1.SetActive(true);
             star2.SetActive(true);
-            feedbackText.text = "Less Time Travel";
+            feedbackText.text = "Try Less Time Travel";
 
             ChangeStarRating(2, SceneManager.GetActiveScene().name);
         } else {
             // 1 star for any other case
             star1.SetActive(true);
-            feedbackText.text = "Use less Time Travel";
+            feedbackText.text = "Maybe use less Time Travel";
 
             ChangeStarRating(1, SceneManager.GetActiveScene().name);
         }
