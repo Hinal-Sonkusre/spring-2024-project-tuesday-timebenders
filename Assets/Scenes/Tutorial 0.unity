@@ -549,7 +549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Got the tutroial? Move on to the next tutorial. If not, give it another
+  m_Text: Got the tutorial? Move on to the next tutorial. If not, give it another
     shot.
 --- !u!222 &392757266
 CanvasRenderer:
