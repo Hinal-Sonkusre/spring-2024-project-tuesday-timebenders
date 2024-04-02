@@ -6,19 +6,14 @@ using UnityEngine.UI;
 public class Collectible : MonoBehaviour
 {
     public int value = 1;
-    [SerializeField] public Text Dash;
-    //public PlayerControl player_control;
-    // Start is called before the first frame update
+    [SerializeField] public List<Text> ListofText; // Changed to a list of Text objects
+
     private void Start()
     {
-        //player_control.dashAbility = true;
-        Dash.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        foreach (var dash in ListofText)
+        {
+            dash.enabled = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,9 +24,11 @@ public class Collectible : MonoBehaviour
             if (playerControl != null)
             {
                 playerControl.dashAbility = true;
-                 // Enable the dash ability for the player
                 Debug.Log("Dash Ability Enabled!");
-                Dash.enabled = true;
+                foreach (var dash in ListofText)
+                {
+                    dash.enabled = true;
+                }
             }
             Collect();
             Destroy(gameObject);
@@ -40,12 +37,6 @@ public class Collectible : MonoBehaviour
 
     void Collect()
     {
-        // Here you can add what happens when collected.
-        // For example, increasing the player's score.
         Debug.Log("Collectible Collected!");
-
-        // Optionally, send the value to a score manager or player inventory.
-
-        //Destroy(gameObject); // Destroy the collectible.
     }
 }
