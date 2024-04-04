@@ -645,6 +645,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: isOnPlatform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: nextLevelMenu
       value: 
       objectReference: {fileID: 855383374}
@@ -708,7 +712,8 @@ PrefabInstance:
       propertyPath: m_LayerOverridePriority
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -538636286287888683, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2609,6 +2614,10 @@ PrefabInstance:
     - target: {fileID: 4941031059288627479, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: cloneLimit
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: mainPlayer

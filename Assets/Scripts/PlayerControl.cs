@@ -4,14 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
-    //public AnalyticsScript analyticsScript;
-    // Replace the single command list with a list of command lists, each for a session.
-    public List<List<ActionCommand>> commandSessions = new List<List<ActionCommand>>();
-    private int currentSessionIndex = -1; // Initialize to -1 to indicate no session has started.
-    private float actionStartTime = 0f;
+    public List<ActionCommand> commands = new List<ActionCommand>();
     private float speed = 8f;
     private float jumpingPower = 16f;
-    private Vector2 lastRecordedPosition;
 
     public bool dashAbility = false;
     private bool isFacingRight = true;
@@ -21,167 +16,123 @@ public class PlayerControl : MonoBehaviour {
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
-    public float actionTimer = 0f;
-    private float lastHorizontalInput = 0f;
-    private float positionRecordThreshold = 0.000001f;
-    public GameObject nextLevelMenu; // Reference to the NextLevelMenu GameObject
+    private float horizontalDuration = 0f; // Accumulate duration for horizontal movement
+    private float lastHorizontalInput = 0f; // Track the last horizontal input
 
     public int currentLevel;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
-    public bool isOnPlatform;
-    public Rigidbody2D platformRb;
+
     void Start() {
-        // currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
-        // Debug.Log(currentLevel);
-        // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-        // string playerId = FindObjectOfType<PlayerID>().ID;
-        // analyticsScript.TrackLevelStart(playerId, currentLevel);
-        actionStartTime = Time.time;
-        lastRecordedPosition = rb.position;
-        StartNewCommandSession(); // Start the first command session.
+        Application.targetFrameRate = 60;
+        Debug.Log(currentLevel);
     }
 
     void Update() {
-        actionTimer += Time.deltaTime;
-
-        if (isDashing) return;
+        if (isDashing) {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.R)) {
-            if (nextLevelMenu != null && !nextLevelMenu.activeSelf)
-            {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart In Game");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        }
 
-        HandleJump();
-        HandleDash();
-    }
-
-private void FixedUpdate() {
-    if (isDashing) return;
-
-    float horizontalInput = GetHorizontalInput();
-
-    if (isOnPlatform) {
-        rb.velocity = new Vector2(platformRb.velocity.x + horizontalInput * speed, rb.velocity.y);
-    } else {
-        HandleMovement();
-    }
-}
-
-
-    public void StartNewCommandSession() {
-        currentSessionIndex++;
-        commandSessions.Add(new List<ActionCommand>());
-    }
-
-    void RecordCommand(ActionCommand command) {
-        if (currentSessionIndex >= 0) {
-            commandSessions[currentSessionIndex].Add(command);
-        }
-    }
-
-    void HandleMovement() {
-        float horizontalInput = GetHorizontalInput();
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-        RecordPositionIfNeeded();
-    }
-
-    void RecordPositionIfNeeded() {
-        if (Vector2.Distance(rb.position, lastRecordedPosition) > positionRecordThreshold) {
-            ActionCommand moveCommand = new ActionCommand {
-                actionType = ActionCommand.ActionType.Move,
-                position = rb.position,
-                horizontal = lastHorizontalInput,
-                speed = speed,
-                delay = actionTimer
-            };
-            RecordCommand(moveCommand);
-            lastRecordedPosition = rb.position;
-            ResetActionTimer();
-        }
-    }
-
-    void HandleJump() {
         bool jumpKeyPressed = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow);
         if (jumpKeyPressed && IsGrounded()) {
+            RecordJump();
             PerformJump();
+        }
+
+        bool dashKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
+        if (dashKeyPressed && canDash && dashAbility) {
+            RecordDash();
+            StartCoroutine(PerformDash());
+        }
+
+        float horizontalInput = GetHorizontalInput();
+        if (horizontalInput != 0) {
+            horizontalDuration += Time.deltaTime;
+            lastHorizontalInput = horizontalInput; // Update the last horizontal input
+        } else if (horizontalDuration > 0) {
+            RecordMove(lastHorizontalInput); // Record the movement with the last non-zero input
+            horizontalDuration = 0f; // Reset the duration
         }
     }
 
-    void HandleDash() {
-        bool dashKeyPressed = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
-        if (dashKeyPressed && canDash && dashAbility) {
-            StartCoroutine(PerformDash());
+    private void FixedUpdate() {
+        if (isDashing) {
+            return;
         }
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+    }
+
+    private float GetHorizontalInput() {
+        float horizontal = 0f;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+            horizontal = -1;
+            isFacingRight = false;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+            horizontal = 1;
+            isFacingRight = true;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        return horizontal;
+    }
+
+    private bool IsGrounded() {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     void PerformJump() {
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        RecordJump();
     }
 
     void RecordJump() {
-        ActionCommand jumpCommand = new ActionCommand {
+        commands.Add(new ActionCommand {
             actionType = ActionCommand.ActionType.Jump,
-            position = rb.position,
             jumpingPower = jumpingPower,
-            delay = actionTimer
-        };
-        RecordCommand(jumpCommand);
-        ResetActionTimer();
+            duration = 0f // Jump is instantaneous
+        });
     }
 
     private IEnumerator PerformDash() {
-        RecordDash();
-        canDash = false;
         isDashing = true;
         tr.emitting = true;
-        rb.gravityScale = 0;
-        rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0);
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0f);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = 4; // Assuming default gravity scale is 1
+        rb.gravityScale = originalGravity;
         isDashing = false;
         tr.emitting = false;
+
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
 
     void RecordDash() {
-        ActionCommand dashCommand = new ActionCommand {
+        commands.Add(new ActionCommand {
             actionType = ActionCommand.ActionType.Dash,
-            position = rb.position,
             dashingPower = dashingPower,
-            dashingTime = dashingTime,
-            delay = actionTimer
-        };
-        RecordCommand(dashCommand);
-        ResetActionTimer();
+            duration = dashingTime
+        });
     }
 
-    private void ResetActionTimer() {
-        actionTimer = 0f;
-    }
+    void RecordMove(float horizontalInput) {
+        Debug.Log($"Recording {(horizontalInput > 0 ? "MoveRight" : "MoveLeft")} with duration: {horizontalDuration}");
 
-    private float GetHorizontalInput() {
-        float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal != 0) {
-            isFacingRight = horizontal > 0;
-            transform.localScale = new Vector3((isFacingRight ? 1 : -1), 1, 1);
+        if (horizontalDuration > 0) { // Only record if there was some duration of input
+            commands.Add(new ActionCommand {
+                actionType = horizontalInput > 0 ? ActionCommand.ActionType.MoveRight : ActionCommand.ActionType.MoveLeft,
+                speed = speed,
+                duration = horizontalDuration
+            });
         }
-        lastHorizontalInput = horizontal;
-        return horizontal;
-    }
-
-    private bool IsGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer) != null;
     }
 }

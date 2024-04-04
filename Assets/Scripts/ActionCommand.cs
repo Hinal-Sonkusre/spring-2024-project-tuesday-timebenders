@@ -6,18 +6,17 @@ using System;
 [System.Serializable]
 public class ActionCommand {
     public enum ActionType {
-        Move,
+        MoveLeft,
+        MoveRight,
         Jump,
-        Stop,
         Dash
     }
 
     public ActionType actionType;
-    public float delay; 
-    public Vector2 position; // Store the player's position
-    public float horizontal;
-    public float jumpingPower; 
-    public float speed;
-    public float dashingPower;
-    public float dashingTime;
+    public float duration; // Duration of the input action
+
+    // Additional properties for movement and actions
+    public float speed;          // Speed for moving left or right
+    public float jumpingPower;   // Power for jumping
+    public float dashingPower;   // Power for dashing
 }
