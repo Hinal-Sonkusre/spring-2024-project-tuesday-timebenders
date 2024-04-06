@@ -103,6 +103,7 @@ public class PlayerControl : MonoBehaviour {
 
     private IEnumerator PerformDash() {
         isDashing = true;
+        canDash = false; // Set canDash to false when dash starts
         tr.emitting = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
@@ -113,8 +114,9 @@ public class PlayerControl : MonoBehaviour {
         tr.emitting = false;
 
         yield return new WaitForSeconds(dashingCooldown);
-        canDash = true;
+        canDash = true; // Set canDash back to true after cooldown
     }
+
 
     void RecordDash() {
         commands.Add(new ActionCommand {
