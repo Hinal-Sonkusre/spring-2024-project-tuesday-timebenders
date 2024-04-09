@@ -10,7 +10,7 @@ public class AutoPlayerControl : MonoBehaviour
     private bool isFacingRight = true;
     private Rigidbody2D rb;
 
-    private float nextCommandTime = 0f;
+    private float nextCommandTime = 0.0f;
     public int currentCommandIndex = 0;
 
     private bool shouldMove = true;
@@ -23,7 +23,7 @@ public class AutoPlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove)
+        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove)
         {
             ExecuteCommand(commands[currentCommandIndex]);
             currentCommandIndex++; 
