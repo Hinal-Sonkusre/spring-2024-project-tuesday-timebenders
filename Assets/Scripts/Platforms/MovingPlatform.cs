@@ -55,8 +55,18 @@ private void OnTriggerEnter2D(Collider2D collision)
 {
     if (collision.CompareTag("Player"))
     {
-        movementController.isOnPlatform = true;
-        movementController.platformRb = rb2d;
+        PlayerControl playerControl = collision.GetComponent<PlayerControl>();
+        AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
+
+        if (playerControl != null)
+        {
+            playerControl.isOnPlatform = true;
+            playerControl.platformRb = rb2d;
+        }
+        else if (autoPlayerControl != null)
+        {
+            autoPlayerControl.SetPlatformState(true, rb2d);
+        }
     }
 }
 
@@ -64,9 +74,20 @@ private void OnTriggerExit2D(Collider2D collision)
 {
     if (collision.CompareTag("Player"))
     {
-        movementController.isOnPlatform = false;
+        PlayerControl playerControl = collision.GetComponent<PlayerControl>();
+        AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
+
+        if (playerControl != null)
+        {
+            playerControl.isOnPlatform = false;
+        }
+        else if (autoPlayerControl != null)
+        {
+            autoPlayerControl.SetPlatformState(false, null);
+        }
     }
 }
+
 
 }
 

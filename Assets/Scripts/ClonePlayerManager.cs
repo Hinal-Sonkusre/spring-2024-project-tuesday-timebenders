@@ -83,6 +83,8 @@ public class ClonePlayerManager : MonoBehaviour
             if (autoControl != null) 
             {
                 autoControl.SetCommands(new List<ActionCommand>(commandsForClone));
+                    autoControl.SetPlatformState(playerControl.isOnPlatform, playerControl.platformRb);
+
                 clonePlayerInstances.Add(clonePlayerInstance);
             }
             // Instantiate the TextMeshPro text above the clone and set its text
