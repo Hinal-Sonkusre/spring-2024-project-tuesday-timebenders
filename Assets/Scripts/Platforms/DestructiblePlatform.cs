@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class DestructiblePlatform : MonoBehaviour
     private int playerCount = 0; // Counter for the number of players colliding with the wall
     private int dashingPlayerCount = 0; // Counter for the number of dashing players colliding with the wall
     private Vector2 lastDashingPlayerPosition; // Position of the last dashing player who collided
+    public int platformID;
+    public static Action<int> OnPlatformReappear;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -51,6 +54,9 @@ public class DestructiblePlatform : MonoBehaviour
             }
 
             Destroy(gameObject); // Destroy the wall
+
+            // Trigger the event for platform destroyed with this platform's ID
+            OnPlatformReappear?.Invoke(platformID);
         }
     }
 
