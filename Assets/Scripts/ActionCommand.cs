@@ -3,21 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum ActionType {
+    MoveLeft,
+    MoveRight,
+    Jump,
+    Dash
+}
+
 [System.Serializable]
 public class ActionCommand {
-    public enum ActionType {
-        Move,
-        Jump,
-        Stop,
-        Dash
+    public ActionType actionType;
+    public float startTime;
+    public float stopTime;
+
+    public ActionCommand(ActionType type, float startTime) {
+        actionType = type;
+        this.startTime = startTime;
+        this.stopTime = -1f;
     }
 
-    public ActionType actionType;
-    public float delay; 
-    public Vector2 position; // Store the player's position
-    public float horizontal;
-    public float jumpingPower; 
-    public float speed;
-    public float dashingPower;
-    public float dashingTime;
+    public ActionCommand(ActionType type, float startTime, float stopTime) {
+        actionType = type;
+        this.startTime = startTime;
+        this.stopTime = stopTime;
+    }
+
+    public void SetStopTime(float time) {
+        stopTime = time;
+    }
 }

@@ -80,7 +80,6 @@ MonoBehaviour:
   analyticsScript: {fileID: 0}
   dashAbility: 0
   isDashing: 0
-  actionTimer: 0
   nextLevelMenu: {fileID: 0}
   currentLevel: 0
   rb: {fileID: 2719064002143499291}
@@ -98,13 +97,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3002110677584309239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fef87dcad6b24154b47ec9b5db7fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   commands: []
-  currentCommandIndex: 0
 --- !u!58 &-9041413624013956770
 CircleCollider2D:
   m_ObjectHideFlags: 0
