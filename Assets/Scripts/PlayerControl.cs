@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour {
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
-    public float actionTimer = 0f;
+    public float actionTimer = 0.0f;
     private float lastHorizontalInput = 0f;
     private float positionRecordThreshold = 0.000001f;
     public GameObject nextLevelMenu; // Reference to the NextLevelMenu GameObject
@@ -236,7 +236,7 @@ private void FixedUpdate() {
     }
 
     private void ResetActionTimer() {
-        actionTimer = 0f;
+        actionTimer = 0.0f;
     }
 
     private float GetHorizontalInput() {

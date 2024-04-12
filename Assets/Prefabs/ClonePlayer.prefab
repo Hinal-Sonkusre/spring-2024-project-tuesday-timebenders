@@ -50,7 +50,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2.7
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands: []
   currentCommandIndex: 0
+  isOnPlatform: 0
+  platformRb: {fileID: 0}
 --- !u!1 &4694649067511047061
 GameObject:
   m_ObjectHideFlags: 0

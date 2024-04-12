@@ -10,33 +10,32 @@ public class AutoPlayerControl : MonoBehaviour
     private bool isFacingRight = true;
     private Rigidbody2D rb;
 
-    private float nextCommandTime = 0f;
+    private float nextCommandTime = 0.0f;
     public int currentCommandIndex = 0;
 
     private bool shouldMove = true;
     public bool isOnPlatform = false;
-public Rigidbody2D platformRb = null;
-
-
+    public Rigidbody2D platformRb = null;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ResetCommands();
     }
-void FixedUpdate() {
-    if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove) {
-        ExecuteCommand(commands[currentCommandIndex]);
-        currentCommandIndex++; 
-        if (currentCommandIndex < commands.Count) {
-            nextCommandTime = Time.time + commands[currentCommandIndex].delay;
-        } else {
-            shouldMove = false;
+    void FixedUpdate() 
+    {
+        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove) {
+            ExecuteCommand(commands[currentCommandIndex]);
+            currentCommandIndex++; 
+            if (currentCommandIndex < commands.Count) {
+                nextCommandTime = Time.time + commands[currentCommandIndex].delay;
+            } else {
+                shouldMove = false;
+            }
+        }
+        if (!shouldMove && isOnPlatform) {
+            rb.velocity = new Vector2(platformRb.velocity.x, rb.velocity.y);
         }
     }
-    if (!shouldMove && isOnPlatform) {
-        rb.velocity = new Vector2(platformRb.velocity.x, rb.velocity.y);
-    }
-}
 
 
 
