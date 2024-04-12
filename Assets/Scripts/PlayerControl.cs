@@ -95,6 +95,7 @@ private void FixedUpdate() {
 // HandleMovement();
     if (isOnPlatform) {
         rb.velocity = new Vector2(platformRb.velocity.x + horizontalInput * speed, rb.velocity.y);
+        RecordPositionIfNeeded();
     } else {
         HandleMovement();
     }

@@ -63,7 +63,7 @@ private void OnTriggerEnter2D(Collider2D collision)
             playerControl.isOnPlatform = true;
             playerControl.platformRb = rb2d;
         }
-        else if (autoPlayerControl != null)
+        if (autoPlayerControl != null)
         {
             autoPlayerControl.SetPlatformState(true, rb2d);
         }
@@ -81,7 +81,7 @@ private void OnTriggerExit2D(Collider2D collision)
         {
             playerControl.isOnPlatform = false;
         }
-        else if (autoPlayerControl != null)
+        if (autoPlayerControl != null)
         {
             autoPlayerControl.SetPlatformState(false, null);
         }
