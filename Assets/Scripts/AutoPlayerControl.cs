@@ -23,7 +23,8 @@ public class AutoPlayerControl : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove) {
+        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove) 
+        {
             ExecuteCommand(commands[currentCommandIndex]);
             currentCommandIndex++; 
             if (currentCommandIndex < commands.Count) {
