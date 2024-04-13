@@ -35,6 +35,9 @@ public class AutoPlayerControl : MonoBehaviour
         if (!shouldMove && isOnPlatform) {
             rb.velocity = new Vector2(platformRb.velocity.x, rb.velocity.y);
         }
+        if (!shouldMove) {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
     }
 
 
