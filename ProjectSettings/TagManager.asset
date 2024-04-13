@@ -11,8 +11,6 @@ TagManager:
   - Dash
   - TagA
   - Clone
-  - MovingSpikes
-  - Freezable
   layers:
   - Default
   - TransparentFX
