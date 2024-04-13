@@ -7,6 +7,7 @@ public class Collectible : MonoBehaviour
 {
     public int value = 1;
     [SerializeField] public List<Text> ListofText; // Changed to a list of Text objects
+    public GameObject canvasPrefab;
 
     private void Start()
     {
@@ -30,13 +31,28 @@ public class Collectible : MonoBehaviour
                     dash.enabled = true;
                 }
             }
-            Collect();
+            //Collect();
+            ShowCanvas(); // Show the canvas upon collision
             Destroy(gameObject);
         }
     }
 
-    void Collect()
+    //void Collect()
+    //{
+    //    Debug.Log("Collectible Collected!");
+    //}
+
+    void ShowCanvas()
     {
-        Debug.Log("Collectible Collected!");
+        // Find the Canvas GameObject in the scene
+        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
+        if (canvas == null && canvasPrefab != null) // If Canvas is not found and there's a canvas prefab
+        {
+            canvas = Instantiate(canvasPrefab); // Instantiate the Canvas prefab
+        }
+        if (canvas != null)
+        {
+            canvas.SetActive(true); // Enable the Canvas
+        }
     }
 }

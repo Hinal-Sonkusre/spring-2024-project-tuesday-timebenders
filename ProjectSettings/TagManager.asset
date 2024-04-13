@@ -11,6 +11,7 @@ TagManager:
   - Dash
   - TagA
   - Clone
+  - Canvas
   layers:
   - Default
   - TransparentFX

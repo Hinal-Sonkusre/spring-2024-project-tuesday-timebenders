@@ -81,6 +81,7 @@ MonoBehaviour:
   dashAbility: 0
   isDashing: 0
   actionTimer: 0
+  nextLevelMenu: {fileID: 0}
   currentLevel: 0
   rb: {fileID: 2719064002143499291}
   groundCheck: {fileID: 642585146732372777}
@@ -88,6 +89,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   tr: {fileID: 0}
+  isOnPlatform: 0
+  platformRb: {fileID: 0}
 --- !u!114 &101700500540343334
 MonoBehaviour:
   m_ObjectHideFlags: 0
