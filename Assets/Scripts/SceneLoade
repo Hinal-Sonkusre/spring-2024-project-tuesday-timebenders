@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class MainToControls : MonoBehaviour
+{
+    private SceneLoader sceneLoader;
+
+    private void Start()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
+
+    // public void GoToControls()
+    // {
+    //     sceneLoader.LoadScene("Controls Screen");
+    // }
+}

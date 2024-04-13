@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainToControls : MonoBehaviour
 {
-    private SceneLoader sceneLoader;
-
-    private void Start()
-    {
-        sceneLoader = FindObjectOfType<SceneLoader>();
-    }
-
+    // Start is called before the first frame update
     public void GoToControls()
     {
-        sceneLoader.LoadScene("Controls Screen");
+        SceneManager.LoadScene("Controls Screen");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
-
