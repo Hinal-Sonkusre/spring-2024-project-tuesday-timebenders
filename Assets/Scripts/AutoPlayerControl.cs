@@ -14,30 +14,32 @@ public class AutoPlayerControl : MonoBehaviour
     public int currentCommandIndex = 0;
 
     private bool shouldMove = true;
-
+    public bool isOnPlatform = false;
+    public Rigidbody2D platformRb = null;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ResetCommands();
     }
-
-    void FixedUpdate()
+    void FixedUpdate() 
     {
         if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove)
         {
             ExecuteCommand(commands[currentCommandIndex]);
             currentCommandIndex++; 
-            if (currentCommandIndex < commands.Count)
-            {
+            if (currentCommandIndex < commands.Count) {
                 nextCommandTime = Time.time + commands[currentCommandIndex].delay;
             } else {
                 shouldMove = false;
             }
         }
-        if (!shouldMove) {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        if (!shouldMove && isOnPlatform) {
+            rb.velocity = new Vector2(platformRb.velocity.x, rb.velocity.y);
+        } else if (!shouldMove) {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
         }
     }
+
 
 
     void ExecuteCommand(ActionCommand command) {
@@ -98,6 +100,12 @@ public class AutoPlayerControl : MonoBehaviour
             nextCommandTime = Time.time + commands[0].delay;
         }
     }
+    public void SetPlatformState(bool isOnPlatform, Rigidbody2D platformRigidbody)
+{
+    this.isOnPlatform = isOnPlatform;
+    this.platformRb = platformRigidbody;
+}
+
     public void ResetAndStartCommands()
     {
         currentCommandIndex = 0; // Reset command index to the start

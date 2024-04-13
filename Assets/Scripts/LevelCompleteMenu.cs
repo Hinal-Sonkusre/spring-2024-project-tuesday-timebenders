@@ -112,10 +112,10 @@ public class NextLevelTrigger : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {
-            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 4");
         }
 

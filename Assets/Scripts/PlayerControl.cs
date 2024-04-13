@@ -31,8 +31,11 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
-    public bool isOnPlatform;
-    public Rigidbody2D platformRb;
+    public bool isOnPlatform = false;
+public Rigidbody2D platformRb = null;
+
+    // public bool isOnPlatform;
+    // public Rigidbody2D platformRb;
     void Start() {
         currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
         Debug.Log(currentLevel);
@@ -69,9 +72,10 @@ private void FixedUpdate() {
     if (isDashing) return;
 
     float horizontalInput = GetHorizontalInput();
-
+// HandleMovement();
     if (isOnPlatform) {
         rb.velocity = new Vector2(platformRb.velocity.x + horizontalInput * speed, rb.velocity.y);
+        RecordPositionIfNeeded();
     } else {
         HandleMovement();
     }

@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands: []
   currentCommandIndex: 0
+  isOnPlatform: 0
+  platformRb: {fileID: 0}
 --- !u!1 &4694649067511047061
 GameObject:
   m_ObjectHideFlags: 0
