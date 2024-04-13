@@ -1087,6 +1087,18 @@ PrefabInstance:
       propertyPath: speedMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: freezeTargets.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: freezeTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 326126617}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: freezeTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 326126617}
     - target: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: m_Name
       value: Player

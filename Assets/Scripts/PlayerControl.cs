@@ -32,7 +32,18 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
     public bool isOnPlatform = false;
-public Rigidbody2D platformRb = null;
+    public Rigidbody2D platformRb = null;
+
+    public bool canFreezeTime = false;
+    public float timeFreezeDuration = 3f;
+    [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
+
+
+
+    public void EnableTimeFreeze()
+    {
+        canFreezeTime = true;
+    }
 
     // public bool isOnPlatform;
     // public Rigidbody2D platformRb;
@@ -66,6 +77,10 @@ public Rigidbody2D platformRb = null;
 
         HandleJump();
         HandleDash();
+        if (Input.GetKeyDown(KeyCode.F) && canFreezeTime)
+        {
+            StartCoroutine(FreezeTimeRoutine());
+        }
     }
 
 private void FixedUpdate() {
@@ -158,6 +173,51 @@ private void FixedUpdate() {
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
+
+    IEnumerator FreezeTimeRoutine()
+    {
+        canFreezeTime = false;
+
+        // Assuming freezeTargets is a List of GameObjects you want to freeze
+        foreach (GameObject target in freezeTargets)
+        {
+            // Example: Disabling the Rigidbody2D component to stop physics simulations
+            var rb2d = target.GetComponent<Rigidbody2D>();
+            if (rb2d != null)
+            {
+                rb2d.isKinematic = true; // Stop physics affecting the body
+                rb2d.velocity = Vector2.zero; // Optionally clear existing velocities
+            }
+
+            // Example: Disabling a custom script (e.g., EnemyAI)
+            var enemyAI = target.GetComponent<MovingPlatform>(); // Assuming EnemyAI is the name of the script
+            if (enemyAI != null)
+            {
+                enemyAI.enabled = false; // Stop the script's Update() method from running
+            }
+        }
+
+        yield return new WaitForSecondsRealtime(timeFreezeDuration);
+
+        // Re-enable the components
+        foreach (GameObject target in freezeTargets)
+        {
+            var rb2d = target.GetComponent<Rigidbody2D>();
+            if (rb2d != null)
+            {
+                rb2d.isKinematic = false; // Allow physics to affect the body again
+            }
+
+            var enemyAI = target.GetComponent<MovingPlatform>();
+            if (enemyAI != null)
+            {
+                enemyAI.enabled = true; // Resume the script
+            }
+        }
+
+        canFreezeTime = true;
+    }
+
 
     void RecordDash() {
         ActionCommand dashCommand = new ActionCommand {
