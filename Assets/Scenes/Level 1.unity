@@ -1700,7 +1700,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 180306536}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1645986718}
-  starDisplay: {fileID: 0}
+  starDisplay: {fileID: 374987479771778242}
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
@@ -2582,6 +2582,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+--- !u!114 &374987479771778242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+  m_PrefabInstance: {fileID: 374987479771778241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2327139661683665658 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1706007831015658989, guid: 3d680963265434f77b7345e2e4616174, type: 3}
