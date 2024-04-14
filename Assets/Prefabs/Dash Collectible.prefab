@@ -172,4 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  Dash: {fileID: 0}
+  ListofText: []
+  canvasPrefab: {fileID: 0}
