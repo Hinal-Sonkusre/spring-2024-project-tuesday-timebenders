@@ -32,7 +32,6 @@ public class Collectible : MonoBehaviour
                 }
             }
             //Collect();
-            ShowCanvas(); // Show the canvas upon collision
             Destroy(gameObject);
         }
     }
@@ -41,18 +40,4 @@ public class Collectible : MonoBehaviour
     //{
     //    Debug.Log("Collectible Collected!");
     //}
-
-    void ShowCanvas()
-    {
-        // Find the Canvas GameObject in the scene
-        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-        if (canvas == null && canvasPrefab != null) // If Canvas is not found and there's a canvas prefab
-        {
-            canvas = Instantiate(canvasPrefab); // Instantiate the Canvas prefab
-        }
-        if (canvas != null)
-        {
-            canvas.SetActive(true); // Enable the Canvas
-        }
-    }
 }
