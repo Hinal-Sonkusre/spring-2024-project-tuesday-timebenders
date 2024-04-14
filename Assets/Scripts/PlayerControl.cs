@@ -213,6 +213,10 @@ private void FixedUpdate() {
             var enemyAI1 = target.GetComponent<MovingObstacles>();
             if (enemyAI1 != null)
                 enemyAI1.enabled = false;
+            
+            var enemyAI2 = target.GetComponent<Elevator>();
+            if (enemyAI2 != null)
+                enemyAI2.enabled = false;
         }
 
         yield return new WaitForSecondsRealtime(timeFreezeDuration);
@@ -236,6 +240,9 @@ private void FixedUpdate() {
             var enemyAI1 = target.GetComponent<MovingObstacles>();
             if (enemyAI1 != null)
                 enemyAI1.enabled = true;
+            var enemyAI2 = target.GetComponent<Elevator>();
+            if (enemyAI2 != null)
+                enemyAI2.enabled = true;
         }
 
 
