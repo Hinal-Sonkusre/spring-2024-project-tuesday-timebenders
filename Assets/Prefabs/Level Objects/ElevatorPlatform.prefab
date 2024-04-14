@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posA: {fileID: 3292736945359547128}
   posB: {fileID: 1858929503936427363}
-  speed: 0
+  speed: 1
 --- !u!1 &7290909281669927987
 GameObject:
   m_ObjectHideFlags: 0
