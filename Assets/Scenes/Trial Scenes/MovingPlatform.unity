@@ -1208,7 +1208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: freezeTargets.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: freezeTargets.Array.data[0]
@@ -1218,6 +1218,10 @@ PrefabInstance:
       propertyPath: freezeTargets.Array.data[1]
       value: 
       objectReference: {fileID: 109742091}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: freezeTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 2047355902}
     - target: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2274,6 +2278,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f562558320c34c04a414170ae672140, type: 3}
+--- !u!1 &2047355902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228817202433733885, guid: 5f562558320c34c04a414170ae672140, type: 3}
+  m_PrefabInstance: {fileID: 2047355901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380315529666188553
 PrefabInstance:
   m_ObjectHideFlags: 0
