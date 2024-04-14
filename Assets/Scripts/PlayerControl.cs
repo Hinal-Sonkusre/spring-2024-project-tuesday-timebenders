@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
-    //public AnalyticsScript analyticsScript;
+    public AnalyticsScript analyticsScript;
     // Replace the single command list with a list of command lists, each for a session.
     public List<List<ActionCommand>> commandSessions = new List<List<ActionCommand>>();
     private int currentSessionIndex = -1; // Initialize to -1 to indicate no session has started.
@@ -34,11 +34,11 @@ public class PlayerControl : MonoBehaviour {
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
     void Start() {
-        // currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
-        // Debug.Log(currentLevel);
-        // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-        // string playerId = FindObjectOfType<PlayerID>().ID;
-        // analyticsScript.TrackLevelStart(playerId, currentLevel);
+        currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
+        Debug.Log(currentLevel);
+        analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+        string playerId = FindObjectOfType<PlayerID>().ID;
+        analyticsScript.TrackLevelStart(playerId, currentLevel);
         actionStartTime = Time.time;
         lastRecordedPosition = rb.position;
         StartNewCommandSession(); // Start the first command session.
@@ -52,10 +52,10 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R)) {
             if (nextLevelMenu != null && !nextLevelMenu.activeSelf)
             {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart In Game");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart In Game");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

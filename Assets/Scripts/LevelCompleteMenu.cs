@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
-    //public AnalyticsScript analyticsScript;
+    public AnalyticsScript analyticsScript;
     [SerializeField] private GameObject nextLevelMenu;
     private PauseMenu pauseMenu; // Reference to the PauseMenu script
 
@@ -72,18 +72,18 @@ public class NextLevelTrigger : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Tutorial 0")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Tutorial 0");
         }
         else if (SceneManager.GetActiveScene().name == "Tutorial")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Tutorial");
         }
         else if (SceneManager.GetActiveScene().name == "Level 1")
@@ -96,43 +96,43 @@ public class NextLevelTrigger : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 2");
         }
         else if (SceneManager.GetActiveScene().name == "Level 3")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 3");
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 4");
         }
 
         else if (SceneManager.GetActiveScene().name == "Level 5")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 5");
         }
         else if (SceneManager.GetActiveScene().name == "Level 6")
         {
-            // int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            // string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-            // analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            // analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 6");
         }
         Time.timeScale = 1f; // Resume the game

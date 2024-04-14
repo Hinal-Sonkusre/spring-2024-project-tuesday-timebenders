@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    //private AnalyticsScript analyticsScript;
+    private AnalyticsScript analyticsScript;
     [SerializeField] public Text winText;
     [SerializeField] public PlayerControl playerControl; // Reference to the player's control script
     [SerializeField] public ClonePlayerManager clonePlayerManager;
     [SerializeField] private StarRating starRating;
     public int NumberOfTimeTravels;
 
-    // void Awake()
-    // {
-    //     // Now it's safe to reference other components since the GameObject is being initialized
-    //     clonePlayerManager = FindObjectOfType<ClonePlayerManager>();
+    void Awake()
+    {
+        // Now it's safe to reference other components since the GameObject is being initialized
+        clonePlayerManager = FindObjectOfType<ClonePlayerManager>();
 
-    // }
+    }
     private void Start()
     {
         winText.enabled = false; // Hide the text at the start
@@ -43,17 +43,17 @@ public class Goal : MonoBehaviour
             }
         }
         
-        // if(collision.tag == "Player")
-        // {
-        //     int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-        //     Debug.Log(currentLevel);
-        //     string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-        //     NumberOfTimeTravels = clonePlayerManager.timeTravelTimes;
-        //     analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-        //     analyticsScript.TrackCloneAnalytics(playerId,currentLevel,NumberOfTimeTravels);
-        //     analyticsScript.TrackLevelCompletion(playerId,currentLevel);
+        if(collision.tag == "Player")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            Debug.Log(currentLevel);
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            NumberOfTimeTravels = clonePlayerManager.timeTravelTimes;
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackCloneAnalytics(playerId,currentLevel,NumberOfTimeTravels);
+            analyticsScript.TrackLevelCompletion(playerId,currentLevel);
 
-        // }
+        }
     }
 }
 
