@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    //private AnalyticsScript analyticsScript;
+    private AnalyticsScript analyticsScript;
     [SerializeField] public Text winText;
     [SerializeField] public PlayerControl playerControl; // Reference to the player's control script
     [SerializeField] public ClonePlayerManager clonePlayerManager;
@@ -42,18 +42,18 @@ public class Goal : MonoBehaviour
                 Debug.LogError("StarRating or ClonePlayerManager component is missing.");
             }
         }
-        
-        // if(collision.tag == "Player")
-        // {
-        //     int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-        //     Debug.Log(currentLevel);
-        //     string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
-        //     NumberOfTimeTravels = clonePlayerManager.timeTravelTimes;
-        //     analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-        //     analyticsScript.TrackCloneAnalytics(playerId,currentLevel,NumberOfTimeTravels);
-        //     analyticsScript.TrackLevelCompletion(playerId,currentLevel);
 
-        // }
+        if (collision.tag == "Player")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            Debug.Log(currentLevel);
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            NumberOfTimeTravels = clonePlayerManager.timeTravelTimes;
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackCloneAnalytics(playerId, currentLevel, NumberOfTimeTravels);
+            analyticsScript.TrackLevelCompletion(playerId, currentLevel);
+
+        }
     }
 }
 
