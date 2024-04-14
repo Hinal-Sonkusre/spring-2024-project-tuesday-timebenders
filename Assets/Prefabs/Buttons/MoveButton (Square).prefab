@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3830995757805859123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13, y: -7.24, z: 0}
+  m_LocalPosition: {x: -7.96, y: -7.19, z: 0}
   m_LocalScale: {x: 2.1625, y: 2.0375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: f177d25cbbf4240f18fa00b0b223c6ae, type: 3}
-  m_Color: {r: 0.7779287, g: 0.36196154, b: 0.9245283, a: 1}
+  m_Color: {r: 0.6912582, g: 0.36078432, b: 0.9254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePlatform: {fileID: 0}
+  usedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!61 &8520827299394386380
 BoxCollider2D:
   m_ObjectHideFlags: 0
