@@ -195,7 +195,7 @@ private void FixedUpdate() {
             {
                 enemyAI.enabled = false; // Stop the script's Update() method from running
             }
-            
+
             var enemyAI1 = target.GetComponent<MovingObstacles>(); // Assuming EnemyAI is the name of the script
             if (enemyAI1 != null)
             {
@@ -218,6 +218,12 @@ private void FixedUpdate() {
             if (enemyAI != null)
             {
                 enemyAI.enabled = true; // Resume the script
+            }
+            
+            var enemyAI1 = target.GetComponent<MovingObstacles>();
+            if (enemyAI1 != null)
+            {
+                enemyAI1.enabled = true; // Resume the script
             }
         }
 
