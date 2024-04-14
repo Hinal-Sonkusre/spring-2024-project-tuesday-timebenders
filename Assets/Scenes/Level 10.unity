@@ -1618,6 +1618,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1132182408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7290909281669927987, guid: 5f562558320c34c04a414170ae672140, type: 3}
+  m_PrefabInstance: {fileID: 1671199229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1412492054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2227,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: platformsAppear.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1132182408}
     - target: {fileID: 9036010835382610557, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: m_Name
       value: DP Button
