@@ -38,6 +38,14 @@ public class PlayerControl : MonoBehaviour {
     public float timeFreezeDuration = 3f;
     [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
 
+    [System.Serializable]
+    public class RigidbodyState
+    {
+        public Vector2 velocity;
+        public Vector2 position;
+        public bool isKinematic;
+    }
+    private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
 
 
     public void EnableTimeFreeze()
@@ -181,26 +189,30 @@ private void FixedUpdate() {
         // Assuming freezeTargets is a List of GameObjects you want to freeze
         foreach (GameObject target in freezeTargets)
         {
-            // Example: Disabling the Rigidbody2D component to stop physics simulations
             var rb2d = target.GetComponent<Rigidbody2D>();
             if (rb2d != null)
             {
-                rb2d.isKinematic = true; // Stop physics affecting the body
-                rb2d.velocity = Vector2.zero; // Optionally clear existing velocities
+                // Save the current state
+                savedStates[target] = new RigidbodyState()
+                {
+                    velocity = rb2d.velocity,
+                    position = rb2d.position,
+                    isKinematic = rb2d.isKinematic
+                };
+
+                // Stop physics affecting the body
+                rb2d.isKinematic = true;
+                rb2d.velocity = Vector2.zero;
             }
 
-            // Example: Disabling a custom script (e.g., EnemyAI)
-            var enemyAI = target.GetComponent<MovingPlatform>(); // Assuming EnemyAI is the name of the script
+            // Disable any relevant scripts as before
+            var enemyAI = target.GetComponent<MovingPlatform>();
             if (enemyAI != null)
-            {
-                enemyAI.enabled = false; // Stop the script's Update() method from running
-            }
+                enemyAI.enabled = false;
 
-            var enemyAI1 = target.GetComponent<MovingObstacles>(); // Assuming EnemyAI is the name of the script
+            var enemyAI1 = target.GetComponent<MovingObstacles>();
             if (enemyAI1 != null)
-            {
-                enemyAI1.enabled = false; // Stop the script's Update() method from running
-            }
+                enemyAI1.enabled = false;
         }
 
         yield return new WaitForSecondsRealtime(timeFreezeDuration);
@@ -209,23 +221,23 @@ private void FixedUpdate() {
         foreach (GameObject target in freezeTargets)
         {
             var rb2d = target.GetComponent<Rigidbody2D>();
-            if (rb2d != null)
+            if (rb2d != null && savedStates.ContainsKey(target))
             {
-                rb2d.isKinematic = false; // Allow physics to affect the body again
+                // Restore the saved state
+                rb2d.isKinematic = savedStates[target].isKinematic;
+                rb2d.velocity = savedStates[target].velocity;
+                rb2d.position = savedStates[target].position;  // Use this if needed, generally not unless experiencing odd behaviors
             }
 
+            // Enable any scripts that were disabled
             var enemyAI = target.GetComponent<MovingPlatform>();
             if (enemyAI != null)
-            {
-                enemyAI.enabled = true; // Resume the script
-            }
-            
+                enemyAI.enabled = true;
             var enemyAI1 = target.GetComponent<MovingObstacles>();
             if (enemyAI1 != null)
-            {
-                enemyAI1.enabled = true; // Resume the script
-            }
+                enemyAI1.enabled = true;
         }
+
 
         canFreezeTime = true;
     }
