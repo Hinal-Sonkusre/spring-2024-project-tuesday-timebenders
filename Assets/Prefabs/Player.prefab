@@ -91,6 +91,9 @@ MonoBehaviour:
   tr: {fileID: 0}
   isOnPlatform: 0
   platformRb: {fileID: 0}
+  canFreezeTime: 0
+  timeFreezeDuration: 3
+  freezeTargets: []
 --- !u!114 &101700500540343334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commands: []
   currentCommandIndex: 0
+  isOnPlatform: 0
+  platformRb: {fileID: 0}
 --- !u!58 &-9041413624013956770
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -7,13 +7,17 @@ public class Collectible : MonoBehaviour
 {
     public int value = 1;
     [SerializeField] public List<Text> ListofText; // Changed to a list of Text objects
-    public GameObject canvasPrefab;
+    [SerializeField] public List<GameObject> ListofCanvas; // Changed to a list of Canvas objects
 
     private void Start()
     {
         foreach (var dash in ListofText)
         {
             dash.enabled = false;
+        }
+        foreach (var canvas in ListofCanvas)
+        {
+            canvas.SetActive(false);
         }
     }
 
@@ -29,6 +33,10 @@ public class Collectible : MonoBehaviour
                 foreach (var dash in ListofText)
                 {
                     dash.enabled = true;
+                }
+                foreach (var canvas in ListofCanvas)
+                {
+                    canvas.SetActive(true);
                 }
             }
             //Collect();
