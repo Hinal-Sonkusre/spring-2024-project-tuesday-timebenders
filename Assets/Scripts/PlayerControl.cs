@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
     public AnalyticsScript analyticsScript;
@@ -36,6 +37,9 @@ public class PlayerControl : MonoBehaviour {
 
     public bool canFreezeTime = false;
     public float timeFreezeDuration = 3f;
+    public Image imageCooldown; // Reference to the Image component for the cooldown
+    private bool isCooldown = false;
+    private float cooldownDuration = 6f;
     [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
 
     [System.Serializable]
@@ -48,10 +52,11 @@ public class PlayerControl : MonoBehaviour {
     private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
 
 
-    public void EnableTimeFreeze()
-    {
-        canFreezeTime = true;
-    }
+public void EnableTimeFreeze()
+{
+    canFreezeTime = true;
+}
+
 
     // public bool isOnPlatform;
     // public Rigidbody2D platformRb;
@@ -82,13 +87,32 @@ public class PlayerControl : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         }
-
+        if (isCooldown)
+        {
+            imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
+            if (imageCooldown.fillAmount <= 0)
+            {
+                imageCooldown.fillAmount = 0;
+                isCooldown = false;
+            }
+        }
         HandleJump();
         HandleDash();
-        if (Input.GetKeyDown(KeyCode.F) && canFreezeTime)
+    if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown)
+    {
+        StartCoroutine(FreezeTimeRoutine());
+        isCooldown = true;
+        imageCooldown.fillAmount = 1; // Start the cooldown UI as full
+    }
+    if (isCooldown)
+    {
+        imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
+        if (imageCooldown.fillAmount <= 0)
         {
-            StartCoroutine(FreezeTimeRoutine());
+            imageCooldown.fillAmount = 0;
+            isCooldown = false; // Allow ability to be used again
         }
+    }
     }
 
 private void FixedUpdate() {
@@ -185,7 +209,6 @@ private void FixedUpdate() {
     IEnumerator FreezeTimeRoutine()
     {
         canFreezeTime = false;
-
         // Assuming freezeTargets is a List of GameObjects you want to freeze
         foreach (GameObject target in freezeTargets)
         {
@@ -204,7 +227,6 @@ private void FixedUpdate() {
                 rb2d.isKinematic = true;
                 rb2d.velocity = Vector2.zero;
             }
-
             // Disable any relevant scripts as before
             var enemyAI = target.GetComponent<MovingPlatform>();
             if (enemyAI != null)
@@ -245,8 +267,9 @@ private void FixedUpdate() {
                 enemyAI2.enabled = true;
         }
 
-
         canFreezeTime = true;
+        isCooldown = false; // Reset cooldown flag
+        imageCooldown.fillAmount = 0;
     }
 
 
