@@ -2703,7 +2703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: TTLimit
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3053,6 +3053,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1706007831015658989, guid: 3d680963265434f77b7345e2e4616174, type: 3}
+      propertyPath: TTLimit
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2141646609440460825, guid: 3d680963265434f77b7345e2e4616174, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -68
