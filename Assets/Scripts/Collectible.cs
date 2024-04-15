@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class Collectible : MonoBehaviour
 {
     public int value = 1;
-    [SerializeField] public List<Text> ListofText; // Changed to a list of Text objects
-    [SerializeField] public List<GameObject> ListofCanvas; // Changed to a list of Canvas objects
+    [SerializeField] private List<Text> ListofText; // Assuming these are UI elements to enable/disable
+    [SerializeField] private List<GameObject> ListofCanvas; // Assuming these are UI elements to enable/disable
 
     private void Start()
     {
-        foreach (var dash in ListofText)
+        // Initially disable all UI elements related to abilities
+        foreach (var text in ListofText)
         {
-            dash.enabled = false;
+            text.enabled = false;
         }
         foreach (var canvas in ListofCanvas)
         {
@@ -26,26 +27,32 @@ public class Collectible : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerControl playerControl = collision.gameObject.GetComponent<PlayerControl>();
-            if (playerControl != null)
+            if (playerControl == null) return;
+
+            // Check the tag of this collectible and perform action accordingly
+            if (gameObject.CompareTag("TimeFreeze"))
+            {
+                playerControl.EnableTimeFreeze();
+                Debug.Log("Time Freeze Enabled!");
+            }
+            else if (gameObject.CompareTag("Dash"))
             {
                 playerControl.dashAbility = true;
                 Debug.Log("Dash Ability Enabled!");
-                foreach (var dash in ListofText)
+
+                // Enable related UI elements
+                foreach (var text in ListofText)
                 {
-                    dash.enabled = true;
+                    text.enabled = true;
                 }
                 foreach (var canvas in ListofCanvas)
                 {
                     canvas.SetActive(true);
                 }
             }
-            //Collect();
+
+            // After enabling the ability, destroy this collectible
             Destroy(gameObject);
         }
     }
-
-    //void Collect()
-    //{
-    //    Debug.Log("Collectible Collected!");
-    //}
 }

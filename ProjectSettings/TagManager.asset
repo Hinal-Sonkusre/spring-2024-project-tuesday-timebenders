@@ -12,6 +12,7 @@ TagManager:
   - TagA
   - Clone
   - Canvas
+  - TimeFreeze
   layers:
   - Default
   - TransparentFX
