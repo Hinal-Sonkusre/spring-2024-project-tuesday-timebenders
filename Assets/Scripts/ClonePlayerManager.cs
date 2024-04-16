@@ -79,6 +79,15 @@ public class ClonePlayerManager : MonoBehaviour
             List<ActionCommand> commandsForClone = playerControl.commandSessions[spawnTimes - 1]; // Adjust for zero-based index
 
             clonePlayerInstance = Instantiate(clonePlayerPrefab, cloneSpawnPoint.position, Quaternion.identity);
+            Debug.Log("Clone created with tag: " + clonePlayerInstance.tag);
+
+            clonePlayerInstance.tag = "Clone " + spawnTimes;
+            Debug.Log("Tag set to " + clonePlayerInstance.tag);
+
+            // Assign the layer based on spawnTimes
+            string layerName = "Clone " + spawnTimes;
+            clonePlayerInstance.layer = LayerMask.NameToLayer(layerName);
+            
             AutoPlayerControl autoControl = clonePlayerInstance.GetComponent<AutoPlayerControl>();
             if (autoControl != null) 
             {

@@ -13,6 +13,9 @@ TagManager:
   - Clone
   - Canvas
   - TimeFreeze
+  - Clone 1
+  - Clone 2
+  - Clone 3
   layers:
   - Default
   - TransparentFX
@@ -21,10 +24,10 @@ TagManager:
   - Water
   - UI
   - Ground
-  - player
-  - 
-  - 
-  - 
+  - Player
+  - Clone 1
+  - Clone 2
+  - Clone 3
   - 
   - 
   - 
