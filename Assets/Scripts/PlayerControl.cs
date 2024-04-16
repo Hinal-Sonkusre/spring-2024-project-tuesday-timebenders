@@ -40,7 +40,14 @@ public class PlayerControl : MonoBehaviour {
     public Image imageCooldown; // Reference to the Image component for the cooldown
     private bool isCooldown = false;
     private float cooldownDuration = 6f;
+
     [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
+
+    private bool isTimeFrozen = false;
+
+    private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
+    private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+
 
     [System.Serializable]
     public class RigidbodyState
@@ -49,14 +56,13 @@ public class PlayerControl : MonoBehaviour {
         public Vector2 position;
         public bool isKinematic;
     }
-    private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
 
 
-public void EnableTimeFreeze()
-{
-    canFreezeTime = true;
-}
 
+    public void EnableTimeFreeze()
+    {
+        canFreezeTime = true;
+    }
 
     // public bool isOnPlatform;
     // public Rigidbody2D platformRb;
@@ -69,6 +75,10 @@ public void EnableTimeFreeze()
         actionStartTime = Time.time;
         lastRecordedPosition = rb.position;
         StartNewCommandSession(); // Start the first command session.
+        foreach (GameObject obj in freezeTargets) 
+        {
+            originalPositions[obj] = obj.transform.position;
+        }
     }
 
     void Update() {
@@ -104,6 +114,10 @@ public void EnableTimeFreeze()
         isCooldown = true;
         imageCooldown.fillAmount = 1; // Start the cooldown UI as full
     }
+    if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
+        {
+            ResetPositionsAndUnfreeze();
+        }
     if (isCooldown)
     {
         imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
@@ -209,6 +223,8 @@ private void FixedUpdate() {
     IEnumerator FreezeTimeRoutine()
     {
         canFreezeTime = false;
+        isTimeFrozen = true;
+
         // Assuming freezeTargets is a List of GameObjects you want to freeze
         foreach (GameObject target in freezeTargets)
         {
@@ -227,6 +243,7 @@ private void FixedUpdate() {
                 rb2d.isKinematic = true;
                 rb2d.velocity = Vector2.zero;
             }
+
             // Disable any relevant scripts as before
             var enemyAI = target.GetComponent<MovingPlatform>();
             if (enemyAI != null)
@@ -267,10 +284,53 @@ private void FixedUpdate() {
                 enemyAI2.enabled = true;
         }
 
+        isTimeFrozen =false;
         canFreezeTime = true;
         isCooldown = false; // Reset cooldown flag
         imageCooldown.fillAmount = 0;
     }
+
+    private void ResetPositionsAndUnfreeze() 
+        {
+            foreach (GameObject target in freezeTargets) 
+            {
+                if (originalPositions.ContainsKey(target)) 
+                {
+                    // Reset the position to its original stored position
+                    target.transform.position = originalPositions[target];
+                }
+                // Re-enable any disabled components
+                EnableComponents(target);
+            }
+
+            // Ensure that time freeze is marked as not active
+            isTimeFrozen = false;
+        }
+
+        private void EnableComponents(GameObject target) 
+        {
+            // Re-enable the Rigidbody if previously disabled
+            var rb2d = target.GetComponent<Rigidbody2D>();
+            if (rb2d != null) 
+            {
+                rb2d.isKinematic = savedStates[target].isKinematic;
+            }
+
+            // Re-enable scripts or components
+            var enemyAI = target.GetComponent<MovingPlatform>();
+            if (enemyAI != null)
+                enemyAI.enabled = true;
+
+            var enemyAI1 = target.GetComponent<MovingObstacles>();
+            if (enemyAI1 != null)
+                enemyAI1.enabled = true;
+
+            var enemyAI2 = target.GetComponent<Elevator>();
+            if (enemyAI2 != null)
+                enemyAI2.enabled = true;
+        }
+
+
 
 
     void RecordDash() {
