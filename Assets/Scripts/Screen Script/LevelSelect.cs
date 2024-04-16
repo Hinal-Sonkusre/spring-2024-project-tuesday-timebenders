@@ -51,4 +51,34 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene("Level 6");
         Time.timeScale = 1f; // Resume the game
     }
+
+    public void GoToLevel7()
+    {
+        SceneManager.LoadScene("Level 7");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel8()
+    {
+        SceneManager.LoadScene("Level 8");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel9()
+    {
+        SceneManager.LoadScene("Level 9");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel10()
+    {
+        SceneManager.LoadScene("Level 10");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel11()
+    {
+        SceneManager.LoadScene("Level 11");
+        Time.timeScale = 1f; // Resume the game
+    }
 }
