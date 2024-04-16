@@ -16,6 +16,9 @@ public class ClonePlayerManager : MonoBehaviour
     private TMP_Text cloneTextInstance; // Reference to the instantiated clone text
     private List<TMP_Text> cloneTextInstances = new List<TMP_Text>();
 
+    private PauseMenu pauseMenu;
+    private PauseMenuforTutorial pauseMenuforTutorial;
+    private NextLevelTrigger nextLevelTrigger;
 
     public int timeTravelLimit = 3; 
     public int spawnTimes = 0;
@@ -33,6 +36,9 @@ public class ClonePlayerManager : MonoBehaviour
             timeTravelText.text = "X " + (timeTravelLimit - timeTravelTimes).ToString();
             Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
         }
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        pauseMenuforTutorial = FindObjectOfType<PauseMenuforTutorial>();
+        nextLevelTrigger = FindObjectOfType<NextLevelTrigger>();
     }
 
     void Update()
@@ -41,7 +47,9 @@ public class ClonePlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             PlayerControl playerControl = mainPlayer.GetComponent<PlayerControl>();
-            if (playerControl != null && !playerControl.isDashing)
+            if (playerControl != null && !playerControl.isDashing &&
+                ((pauseMenu != null && !pauseMenu.isPaused) || (pauseMenuforTutorial != null && !pauseMenuforTutorial.isPaused)) &&
+                (nextLevelTrigger != null && !nextLevelTrigger.isCompleted))
             {
                 CreateClonePlayer();
             }

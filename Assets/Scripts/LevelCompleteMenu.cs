@@ -7,6 +7,8 @@ public class NextLevelTrigger : MonoBehaviour
     [SerializeField] private GameObject nextLevelMenu;
     private PauseMenu pauseMenu; // Reference to the PauseMenu script
 
+    public bool isCompleted = false;
+
     void Start()
     {
         pauseMenu = FindObjectOfType<PauseMenu>(); // Find the PauseMenu script
@@ -26,6 +28,8 @@ public class NextLevelTrigger : MonoBehaviour
             {
                 pauseMenu.pauseMenu.SetActive(false);
             }
+
+            isCompleted = true;
         }
     }
 

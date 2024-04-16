@@ -2943,6 +2943,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 749467358}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: mainPlayer
       value: 
       objectReference: {fileID: 449491953}

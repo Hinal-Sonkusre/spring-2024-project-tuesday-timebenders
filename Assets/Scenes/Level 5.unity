@@ -266,6 +266,7 @@ MonoBehaviour:
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 275110839}
   starDisplay: {fileID: 209698399}
+  pauseMenu: {fileID: 619394800}
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0

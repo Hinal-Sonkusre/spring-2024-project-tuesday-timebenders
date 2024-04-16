@@ -2021,6 +2021,7 @@ MonoBehaviour:
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1645986718}
   starDisplay: {fileID: 374987479771778242}
+  pauseMenu: {fileID: 932724470}
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
