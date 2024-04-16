@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4536905450310070942}
   m_Layer: 0
   m_Name: Time Freeze Collectible
-  m_TagString: Dash
+  m_TagString: TimeFreeze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,6 +10,7 @@ public class Elevator : MonoBehaviour
     private Rigidbody2D rb2d;
     private int playerCount = 0;
     private bool isMoving = false;
+    private ClonePlayerManager cloneManager;
 
     private void Awake()
     {
@@ -17,39 +18,37 @@ public class Elevator : MonoBehaviour
         targetPos = posA.position; // Start at position A
     }
 
-private void Update()
-{
-    if (playerCount >= 1)
+    private void Update()
     {
-        // Start moving towards position B
-        targetPos = posB.position;
-        if (!isMoving)
+        if (playerCount >= 1)
         {
-            isMoving = true;
+            // Start moving towards position B
+            targetPos = posB.position;
+            if (!isMoving)
+            {
+                isMoving = true;
+            }
+        }
+        else if (playerCount < 1)
+        {
+            // Start moving back towards the start position
+            targetPos = posA.position;
+            if (!isMoving)
+            {
+                isMoving = true;
+            }
+        }
+
+        if (isMoving)
+        {
+            MovePlatform();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ResetPlatform();
         }
     }
-    else if (playerCount < 1)
-    {
-        // Start moving back towards the start position
-        targetPos = posA.position;
-        if (!isMoving)
-        {
-            isMoving = true;
-        }
-    }
-
-    if (isMoving)
-    {
-        MovePlatform();
-    }
-            // if (Input.GetKeyDown(KeyCode.T))
-        // {
-        //     ResetPlatform();
-        // }
-}
-
-
-
 
     private void FixedUpdate()
     {
@@ -64,19 +63,19 @@ private void Update()
         }
     }
 
-private void MovePlatform()
-{
-    if (Vector2.Distance(transform.position, targetPos) < 0.05f)
+    private void MovePlatform()
     {
-        isMoving = false;
-        rb2d.velocity = Vector2.zero; // Stop the platform
+        if (Vector2.Distance(transform.position, targetPos) < 0.05f)
+        {
+            isMoving = false;
+            rb2d.velocity = Vector2.zero; // Stop the platform
+        }
+        else
+        {
+            Vector3 moveDirection = (targetPos - transform.position).normalized;
+            rb2d.velocity = moveDirection * speed;
+        }
     }
-    else
-    {
-        Vector3 moveDirection = (targetPos - transform.position).normalized;
-        rb2d.velocity = moveDirection * speed;
-    }
-}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
