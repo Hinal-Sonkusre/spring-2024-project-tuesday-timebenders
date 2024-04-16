@@ -34,6 +34,16 @@ public class Collectible : MonoBehaviour
             {
                 playerControl.EnableTimeFreeze();
                 Debug.Log("Time Freeze Enabled!");
+
+                // Enable related UI elements
+                foreach (var text in ListofText)
+                {
+                    text.enabled = true;
+                }
+                foreach (var canvas in ListofCanvas)
+                {
+                    canvas.SetActive(true);
+                }
             }
             else if (gameObject.CompareTag("Dash"))
             {
