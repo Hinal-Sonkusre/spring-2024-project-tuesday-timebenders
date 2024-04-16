@@ -63,7 +63,23 @@ public class NextLevelTrigger : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level 6")
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Level 7");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 7")
+        {
+            SceneManager.LoadScene("Level 8");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 8")
+        {
+            SceneManager.LoadScene("Level 9");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 9")
+        {
+            SceneManager.LoadScene("Level 10");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 10")
+        {
+            SceneManager.LoadScene("Level 11");
         }
         Time.timeScale = 1f; // Resume the game
     }
@@ -134,6 +150,46 @@ public class NextLevelTrigger : MonoBehaviour
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
             analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
             SceneManager.LoadScene("Level 6");
+        }
+         else if (SceneManager.GetActiveScene().name == "Level 7")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 7");
+        }
+         else if (SceneManager.GetActiveScene().name == "Level 8")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 8");
+        }
+         else if (SceneManager.GetActiveScene().name == "Level 9")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 9");
+        }
+         else if (SceneManager.GetActiveScene().name == "Level 10")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 10");
+        }
+         else if (SceneManager.GetActiveScene().name == "Level 11")
+        {
+            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
+            string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
+            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
+            analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart After Completion");
+            SceneManager.LoadScene("Level 11");
         }
         Time.timeScale = 1f; // Resume the game
     }

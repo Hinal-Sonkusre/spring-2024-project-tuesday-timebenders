@@ -1953,6 +1953,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 384238437912355216, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 356
+      objectReference: {fileID: 0}
+    - target: {fileID: 384238437912355216, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 233
+      objectReference: {fileID: 0}
     - target: {fileID: 428146602109437708, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1965,6 +1973,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1687037296133488043, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: nextLevelMenu
+      value: 
+      objectReference: {fileID: 1427949553}
     - target: {fileID: 2624341544179029340, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 233

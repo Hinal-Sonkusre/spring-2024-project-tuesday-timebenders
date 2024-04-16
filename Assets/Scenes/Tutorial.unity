@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1687037296133488043, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: nextLevelMenu
+      value: 
+      objectReference: {fileID: 522298792}
     - target: {fileID: 5065338887250798009, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: m_Name
       value: UI Texts
@@ -371,7 +375,7 @@ MonoBehaviour:
   timeTravelTimes: 0
   timeTravelText: {fileID: 27734284}
   cloneTextPrefab: {fileID: 5630332135292843942, guid: 28b15c9371092430f976a897166de6c0, type: 3}
-  globalVolume: {fileID: 1313967777}
+  globalVolume: {fileID: 1430398643}
 --- !u!1 &112324889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1229,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2307,7 +2311,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88aaa02daa86141c09b3bb3917530286, type: 3}
---- !u!1001 &1313967776
+--- !u!1001 &1430398642
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2364,10 +2368,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
---- !u!114 &1313967777 stripped
+--- !u!114 &1430398643 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8067557950679528286, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-  m_PrefabInstance: {fileID: 1313967776}
+  m_PrefabInstance: {fileID: 1430398642}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -3370,6 +3374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e6e68d52d734b5192ede487e7533c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  analyticsScript: {fileID: 0}
+  nextLevelMenu: {fileID: 0}
 --- !u!114 &2016672303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3667,4 +3673,4 @@ SceneRoots:
   - {fileID: 1201651033}
   - {fileID: 522298791}
   - {fileID: 251920811}
-  - {fileID: 1313967776}
+  - {fileID: 1430398642}
