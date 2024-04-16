@@ -3014,6 +3014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElevatorPlatform 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7290909281669927987, guid: 5f562558320c34c04a414170ae672140, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
