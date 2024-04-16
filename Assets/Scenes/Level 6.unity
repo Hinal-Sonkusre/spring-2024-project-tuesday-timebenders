@@ -1413,85 +1413,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 470932258}
   nextLevelMenu: {fileID: 0}
   isPaused: 0
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
---- !u!1001 &751342096
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.431371
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1515901
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.257884
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3400320718459553032, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316107307499342709, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-      propertyPath: m_Name
-      value: Global Volume
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
---- !u!114 &751342097 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8067557950679528286, guid: 386b03cdba5c641fdbb25df9fa4070c3, type: 3}
-  m_PrefabInstance: {fileID: 751342096}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &855383374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6961522479642919686, guid: 5c9dff5f5af754ce395e1fef2b146c6e, type: 3}
-  m_PrefabInstance: {fileID: 1588994461}
-  m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> a02b7098daf28c3f43f66aeb00914798ad4a0c87
->>>>>>> Stashed changes
 --- !u!1001 &988073561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2606,7 +2527,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2978,10 +2899,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 306510562}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
-      propertyPath: globalVolume
-      value: 
-      objectReference: {fileID: 751342097}
-    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelText
       value: 
       objectReference: {fileID: 612411185}
@@ -3178,12 +3095,4 @@ SceneRoots:
   - {fileID: 639323184}
   - {fileID: 2055952604}
   - {fileID: 1340754300}
-<<<<<<< Updated upstream
   - {fileID: 616064304}
-=======
-<<<<<<< HEAD
-  - {fileID: 751342096}
-=======
-  - {fileID: 616064304}
->>>>>>> a02b7098daf28c3f43f66aeb00914798ad4a0c87
->>>>>>> Stashed changes
