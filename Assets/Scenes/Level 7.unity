@@ -2102,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2713782529144802710, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
       propertyPath: ListofText.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2713782529144802710, guid: 6cb51aa323e4c406fb92ef04a03602fe, type: 3}
       propertyPath: ListofText.Array.data[0]
