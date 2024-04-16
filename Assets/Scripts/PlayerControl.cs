@@ -274,10 +274,17 @@ private void FixedUpdate() {
         // }
 
         yield return new WaitForSecondsRealtime(timeFreezeDuration);
-        if (isTimeFrozen)  // Only reset if still frozen
+    foreach (GameObject target in freezeTargets)
+    {
+        var rb2d = target.GetComponent<Rigidbody2D>();
+        if (rb2d != null && savedStates.ContainsKey(target))
         {
-            ResetPositionsAndUnfreeze();
+            // Instead of resetting positions, we restore velocity and kinematic state
+            rb2d.isKinematic = savedStates[target].isKinematic;
+            rb2d.velocity = savedStates[target].velocity;
         }
+        EnableComponents(target);
+    }
         isTimeFrozen = false;
         canFreezeTime = true;
         if (!manualResetPerformed)  // Only reset cooldown if no manual reset has been performed
