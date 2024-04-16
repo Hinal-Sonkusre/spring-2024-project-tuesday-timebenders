@@ -2423,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 495277658}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: platformsAppear.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4033277649237315244, guid: 2b837fe7481264091984e44b12ad896b, type: 3}
       propertyPath: platformsAppear.Array.data[0]
