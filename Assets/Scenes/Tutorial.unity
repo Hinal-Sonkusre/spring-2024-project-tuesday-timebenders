@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1687037296133488043, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: nextLevelMenu
+      value: 
+      objectReference: {fileID: 522298792}
     - target: {fileID: 5065338887250798009, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: m_Name
       value: UI Texts
@@ -371,6 +375,7 @@ MonoBehaviour:
   timeTravelTimes: 0
   timeTravelText: {fileID: 27734284}
   cloneTextPrefab: {fileID: 5630332135292843942, guid: 28b15c9371092430f976a897166de6c0, type: 3}
+  globalVolume: {fileID: 0}
 --- !u!1 &112324889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e6e68d52d734b5192ede487e7533c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  analyticsScript: {fileID: 0}
+  nextLevelMenu: {fileID: 0}
 --- !u!114 &2016672303
 MonoBehaviour:
   m_ObjectHideFlags: 0
