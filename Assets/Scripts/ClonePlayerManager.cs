@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class ClonePlayerManager : MonoBehaviour
 {
@@ -23,6 +25,9 @@ public class ClonePlayerManager : MonoBehaviour
 
     public UnityEngine.UI.Text timeTravelText;
     public TMP_Text cloneTextPrefab;
+    public Volume globalVolume;
+    private ColorAdjustments colorAdjustments;
+    private Vignette vignette; 
 
     void Start() {
         // Add code to increment spawn times for the initial spawn
@@ -32,6 +37,15 @@ public class ClonePlayerManager : MonoBehaviour
         {
             timeTravelText.text = "X " + (timeTravelLimit - timeTravelTimes).ToString();
             Debug.Log("Time travel occurred, timeTravelTimes: " + timeTravelTimes);
+        }
+        if (globalVolume.profile.TryGet(out colorAdjustments)) {
+            // You can set the initial exposure or other settings here if needed
+            // For example, set it to a baseline bright level that you'll decrease from
+            colorAdjustments.postExposure.value = 0;
+            // vignette.intensity.value = 0.00001f;
+        }
+        if (globalVolume.profile.TryGet(out vignette)) {
+            vignette.intensity.value = 0.00001f;
         }
     }
 
@@ -121,6 +135,7 @@ public class ClonePlayerManager : MonoBehaviour
             
         // Increment the time travel times
         timeTravelTimes++;
+        AdjustPostProcessing(timeTravelTimes);
         playerControl.StartNewCommandSession();
 
         // Update the time travel text after a clone is created
@@ -135,5 +150,19 @@ public class ClonePlayerManager : MonoBehaviour
         Debug.Log("Clone created, spawnTimes: " + spawnTimes);
 
          starDisplay.SetStarDisplay(timeTravelTimes);
+    }
+        void AdjustPostProcessing(int times)
+    {
+        // Adjust the post-exposure to make the scene darker with each time travel
+        if (colorAdjustments != null) {
+            // Linearly decrease the exposure based on the number of time travels
+            float newExposureValue = -0.5f * times;  // Adjust this factor based on desired dimming intensity
+            colorAdjustments.postExposure.value = newExposureValue;
+        }
+        if (vignette != null)
+        {
+            float newVignetteValue = 0.15f * times;
+            vignette.intensity.value = newVignetteValue;
+        }
     }
 }
