@@ -1017,7 +1017,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4740355319738089940, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1394952893}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5324492757326439907, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
       insertIndex: -1
@@ -1029,7 +1032,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 922189518}
     m_Modifications:
     - target: {fileID: 818275017798436248, guid: 1ac56d40cefc74a2584b3a4220d40d3d, type: 3}
       propertyPath: m_SortingOrder
@@ -1045,11 +1048,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1854878681587957454, guid: 1ac56d40cefc74a2584b3a4220d40d3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.210001
+      value: -0.32999992
       objectReference: {fileID: 0}
     - target: {fileID: 1854878681587957454, guid: 1ac56d40cefc74a2584b3a4220d40d3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.29
+      value: 0.78999996
       objectReference: {fileID: 0}
     - target: {fileID: 1854878681587957454, guid: 1ac56d40cefc74a2584b3a4220d40d3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1211,6 +1214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 5
   moveSpeed: 2
+--- !u!4 &922189518 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4740355319738089940, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+  m_PrefabInstance: {fileID: 711531447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &930392157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,6 +1700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1394952893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1854878681587957454, guid: 1ac56d40cefc74a2584b3a4220d40d3d, type: 3}
+  m_PrefabInstance: {fileID: 853300414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1412492054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3295,7 +3308,6 @@ SceneRoots:
   - {fileID: 108268167}
   - {fileID: 1936762631}
   - {fileID: 1074927867}
-  - {fileID: 853300414}
   - {fileID: 711531447}
   - {fileID: 930392157}
   - {fileID: 1744209405}
