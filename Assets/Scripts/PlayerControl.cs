@@ -44,6 +44,8 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
 
     private bool isTimeFrozen = false;
+    private bool manualResetPerformed = false;
+
 
     private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
     private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
@@ -114,6 +116,7 @@ public class PlayerControl : MonoBehaviour {
         isCooldown = true;
         imageCooldown.fillAmount = 1; // Start the cooldown UI as full
     }
+    HandleManualReset();
     if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
         {
             ResetPositionsAndUnfreeze();
@@ -142,7 +145,20 @@ private void FixedUpdate() {
     }
 }
 
-
+    private void HandleManualReset()
+    {
+        if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
+        {
+            ResetPositionsAndUnfreeze();
+            ResetCooldown();  // Reset the cooldown and update the UI
+            manualResetPerformed = true;  // Mark that a manual reset has been performed
+        }
+    }
+    private void ResetCooldown()
+    {
+        isCooldown = false;
+        imageCooldown.fillAmount = 0;
+    }
     public void StartNewCommandSession() {
         currentSessionIndex++;
         commandSessions.Add(new List<ActionCommand>());
@@ -224,88 +240,115 @@ private void FixedUpdate() {
     {
         canFreezeTime = false;
         isTimeFrozen = true;
+        manualResetPerformed = false;
 
         // Assuming freezeTargets is a List of GameObjects you want to freeze
-        foreach (GameObject target in freezeTargets)
+    foreach (GameObject target in freezeTargets)
+    {
+        var rb2d = target.GetComponent<Rigidbody2D>();
+        if (rb2d != null)
         {
-            var rb2d = target.GetComponent<Rigidbody2D>();
-            if (rb2d != null)
+            savedStates[target] = new RigidbodyState()
             {
-                // Save the current state
-                savedStates[target] = new RigidbodyState()
-                {
-                    velocity = rb2d.velocity,
-                    position = rb2d.position,
-                    isKinematic = rb2d.isKinematic
-                };
-
-                // Stop physics affecting the body
-                rb2d.isKinematic = true;
-                rb2d.velocity = Vector2.zero;
-            }
-
-            // Disable any relevant scripts as before
-            var enemyAI = target.GetComponent<MovingPlatform>();
-            if (enemyAI != null)
-                enemyAI.enabled = false;
-
-            var enemyAI1 = target.GetComponent<MovingObstacles>();
-            if (enemyAI1 != null)
-                enemyAI1.enabled = false;
-            
-            var enemyAI2 = target.GetComponent<Elevator>();
-            if (enemyAI2 != null)
-                enemyAI2.enabled = false;
+                velocity = rb2d.velocity,
+                position = rb2d.position,
+                isKinematic = rb2d.isKinematic
+            };
+            rb2d.isKinematic = true;
+            rb2d.velocity = Vector2.zero;
         }
+        DisableComponents(target);
+    }
+            // Disable any relevant scripts as before
+        //     var enemyAI = target.GetComponent<MovingPlatform>();
+        //     if (enemyAI != null)
+        //         enemyAI.enabled = false;
+
+        //     var enemyAI1 = target.GetComponent<MovingObstacles>();
+        //     if (enemyAI1 != null)
+        //         enemyAI1.enabled = false;
+            
+        //     var enemyAI2 = target.GetComponent<Elevator>();
+        //     if (enemyAI2 != null)
+        //         enemyAI2.enabled = false;
+        // }
 
         yield return new WaitForSecondsRealtime(timeFreezeDuration);
-
-        // Re-enable the components
-        foreach (GameObject target in freezeTargets)
+    foreach (GameObject target in freezeTargets)
+    {
+        var rb2d = target.GetComponent<Rigidbody2D>();
+        if (rb2d != null && savedStates.ContainsKey(target))
         {
-            var rb2d = target.GetComponent<Rigidbody2D>();
-            if (rb2d != null && savedStates.ContainsKey(target))
-            {
-                // Restore the saved state
-                rb2d.isKinematic = savedStates[target].isKinematic;
-                rb2d.velocity = savedStates[target].velocity;
-                rb2d.position = savedStates[target].position;  // Use this if needed, generally not unless experiencing odd behaviors
-            }
-
-            // Enable any scripts that were disabled
-            var enemyAI = target.GetComponent<MovingPlatform>();
-            if (enemyAI != null)
-                enemyAI.enabled = true;
-            var enemyAI1 = target.GetComponent<MovingObstacles>();
-            if (enemyAI1 != null)
-                enemyAI1.enabled = true;
-            var enemyAI2 = target.GetComponent<Elevator>();
-            if (enemyAI2 != null)
-                enemyAI2.enabled = true;
+            // Instead of resetting positions, we restore velocity and kinematic state
+            rb2d.isKinematic = savedStates[target].isKinematic;
+            rb2d.velocity = savedStates[target].velocity;
         }
-
-        isTimeFrozen =false;
-        canFreezeTime = true;
-        isCooldown = false; // Reset cooldown flag
-        imageCooldown.fillAmount = 0;
+        EnableComponents(target);
     }
+        isTimeFrozen = false;
+        canFreezeTime = true;
+        if (!manualResetPerformed)  // Only reset cooldown if no manual reset has been performed
+    {
+        ResetCooldown();
+    }
+}
+        // Re-enable the components
+        // foreach (GameObject target in freezeTargets)
+        // {
+        //     var rb2d = target.GetComponent<Rigidbody2D>();
+        //     if (rb2d != null && savedStates.ContainsKey(target))
+        //     {
+        //         // Restore the saved state
+        //         rb2d.isKinematic = savedStates[target].isKinematic;
+        //         rb2d.velocity = savedStates[target].velocity;
+        //         rb2d.position = savedStates[target].position;  // Use this if needed, generally not unless experiencing odd behaviors
+        //     }
 
+        //     // Enable any scripts that were disabled
+        //     var enemyAI = target.GetComponent<MovingPlatform>();
+        //     if (enemyAI != null)
+        //         enemyAI.enabled = true;
+        //     var enemyAI1 = target.GetComponent<MovingObstacles>();
+        //     if (enemyAI1 != null)
+        //         enemyAI1.enabled = true;
+        //     var enemyAI2 = target.GetComponent<Elevator>();
+        //     if (enemyAI2 != null)
+        //         enemyAI2.enabled = true;
+        // }
+
+    //     isTimeFrozen =false;
+    //     canFreezeTime = true;
+    //     isCooldown = false; // Reset cooldown flag
+    //     imageCooldown.fillAmount = 0;
+    // }
+    private void DisableComponents(GameObject target)
+    {
+        // Logic to disable necessary components
+        var movingPlatform = target.GetComponent<MovingPlatform>();
+        if (movingPlatform != null)
+            movingPlatform.enabled = false;
+
+        var movingObstacles = target.GetComponent<MovingObstacles>();
+        if (movingObstacles != null)
+            movingObstacles.enabled = false;
+
+        var elevator = target.GetComponent<Elevator>();
+        if (elevator != null)
+            elevator.enabled = false;
+    }
     private void ResetPositionsAndUnfreeze() 
+    {
+        foreach (GameObject target in freezeTargets) 
         {
-            foreach (GameObject target in freezeTargets) 
+            if (originalPositions.ContainsKey(target)) 
             {
-                if (originalPositions.ContainsKey(target)) 
-                {
-                    // Reset the position to its original stored position
-                    target.transform.position = originalPositions[target];
-                }
-                // Re-enable any disabled components
-                EnableComponents(target);
+                target.transform.position = originalPositions[target];
             }
-
-            // Ensure that time freeze is marked as not active
-            isTimeFrozen = false;
+            EnableComponents(target);
         }
+
+        isTimeFrozen = false;
+    }
 
         private void EnableComponents(GameObject target) 
         {
@@ -317,17 +360,17 @@ private void FixedUpdate() {
             }
 
             // Re-enable scripts or components
-            var enemyAI = target.GetComponent<MovingPlatform>();
-            if (enemyAI != null)
-                enemyAI.enabled = true;
+        var movingPlatform = target.GetComponent<MovingPlatform>();
+        if (movingPlatform != null)
+            movingPlatform.enabled = true;
 
-            var enemyAI1 = target.GetComponent<MovingObstacles>();
-            if (enemyAI1 != null)
-                enemyAI1.enabled = true;
+        var movingObstacles = target.GetComponent<MovingObstacles>();
+        if (movingObstacles != null)
+            movingObstacles.enabled = true;
 
-            var enemyAI2 = target.GetComponent<Elevator>();
-            if (enemyAI2 != null)
-                enemyAI2.enabled = true;
+        var elevator = target.GetComponent<Elevator>();
+        if (elevator != null)
+            elevator.enabled = true;
         }
 
 
