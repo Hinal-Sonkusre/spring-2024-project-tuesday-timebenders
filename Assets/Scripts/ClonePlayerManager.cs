@@ -161,7 +161,7 @@ public class ClonePlayerManager : MonoBehaviour
         }
         if (vignette != null)
         {
-            float newVignetteValue = 0.15f * times;
+            float newVignetteValue = 0.116f * times;
             vignette.intensity.value = newVignetteValue;
         }
     }
