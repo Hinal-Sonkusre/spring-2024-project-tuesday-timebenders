@@ -46,6 +46,8 @@ public class PlayerControl : MonoBehaviour {
     private bool isTimeFrozen = false;
     private bool manualResetPerformed = false;
 
+    private PauseMenu pauseMenu;
+    private PauseMenuforTutorial pauseMenuforTutorial;
 
     private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
     private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
@@ -81,6 +83,8 @@ public class PlayerControl : MonoBehaviour {
         {
             originalPositions[obj] = obj.transform.position;
         }
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        pauseMenuforTutorial = FindObjectOfType<PauseMenuforTutorial>();
     }
 
     void Update() {
@@ -193,7 +197,7 @@ private void FixedUpdate() {
 
     void HandleJump() {
         bool jumpKeyPressed = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow);
-        if (jumpKeyPressed && IsGrounded()) {
+        if (jumpKeyPressed && IsGrounded() && ((pauseMenu != null && !pauseMenu.isPaused) || (pauseMenuforTutorial != null && !pauseMenuforTutorial.isPaused))) {
             PerformJump();
         }
     }
