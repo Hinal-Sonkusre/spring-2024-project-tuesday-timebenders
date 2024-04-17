@@ -7,6 +7,8 @@ public class ControlsScreen : MonoBehaviour
 {
     public AnalyticsScript analyticsScript;
     public GameObject nextLevelMenu;
+
+    public int currentLevel;
     public void BackButton()
     {
         SceneManager.LoadScene("Main Menu");
