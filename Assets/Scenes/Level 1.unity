@@ -1607,7 +1607,7 @@ MonoBehaviour:
   timeTravelLimit: 3
   spawnTimes: 0
   timeTravelTimes: 0
-  timeTravelText: {fileID: 0}
+  timeTravelText: {fileID: 1818299758}
   cloneTextPrefab: {fileID: 5630332135292843942, guid: 28b15c9371092430f976a897166de6c0, type: 3}
   globalVolume: {fileID: 110345486}
 --- !u!4 &1456764478
@@ -1894,6 +1894,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5324492757326439907, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
   m_PrefabInstance: {fileID: 1720122404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1818299758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7479255143051628286, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+  m_PrefabInstance: {fileID: 374987479771778241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1943669053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2496,6 +2507,10 @@ PrefabInstance:
     - target: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: TTLimit
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111115654064198503, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
