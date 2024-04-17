@@ -348,6 +348,13 @@ private void FixedUpdate() {
             {
                 target.transform.position = originalPositions[target];
             }
+
+            var movingPlatform = target.GetComponent<MovingPlatform>();
+            if (movingPlatform != null)
+            {
+                movingPlatform.ResetToStart();
+            }
+
             EnableComponents(target);
         }
 

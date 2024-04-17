@@ -22,6 +22,14 @@ public class MovingPlatform : MonoBehaviour
             targetPos = posB.position;
             DirectionCalculate();
         }
+    public void ResetToStart()
+    {
+        transform.position = startPosition; // Reset the position to the initial position
+        rb2d.velocity = Vector2.zero; // Reset the velocity to zero
+        targetPos = posB.position; // Set the target position to posB
+        DirectionCalculate(); // Recalculate the direction
+    }
+
     private void Update()
     {
         if(Vector2.Distance(transform.position, posA.position) < 0.05f)
