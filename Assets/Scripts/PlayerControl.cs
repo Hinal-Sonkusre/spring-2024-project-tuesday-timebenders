@@ -61,17 +61,12 @@ public class PlayerControl : MonoBehaviour {
         public bool isKinematic;
     }
 
-
-
-    public void EnableTimeFreeze()
-    {
+    public void EnableTimeFreeze(){
         canFreezeTime = true;
     }
 
-    // public bool isOnPlatform;
-    // public Rigidbody2D platformRb;
     void Start() {
-        currentLevel = LevelManager.Instance.CurrentLevelNumber; // Assume LevelManager exists.
+        currentLevel = LevelManager.Instance.CurrentLevelNumber;
         Debug.Log(currentLevel);
         analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
         string playerId = FindObjectOfType<PlayerID>().ID;
@@ -79,8 +74,7 @@ public class PlayerControl : MonoBehaviour {
         actionStartTime = Time.time;
         lastRecordedPosition = rb.position;
         StartNewCommandSession(); // Start the first command session.
-        foreach (GameObject obj in freezeTargets) 
-        {
+        foreach (GameObject obj in freezeTargets) {
             originalPositions[obj] = obj.transform.position;
         }
         pauseMenu = FindObjectOfType<PauseMenu>();
@@ -93,64 +87,62 @@ public class PlayerControl : MonoBehaviour {
         if (isDashing) return;
 
         if (Input.GetKeyDown(KeyCode.R)) {
-            if (nextLevelMenu != null && !nextLevelMenu.activeSelf)
-            {
+            if (nextLevelMenu != null && !nextLevelMenu.activeSelf) {
             int currentLevel = LevelManager.Instance.CurrentLevelNumber;
             string playerId = FindObjectOfType<PlayerID>().ID; // Obtain the player ID.
             analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
             analyticsScript.TrackDeathAnalytics(playerId, currentLevel, "Restart In Game");
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
-        }
-        if (isCooldown)
-        {
+
+        if (isCooldown){
             imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
-            if (imageCooldown.fillAmount <= 0)
-            {
+            if (imageCooldown.fillAmount <= 0) {
                 imageCooldown.fillAmount = 0;
                 isCooldown = false;
             }
         }
+
         HandleJump();
         HandleDash();
-    if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown)
-    {
-        StartCoroutine(FreezeTimeRoutine());
-        isCooldown = true;
-        imageCooldown.fillAmount = 1; // Start the cooldown UI as full
-    }
-    HandleManualReset();
-    if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
-        {
+
+        if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown) {
+            StartCoroutine(FreezeTimeRoutine());
+            isCooldown = true;
+            imageCooldown.fillAmount = 1; // Start the cooldown UI as full
+        }
+
+        HandleManualReset();
+
+        if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) {
             ResetPositionsAndUnfreeze();
         }
-    if (isCooldown)
-    {
-        imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
-        if (imageCooldown.fillAmount <= 0)
-        {
-            imageCooldown.fillAmount = 0;
-            isCooldown = false; // Allow ability to be used again
+
+        if (isCooldown){
+            imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
+            if (imageCooldown.fillAmount <= 0){
+                imageCooldown.fillAmount = 0;
+                isCooldown = false; // Allow ability to be used again
+            }
         }
     }
+
+    private void FixedUpdate() {
+        if (isDashing) return;
+
+        float horizontalInput = GetHorizontalInput();
+
+        if (isOnPlatform) {
+            rb.velocity = new Vector2(platformRb.velocity.x + horizontalInput * speed, rb.velocity.y);
+            RecordPositionIfNeeded();
+        } else {
+            HandleMovement();
+        }
     }
 
-private void FixedUpdate() {
-    if (isDashing) return;
-
-    float horizontalInput = GetHorizontalInput();
-// HandleMovement();
-    if (isOnPlatform) {
-        rb.velocity = new Vector2(platformRb.velocity.x + horizontalInput * speed, rb.velocity.y);
-        RecordPositionIfNeeded();
-    } else {
-        HandleMovement();
-    }
-}
-
-    private void HandleManualReset()
-    {
+    private void HandleManualReset() {
         if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
         {
             ResetPositionsAndUnfreeze();
@@ -158,11 +150,12 @@ private void FixedUpdate() {
             manualResetPerformed = true;  // Mark that a manual reset has been performed
         }
     }
-    private void ResetCooldown()
-    {
+
+    private void ResetCooldown() {
         isCooldown = false;
         imageCooldown.fillAmount = 0;
     }
+
     public void StartNewCommandSession() {
         currentSessionIndex++;
         commandSessions.Add(new List<ActionCommand>());
@@ -233,7 +226,7 @@ private void FixedUpdate() {
         rb.gravityScale = 0;
         rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = 4; // Assuming default gravity scale is 1
+        rb.gravityScale = 4;
         isDashing = false;
         tr.emitting = false;
         yield return new WaitForSeconds(dashingCooldown);
@@ -247,84 +240,42 @@ private void FixedUpdate() {
         manualResetPerformed = false;
 
         // Assuming freezeTargets is a List of GameObjects you want to freeze
-    foreach (GameObject target in freezeTargets)
-    {
-        var rb2d = target.GetComponent<Rigidbody2D>();
-        if (rb2d != null)
+        foreach (GameObject target in freezeTargets)
         {
-            savedStates[target] = new RigidbodyState()
+            var rb2d = target.GetComponent<Rigidbody2D>();
+            if (rb2d != null)
             {
-                velocity = rb2d.velocity,
-                position = rb2d.position,
-                isKinematic = rb2d.isKinematic
-            };
-            rb2d.isKinematic = true;
-            rb2d.velocity = Vector2.zero;
+                savedStates[target] = new RigidbodyState()
+                {
+                    velocity = rb2d.velocity,
+                    position = rb2d.position,
+                    isKinematic = rb2d.isKinematic
+                };
+                rb2d.isKinematic = true;
+                rb2d.velocity = Vector2.zero;
+            }
+            DisableComponents(target);
         }
-        DisableComponents(target);
-    }
-            // Disable any relevant scripts as before
-        //     var enemyAI = target.GetComponent<MovingPlatform>();
-        //     if (enemyAI != null)
-        //         enemyAI.enabled = false;
 
-        //     var enemyAI1 = target.GetComponent<MovingObstacles>();
-        //     if (enemyAI1 != null)
-        //         enemyAI1.enabled = false;
-            
-        //     var enemyAI2 = target.GetComponent<Elevator>();
-        //     if (enemyAI2 != null)
-        //         enemyAI2.enabled = false;
-        // }
 
         yield return new WaitForSecondsRealtime(timeFreezeDuration);
-    foreach (GameObject target in freezeTargets)
-    {
-        var rb2d = target.GetComponent<Rigidbody2D>();
-        if (rb2d != null && savedStates.ContainsKey(target))
-        {
-            // Instead of resetting positions, we restore velocity and kinematic state
-            rb2d.isKinematic = savedStates[target].isKinematic;
-            rb2d.velocity = savedStates[target].velocity;
+        foreach (GameObject target in freezeTargets) {
+            var rb2d = target.GetComponent<Rigidbody2D>();
+            if (rb2d != null && savedStates.ContainsKey(target)) {
+                // Instead of resetting positions, we restore velocity and kinematic state
+                rb2d.isKinematic = savedStates[target].isKinematic;
+                rb2d.velocity = savedStates[target].velocity;
+            }
+            EnableComponents(target);
         }
-        EnableComponents(target);
+            isTimeFrozen = false;
+            canFreezeTime = true;
+            if (!manualResetPerformed) {
+            // Only reset cooldown if no manual reset has been performed{
+            ResetCooldown();
+        }
     }
-        isTimeFrozen = false;
-        canFreezeTime = true;
-        if (!manualResetPerformed)  // Only reset cooldown if no manual reset has been performed
-    {
-        ResetCooldown();
-    }
-}
-        // Re-enable the components
-        // foreach (GameObject target in freezeTargets)
-        // {
-        //     var rb2d = target.GetComponent<Rigidbody2D>();
-        //     if (rb2d != null && savedStates.ContainsKey(target))
-        //     {
-        //         // Restore the saved state
-        //         rb2d.isKinematic = savedStates[target].isKinematic;
-        //         rb2d.velocity = savedStates[target].velocity;
-        //         rb2d.position = savedStates[target].position;  // Use this if needed, generally not unless experiencing odd behaviors
-        //     }
 
-        //     // Enable any scripts that were disabled
-        //     var enemyAI = target.GetComponent<MovingPlatform>();
-        //     if (enemyAI != null)
-        //         enemyAI.enabled = true;
-        //     var enemyAI1 = target.GetComponent<MovingObstacles>();
-        //     if (enemyAI1 != null)
-        //         enemyAI1.enabled = true;
-        //     var enemyAI2 = target.GetComponent<Elevator>();
-        //     if (enemyAI2 != null)
-        //         enemyAI2.enabled = true;
-        // }
-
-    //     isTimeFrozen =false;
-    //     canFreezeTime = true;
-    //     isCooldown = false; // Reset cooldown flag
-    //     imageCooldown.fillAmount = 0;
-    // }
     private void DisableComponents(GameObject target)
     {
         // Logic to disable necessary components
@@ -340,6 +291,7 @@ private void FixedUpdate() {
         if (elevator != null)
             elevator.enabled = false;
     }
+
     private void ResetPositionsAndUnfreeze() 
     {
         foreach (GameObject target in freezeTargets) 
@@ -357,20 +309,19 @@ private void FixedUpdate() {
 
             EnableComponents(target);
         }
-
         isTimeFrozen = false;
     }
 
-        private void EnableComponents(GameObject target) 
+    private void EnableComponents(GameObject target) 
+    {
+        // Re-enable the Rigidbody if previously disabled
+        var rb2d = target.GetComponent<Rigidbody2D>();
+        if (rb2d != null) 
         {
-            // Re-enable the Rigidbody if previously disabled
-            var rb2d = target.GetComponent<Rigidbody2D>();
-            if (rb2d != null) 
-            {
-                rb2d.isKinematic = savedStates[target].isKinematic;
-            }
+            rb2d.isKinematic = savedStates[target].isKinematic;
+        }
 
-            // Re-enable scripts or components
+        // Re-enable scripts or components
         var movingPlatform = target.GetComponent<MovingPlatform>();
         if (movingPlatform != null)
             movingPlatform.enabled = true;
@@ -382,7 +333,7 @@ private void FixedUpdate() {
         var elevator = target.GetComponent<Elevator>();
         if (elevator != null)
             elevator.enabled = true;
-        }
+    }
 
 
 
