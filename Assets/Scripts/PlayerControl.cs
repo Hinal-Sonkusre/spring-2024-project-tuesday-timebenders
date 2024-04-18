@@ -352,7 +352,7 @@ private void FixedUpdate() {
             var movingPlatform = target.GetComponent<MovingPlatform>();
             if (movingPlatform != null)
             {
-                movingPlatform.ResetToStart();
+                movingPlatform.ResetPlatform();
             }
 
             EnableComponents(target);

@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class ClonePlayerManager : MonoBehaviour
 {
+    public MovingPlatform movingPlatform;
     private List<GameObject> clonePlayerInstances = new List<GameObject>();
     public GameObject mainPlayer; // Reference to the main player GameObject
     public GameObject clonePlayerPrefab; // Reference to the clone player prefab
@@ -143,6 +144,7 @@ public class ClonePlayerManager : MonoBehaviour
             
         // Increment the time travel times
         timeTravelTimes++;
+        movingPlatform.ResetPlatform(); 
         AdjustPostProcessing(timeTravelTimes);
         playerControl.StartNewCommandSession();
 

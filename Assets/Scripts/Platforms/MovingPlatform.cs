@@ -11,44 +11,32 @@ public class MovingPlatform : MonoBehaviour
     Rigidbody2D rb2d;
     Vector3 moveDirection;
     private Vector3 startPosition;
+
     private void Awake() 
-        {
-        movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-        rb2d = GetComponent<Rigidbody2D>();
-        startPosition = transform.position;
-        }
-    private void Start()
-        {
-            targetPos = posB.position;
-            DirectionCalculate();
-        }
-    public void ResetToStart()
     {
-        transform.position = startPosition; // Reset the position to the initial position
-        rb2d.velocity = Vector2.zero; // Reset the velocity to zero
-        targetPos = posB.position; // Set the target position to posB
-        DirectionCalculate(); // Recalculate the direction
+    movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+    rb2d = GetComponent<Rigidbody2D>();
+    startPosition = transform.position;
+    }
+
+    private void Start()
+    {
+        targetPos = posB.position;
+        DirectionCalculate();
     }
 
     private void Update()
     {
         if(Vector2.Distance(transform.position, posA.position) < 0.05f)
-            {
-                targetPos = posB.position;
-                DirectionCalculate();
-            }
+        {
+            targetPos = posB.position;
+            DirectionCalculate();
+        }
         if(Vector2.Distance(transform.position, posB.position) < 0.05f)
-            {
-                targetPos = posA.position;
-                DirectionCalculate();
-            }
-        if (Input.GetKeyDown(KeyCode.T))
-            {
-                transform.position = startPosition; // Reset the position to the initial position
-                rb2d.velocity = Vector2.zero; // Reset the velocity to zero
-                targetPos = posB.position; // Set the target position to posB
-                DirectionCalculate(); // Recalculate the direction
-            }
+        {
+            targetPos = posA.position;
+            DirectionCalculate();
+        }
     }
 
     private void FixedUpdate()
@@ -58,6 +46,13 @@ public class MovingPlatform : MonoBehaviour
     void DirectionCalculate()
     {
         moveDirection = (targetPos - transform.position).normalized;
+    }
+    public void ResetPlatform()
+    {
+        transform.position = startPosition; // Reset the position to the initial position
+        rb2d.velocity = Vector2.zero; // Reset the velocity to zero
+        targetPos = posB.position; // Set the target position to posB
+        DirectionCalculate(); // Recalculate the direction
     }
 private void OnTriggerEnter2D(Collider2D collision)
 {
