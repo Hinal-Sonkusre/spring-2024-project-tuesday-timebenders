@@ -12,85 +12,75 @@ public class MovingPlatform : MonoBehaviour
     Vector3 moveDirection;
     private Vector3 startPosition;
 
-    private void Awake() 
-    {
-    movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-    rb2d = GetComponent<Rigidbody2D>();
-    startPosition = transform.position;
+    private void Awake() {
+        movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        rb2d = GetComponent<Rigidbody2D>();
+        startPosition = transform.position;
     }
 
-    private void Start()
-    {
+    private void Start() {
         targetPos = posB.position;
         DirectionCalculate();
     }
 
-    private void Update()
-    {
-        if(Vector2.Distance(transform.position, posA.position) < 0.05f)
-        {
+    private void Update() {
+        if(Vector2.Distance(transform.position, posA.position) < 0.05f) {
             targetPos = posB.position;
             DirectionCalculate();
         }
-        if(Vector2.Distance(transform.position, posB.position) < 0.05f)
-        {
+
+        if(Vector2.Distance(transform.position, posB.position) < 0.05f) {
             targetPos = posA.position;
             DirectionCalculate();
         }
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         rb2d.velocity = moveDirection * speed;
     }
-    void DirectionCalculate()
-    {
+
+    void DirectionCalculate() {
         moveDirection = (targetPos - transform.position).normalized;
     }
-    public void ResetPlatform()
-    {
+
+    public void ResetPlatform() {
         transform.position = startPosition; // Reset the position to the initial position
         rb2d.velocity = Vector2.zero; // Reset the velocity to zero
         targetPos = posB.position; // Set the target position to posB
         DirectionCalculate(); // Recalculate the direction
     }
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Player"))
-    {
-        PlayerControl playerControl = collision.GetComponent<PlayerControl>();
-        AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
 
-        if (playerControl != null)
-        {
-            playerControl.isOnPlatform = true;
-            playerControl.platformRb = rb2d;
-        }
-        if (autoPlayerControl != null)
-        {
-            autoPlayerControl.SetPlatformState(true, rb2d);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) {
+            PlayerControl playerControl = collision.GetComponent<PlayerControl>();
+            AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
+
+            if (playerControl != null) {
+                playerControl.isOnPlatform = true;
+                playerControl.platformRb = rb2d;
+            }
+            
+            if (autoPlayerControl != null) {
+                autoPlayerControl.SetPlatformState(true, rb2d);
+            }
         }
     }
-}
 
-private void OnTriggerExit2D(Collider2D collision)
-{
-    if (collision.CompareTag("Player"))
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        PlayerControl playerControl = collision.GetComponent<PlayerControl>();
-        AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
+        if (collision.CompareTag("Player")) {
+            PlayerControl playerControl = collision.GetComponent<PlayerControl>();
+            AutoPlayerControl autoPlayerControl = collision.GetComponent<AutoPlayerControl>();
 
-        if (playerControl != null)
-        {
-            playerControl.isOnPlatform = false;
-        }
-        if (autoPlayerControl != null)
-        {
-            autoPlayerControl.SetPlatformState(false, null);
+            if (playerControl != null) {
+                playerControl.isOnPlatform = false;
+            }
+
+            if (autoPlayerControl != null) {
+                autoPlayerControl.SetPlatformState(false, null);
+            }
         }
     }
-}
-
-
 }
 

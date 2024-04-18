@@ -22,6 +22,7 @@ public class MovingObstacles : MonoBehaviour
         }
 
     }
+    
     private void Start()
     {
         originalPos = transform.position;
@@ -29,33 +30,31 @@ public class MovingObstacles : MonoBehaviour
         pointIndex = 1;
         targetPos = wayPoints[pointIndex].transform.position;
     }
+
     private void Update()
     {
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
-        if (transform.position == targetPos)
-        {
+        if (transform.position == targetPos) {
             NextPoint();
         }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ResetPosition();
-        }
     }
+
     void NextPoint()
     {
-        if (pointIndex == pointCount - 1)
-        {
+        if (pointIndex == pointCount - 1) {
             direction = -1;
         }
-        if (pointIndex == 0)
-        {
+
+        if (pointIndex == 0) {
             direction = 1;
         }
+
         pointIndex += direction;
         targetPos = wayPoints[pointIndex].transform.position;
     }
-        void ResetPosition()
+
+    public void ResetObstacles()
     {
         transform.position = originalPos; // Reset position to the original position
         pointIndex = 1;

@@ -1507,7 +1507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7184297698283177304, guid: a1b9896838e314c1da64b38c27a6a90d, type: 3}
       propertyPath: m_Name
-      value: Spikes (1)
+      value: Static Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2099,17 +2099,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a6b840587d549e898bf19735e3be67, type: 3}
---- !u!114 &1118365876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5443879375460189447, guid: 12a6b840587d549e898bf19735e3be67, type: 3}
-  m_PrefabInstance: {fileID: 1118365875}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389808455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af859fdb633024935a9c20ee21ccfc49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1156486339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2235906874854760083, guid: a83f5e5e63cb54bee8f2ced6b23d9c12, type: 3}
@@ -3319,7 +3308,7 @@ PrefabInstance:
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: movingPlatform
       value: 
-      objectReference: {fileID: 1118365876}
+      objectReference: {fileID: 0}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelText
       value: 
@@ -3328,6 +3317,10 @@ PrefabInstance:
       propertyPath: cloneSpawnPoint
       value: 
       objectReference: {fileID: 1481256920}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: movingObstacles
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelLimit
       value: 3

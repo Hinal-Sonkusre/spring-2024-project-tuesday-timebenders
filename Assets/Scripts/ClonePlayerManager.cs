@@ -8,6 +8,8 @@ using UnityEngine.Rendering.Universal;
 public class ClonePlayerManager : MonoBehaviour
 {
     public MovingPlatform movingPlatform;
+    public MovingObstacles movingObstacles;
+    public Elevator elevator;
     private List<GameObject> clonePlayerInstances = new List<GameObject>();
     public GameObject mainPlayer; // Reference to the main player GameObject
     public GameObject clonePlayerPrefab; // Reference to the clone player prefab
@@ -144,10 +146,34 @@ public class ClonePlayerManager : MonoBehaviour
             
         // Increment the time travel times
         timeTravelTimes++;
-        if (movingPlatform != null) // Check if movingPlatform is not null
+
+        // Get all MovingPlatform instances in the scene
+        MovingPlatform[] movingPlatforms = FindObjectsOfType<MovingPlatform>();
+
+        // Loop through the array and reset each platform
+        foreach (MovingPlatform platform in movingPlatforms)
         {
-            movingPlatform.ResetPlatform(); // Reset the platform
+            platform.ResetPlatform();
         }
+
+        // Get all MovingObstacles instances in the scene
+        MovingObstacles[] movingObstacles = FindObjectsOfType<MovingObstacles>();
+
+        // Loop through the array and reset each obstacle
+        foreach (MovingObstacles obstacle in movingObstacles)
+        {
+            obstacle.ResetObstacles();
+        }
+
+        // Get all Elevator instances in the scene
+        Elevator[] elevators = FindObjectsOfType<Elevator>();
+
+        // Loop through the array and reset each elevator
+        foreach (Elevator elevator in elevators)
+        {
+            elevator.ResetElevator();
+        }
+
         AdjustPostProcessing(timeTravelTimes);
         playerControl.StartNewCommandSession();
 
@@ -162,9 +188,9 @@ public class ClonePlayerManager : MonoBehaviour
         spawnTimes++;
         Debug.Log("Clone created, spawnTimes: " + spawnTimes);
 
-         starDisplay.SetStarDisplay(timeTravelTimes);
+        starDisplay.SetStarDisplay(timeTravelTimes);
     }
-        void AdjustPostProcessing(int times)
+    void AdjustPostProcessing(int times)
     {
         // Adjust the post-exposure to make the scene darker with each time travel
         if (colorAdjustments != null) {

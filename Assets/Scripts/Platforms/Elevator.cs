@@ -43,11 +43,6 @@ public class Elevator : MonoBehaviour
         {
             MovePlatform();
         }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ResetPlatform();
-        }
     }
 
     private void FixedUpdate()
@@ -93,7 +88,7 @@ public class Elevator : MonoBehaviour
         }
     }
 
-    private void ResetPlatform()
+    public void ResetElevator()
     {
         transform.position = posA.position; // Reset the position to position A
         targetPos = posA.position; // Set the target position to posA
