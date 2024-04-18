@@ -1843,6 +1843,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8727261784210451537, guid: 31fa2ba98616e495f9ff4c58f21a35c1, type: 3}
   m_PrefabInstance: {fileID: 457227278}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600298766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 202210586319378505, guid: 31fa2ba98616e495f9ff4c58f21a35c1, type: 3}
+  m_PrefabInstance: {fileID: 457227278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600298761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af859fdb633024935a9c20ee21ccfc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1718862350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2597,6 +2608,10 @@ PrefabInstance:
       propertyPath: globalVolume
       value: 
       objectReference: {fileID: 881548215}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: movingPlatform
+      value: 
+      objectReference: {fileID: 1600298766}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelText
       value: 

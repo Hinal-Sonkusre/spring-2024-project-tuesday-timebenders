@@ -144,7 +144,10 @@ public class ClonePlayerManager : MonoBehaviour
             
         // Increment the time travel times
         timeTravelTimes++;
-        movingPlatform.ResetPlatform(); 
+        if (movingPlatform != null) // Check if movingPlatform is not null
+        {
+            movingPlatform.ResetPlatform(); // Reset the platform
+        }
         AdjustPostProcessing(timeTravelTimes);
         playerControl.StartNewCommandSession();
 
