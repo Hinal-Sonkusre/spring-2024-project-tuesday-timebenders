@@ -52,6 +52,10 @@ public class PlayerControl : MonoBehaviour {
     private Dictionary<GameObject, RigidbodyState> savedStates = new Dictionary<GameObject, RigidbodyState>();
     private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
 
+    [SerializeField] public ClonePlayerManager clonePlayerManager;
+
+    public int timeTravelTimes;
+    public int timeTravelLimit;
 
     [System.Serializable]
     public class RigidbodyState
@@ -63,6 +67,12 @@ public class PlayerControl : MonoBehaviour {
 
     public void EnableTimeFreeze(){
         canFreezeTime = true;
+    }
+    void Awake()
+    {
+        // Now it's safe to reference other components since the GameObject is being initialized
+        clonePlayerManager = FindObjectOfType<ClonePlayerManager>();
+
     }
 
     void Start() {
@@ -83,6 +93,8 @@ public class PlayerControl : MonoBehaviour {
 
     void Update() {
         actionTimer += Time.deltaTime;
+        timeTravelTimes = clonePlayerManager.timeTravelTimes;
+        timeTravelLimit =  clonePlayerManager.timeTravelLimit;
 
         if (isDashing) return;
 
@@ -109,17 +121,11 @@ public class PlayerControl : MonoBehaviour {
         HandleDash();
 
         if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown) {
+            Debug.Log(isTimeFrozen);
             StartCoroutine(FreezeTimeRoutine());
             isCooldown = true;
             imageCooldown.fillAmount = 1; // Start the cooldown UI as full
         }
-
-        HandleManualReset();
-
-        if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) {
-            ResetPositionsAndUnfreeze();
-        }
-
         if (isCooldown){
             imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
             if (imageCooldown.fillAmount <= 0){
@@ -127,6 +133,23 @@ public class PlayerControl : MonoBehaviour {
                 isCooldown = false; // Allow ability to be used again
             }
         }
+
+
+
+        if (timeTravelTimes >= timeTravelLimit)
+        {
+           // Debug.Log("Clone limit reached");
+            return;
+        }
+        else 
+        {
+            if (Input.GetKeyDown(KeyCode.T) && isTimeFrozen) 
+            {   
+                ResetPositionsAndUnfreeze();
+            }
+        }
+
+        HandleManualReset();
     }
 
     private void FixedUpdate() {
