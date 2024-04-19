@@ -366,6 +366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cef0f8407204d1abf477635a21c659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingPlatform: {fileID: 0}
+  movingObstacles: {fileID: 0}
+  elevator: {fileID: 0}
   mainPlayer: {fileID: 418437190}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 275110839}
@@ -3105,6 +3108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   analyticsScript: {fileID: 0}
   nextLevelMenu: {fileID: 0}
+  currentLevel: 0
 --- !u!114 &2016672303
 MonoBehaviour:
   m_ObjectHideFlags: 0
