@@ -1600,6 +1600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cef0f8407204d1abf477635a21c659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingPlatform: {fileID: 0}
+  movingObstacles: {fileID: 0}
+  elevator: {fileID: 0}
   mainPlayer: {fileID: 180306536}
   clonePlayerPrefab: {fileID: 3002110677584309239, guid: dcd5b456dafd74e6dbc88839ee893419, type: 3}
   cloneSpawnPoint: {fileID: 1645986718}
@@ -2251,6 +2254,10 @@ PrefabInstance:
       propertyPath: nextLevelMenu
       value: 
       objectReference: {fileID: 803383718}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: clonePlayerManager
+      value: 
+      objectReference: {fileID: 1456764477}
     - target: {fileID: 3002110677584309239, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: m_Name
       value: Player

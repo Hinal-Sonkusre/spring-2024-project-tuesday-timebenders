@@ -510,6 +510,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1392885448}
     - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
+      propertyPath: clonePlayerManager
+      value: 
+      objectReference: {fileID: 1841552620}
+    - target: {fileID: 2402320668100103811, guid: 08ac76ff1d6cb4ad799d1eb5548a68d7, type: 3}
       propertyPath: freezeTargets.Array.size
       value: 4
       objectReference: {fileID: 0}
