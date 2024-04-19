@@ -23,12 +23,12 @@ public class AutoPlayerControl : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime - 0.01f && shouldMove)
+        if (currentCommandIndex < commands.Count && Time.time >= nextCommandTime && shouldMove)
         {
             ExecuteCommand(commands[currentCommandIndex]);
             currentCommandIndex++; 
             if (currentCommandIndex < commands.Count) {
-                nextCommandTime = Time.time + commands[currentCommandIndex].delay;
+                nextCommandTime = Time.deltaTime + commands[currentCommandIndex].delay;
             } else {
                 shouldMove = false;
             }
@@ -97,7 +97,7 @@ public class AutoPlayerControl : MonoBehaviour
         currentCommandIndex = 0;
         if (commands.Count > 0)
         {
-            nextCommandTime = Time.time + commands[0].delay;
+            nextCommandTime = Time.deltaTime + commands[0].delay;
         }
     }
     public void SetPlatformState(bool isOnPlatform, Rigidbody2D platformRigidbody)
@@ -112,7 +112,7 @@ public class AutoPlayerControl : MonoBehaviour
         shouldMove = true;
         if (commands.Count > 0)
         {
-            nextCommandTime = Time.time + commands[0].delay; // Ensure the first command starts immediately or after its specified delay
+            nextCommandTime = Time.deltaTime + commands[0].delay; // Ensure the first command starts immediately or after its specified delay
         }
     }
 }

@@ -81,7 +81,7 @@ public class PlayerControl : MonoBehaviour {
         analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
         string playerId = FindObjectOfType<PlayerID>().ID;
         analyticsScript.TrackLevelStart(playerId, currentLevel);
-        actionStartTime = Time.time;
+        actionStartTime = Time.deltaTime;
         lastRecordedPosition = rb.position;
         StartNewCommandSession(); // Start the first command session.
         foreach (GameObject obj in freezeTargets) {
