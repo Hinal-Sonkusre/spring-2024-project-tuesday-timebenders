@@ -34,6 +34,8 @@ public class ClonePlayerManager : MonoBehaviour
     public Volume globalVolume;
     private ColorAdjustments colorAdjustments;
     private Vignette vignette; 
+    public AudioSource timeTravelSound; // Reference to the AudioSource component
+    public CameraShake cameraShake;
 
     void Start() {
         // Add code to increment spawn times for the initial spawn
@@ -89,6 +91,14 @@ public class ClonePlayerManager : MonoBehaviour
         {
             Debug.Log("Clone limit reached. Cannot create more clones.");
             return;
+        }
+        if (timeTravelTimes < timeTravelLimit && timeTravelSound != null)
+        {
+            timeTravelSound.Play();  // Play the sound effect
+        }
+        if (cameraShake != null)
+        {
+            StartCoroutine(cameraShake.Shake(0.5f, 0.2f)); // Shake for 0.5 seconds with a magnitude of 0.2
         }
 
         // Check if references are assigned
