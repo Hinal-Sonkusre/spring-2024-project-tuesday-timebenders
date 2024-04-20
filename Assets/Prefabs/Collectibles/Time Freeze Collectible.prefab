@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7284194767763910353}
   - component: {fileID: 700105189761994293}
   - component: {fileID: 4536905450310070942}
+  - component: {fileID: 2141608030984569890}
   m_Layer: 0
   m_Name: Time Freeze Collectible
   m_TagString: TimeFreeze
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 7095666036418905052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: -0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.38113633, y: 0.35070005, z: 0.6665}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.4666667, g: 0.86167145, b: 0.9607843, a: 1}
+  m_Sprite: {fileID: 236863849, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,6 +122,66 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095666036418905052}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.39, y: 2.48}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &4536905450310070942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095666036418905052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949c84f0a0c644b3ebe47345c09652e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
+  ListofText: []
+  ListofCanvas: []
+--- !u!60 &2141608030984569890
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095666036418905052}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -150,27 +211,49 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 2.39, y: 2.48}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
---- !u!114 &4536905450310070942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7095666036418905052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 949c84f0a0c644b3ebe47345c09652e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
-  ListofText: []
-  ListofCanvas: []
+  m_Points:
+    m_Paths:
+    - - {x: 0.79499996, y: -0.96999997}
+      - {x: 0.92499995, y: -0.83}
+      - {x: 1.035, y: -0.69}
+      - {x: 1.145, y: -0.48999998}
+      - {x: 1.175, y: -0.35999998}
+      - {x: 1.1949999, y: -0.26999998}
+      - {x: 1.1949999, y: 0.29}
+      - {x: 1.115, y: 0.55}
+      - {x: 1.025, y: 0.7}
+      - {x: 0.895, y: 0.87}
+      - {x: 0.805, y: 0.95}
+      - {x: 0.645, y: 1.0799999}
+      - {x: 0.445, y: 1.1899999}
+      - {x: 0.255, y: 1.24}
+      - {x: -0.24499999, y: 1.24}
+      - {x: -0.325, y: 1.22}
+      - {x: -0.445, y: 1.18}
+      - {x: -0.59499997, y: 1.11}
+      - {x: -0.675, y: 1.06}
+      - {x: -0.755, y: 1}
+      - {x: -0.895, y: 0.87}
+      - {x: -1.025, y: 0.7}
+      - {x: -1.115, y: 0.55}
+      - {x: -1.175, y: 0.37}
+      - {x: -1.1949999, y: 0.22999999}
+      - {x: -1.1949999, y: -0.28}
+      - {x: -1.165, y: -0.44}
+      - {x: -1.0649999, y: -0.64}
+      - {x: -1.005, y: -0.75}
+      - {x: -0.79499996, y: -0.96999997}
+      - {x: -0.645, y: -1.09}
+      - {x: -0.385, y: -1.2099999}
+      - {x: -0.24499999, y: -1.24}
+      - {x: 0.225, y: -1.24}
+      - {x: 0.315, y: -1.22}
+      - {x: 0.48499998, y: -1.17}
+      - {x: 0.645, y: -1.0799999}
+  m_UseDelaunayMesh: 0
