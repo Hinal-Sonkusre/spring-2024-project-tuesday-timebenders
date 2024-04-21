@@ -57,6 +57,7 @@ public class PlayerControl : MonoBehaviour {
     public int timeTravelTimes;
     public int timeTravelLimit;
     [SerializeField] private AudioSource dashSound;
+    [SerializeField] private AudioSource timeFreezeSound;
 
     [System.Serializable]
     public class RigidbodyState
@@ -263,6 +264,7 @@ public class PlayerControl : MonoBehaviour {
         canFreezeTime = false;
         isTimeFrozen = true;
         manualResetPerformed = false;
+        timeFreezeSound.Play();
 
         // Assuming freezeTargets is a List of GameObjects you want to freeze
         foreach (GameObject target in freezeTargets)
