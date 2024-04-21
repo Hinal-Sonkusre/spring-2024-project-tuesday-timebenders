@@ -1,16 +1,16 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; // Import the TextMeshPro namespace
 
 public class TextSequenceManager : MonoBehaviour
 {
-    public Text firstText;
-    public Text secondText;
-    public Text thirdText;
+    public TextMeshProUGUI firstText;
+    public TextMeshProUGUI secondText;
+    public TextMeshProUGUI thirdText;
     public GameObject playerImg;
-    public Text fourthText;
-    public Text fifthText;
-    public Text sixthText;
+    public TextMeshProUGUI fourthText;
+    public TextMeshProUGUI fifthText;
+    public TextMeshProUGUI sixthText;
     public GameObject flagObject; // Reference to the flag GameObject
     public GameObject blockObject; // Reference to the block GameObject
 
@@ -96,7 +96,7 @@ public class TextSequenceManager : MonoBehaviour
         fourthText.gameObject.SetActive(false);
     }
 
-    IEnumerator DelayedTextActivation(Text textToActivate, float delay)
+    IEnumerator DelayedTextActivation(TextMeshProUGUI textToActivate, float delay)
     {
         yield return new WaitForSeconds(delay);
         textToActivate.gameObject.SetActive(true);

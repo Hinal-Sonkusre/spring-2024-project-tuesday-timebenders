@@ -29,7 +29,7 @@ public class ClonePlayerManager : MonoBehaviour
     public int spawnTimes = 0;
     public int timeTravelTimes = 0; // Add this line to track time travel count
 
-    public UnityEngine.UI.Text timeTravelText;
+    public TextMeshProUGUI timeTravelText;
     public TMP_Text cloneTextPrefab;
     public Volume globalVolume;
     private ColorAdjustments colorAdjustments;

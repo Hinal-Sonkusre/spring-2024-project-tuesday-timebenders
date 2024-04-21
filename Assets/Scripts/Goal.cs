@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Goal : MonoBehaviour
 {
     private AnalyticsScript analyticsScript;
-    [SerializeField] public Text winText;
+    [SerializeField] public TextMeshProUGUI winText;
     [SerializeField] public PlayerControl playerControl; // Reference to the player's control script
     [SerializeField] public ClonePlayerManager clonePlayerManager;
     [SerializeField] private StarRating starRating;
