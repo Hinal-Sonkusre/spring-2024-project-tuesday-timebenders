@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Collectible : MonoBehaviour
 {
     public int value = 1;
-    [SerializeField] private List<Text> ListofText; // Assuming these are UI elements to enable/disable
+    [SerializeField] private List<TextMeshProUGUI> ListofText; // Assuming these are UI elements to enable/disable
     [SerializeField] private List<GameObject> ListofCanvas; // Assuming these are UI elements to enable/disable
 
     private void Start()
