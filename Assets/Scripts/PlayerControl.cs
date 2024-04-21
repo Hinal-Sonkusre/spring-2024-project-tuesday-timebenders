@@ -56,6 +56,7 @@ public class PlayerControl : MonoBehaviour {
 
     public int timeTravelTimes;
     public int timeTravelLimit;
+    [SerializeField] private AudioSource dashSound;
 
     [System.Serializable]
     public class RigidbodyState
@@ -248,6 +249,7 @@ public class PlayerControl : MonoBehaviour {
         tr.emitting = true;
         rb.gravityScale = 0;
         rb.velocity = new Vector2((isFacingRight ? 1 : -1) * dashingPower, 0);
+        dashSound.Play();  // Play the dash sound effect
         yield return new WaitForSeconds(dashingTime);
         rb.gravityScale = 4;
         isDashing = false;
