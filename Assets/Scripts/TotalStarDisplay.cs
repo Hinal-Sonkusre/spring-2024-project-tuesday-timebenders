@@ -16,6 +16,6 @@ public class TotalStarsDisplay : MonoBehaviour
     // Function to update the total stars display on the UI
     void UpdateTotalStarsDisplay(int totalStars)
     {
-        totalStarsText.text = "Total Stars: " + totalStars.ToString();
+        totalStarsText.text = totalStars.ToString();
     }
 }
