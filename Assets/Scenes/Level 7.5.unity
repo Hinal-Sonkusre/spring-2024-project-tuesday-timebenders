@@ -994,6 +994,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6798241980860397408, guid: 553d3dadf32f14123a92cc15e42a7ee6, type: 3}
   m_PrefabInstance: {fileID: 275568010}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &319195834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1447221927318262135, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+  m_PrefabInstance: {fileID: 3634684029299800685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &333590486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560532731845219456, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+  m_PrefabInstance: {fileID: 3634684029299800685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342979886
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5106,14 @@ PrefabInstance:
       propertyPath: nextLevelMenu
       value: 
       objectReference: {fileID: 2141231127}
+    - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+      propertyPath: star2
+      value: 
+      objectReference: {fileID: 319195834}
+    - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+      propertyPath: star3
+      value: 
+      objectReference: {fileID: 333590486}
     - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
       propertyPath: TTLimit
       value: 3
