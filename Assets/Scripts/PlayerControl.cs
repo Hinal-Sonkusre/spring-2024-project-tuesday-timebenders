@@ -39,8 +39,7 @@ public class PlayerControl : MonoBehaviour {
     public float timeFreezeDuration = 3f;
     public Image imageCooldown; // Reference to the Image component for the cooldown
     private bool isCooldown = false;
-    private float cooldownDuration = 6f;
-
+    private float cooldownDuration = 3f;
     [SerializeField] private List<GameObject> freezeTargets = new List<GameObject>();
 
     private bool isTimeFrozen = false;
@@ -128,16 +127,6 @@ public class PlayerControl : MonoBehaviour {
             isCooldown = true;
             imageCooldown.fillAmount = 1; // Start the cooldown UI as full
         }
-        if (isCooldown){
-            imageCooldown.fillAmount -= 1 / cooldownDuration * Time.deltaTime;
-            if (imageCooldown.fillAmount <= 0){
-                imageCooldown.fillAmount = 0;
-                isCooldown = false; // Allow ability to be used again
-            }
-        }
-
-
-
         if (timeTravelTimes >= timeTravelLimit)
         {
            // Debug.Log("Clone limit reached");
