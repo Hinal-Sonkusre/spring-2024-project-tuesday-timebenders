@@ -2861,6 +2861,10 @@ PrefabInstance:
       propertyPath: cloneSpawnPoint
       value: 
       objectReference: {fileID: 1645986718}
+    - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
+      propertyPath: timeTravelLimit
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8311638663812699027, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: m_Name
       value: Clone
@@ -2878,6 +2882,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+      propertyPath: star2
+      value: 
+      objectReference: {fileID: 2070225204}
+    - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+      propertyPath: star3
+      value: 
+      objectReference: {fileID: 2070225203}
     - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
       propertyPath: TTLimit
       value: 3
@@ -3049,6 +3061,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2070225203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560532731845219456, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+  m_PrefabInstance: {fileID: 2070225200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2070225204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1447221927318262135, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
+  m_PrefabInstance: {fileID: 2070225200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2123470824
 PrefabInstance:
   m_ObjectHideFlags: 0

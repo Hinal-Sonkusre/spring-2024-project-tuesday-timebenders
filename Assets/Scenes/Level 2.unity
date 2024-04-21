@@ -2224,6 +2224,14 @@ PrefabInstance:
       value: 232.9
       objectReference: {fileID: 0}
     - target: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: star2
+      value: 
+      objectReference: {fileID: 1647407583}
+    - target: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+      propertyPath: star3
+      value: 
+      objectReference: {fileID: 1647407582}
+    - target: {fileID: 7088282088829174135, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
       propertyPath: TTLimit
       value: 2
       objectReference: {fileID: 0}
@@ -2267,6 +2275,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850d43b6b005349619606369e4ad62b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1647407582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7105203645750022023, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+  m_PrefabInstance: {fileID: 1647407579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1647407583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8162836113213786736, guid: 5899b3fc5692042ce98a874aea9933bd, type: 3}
+  m_PrefabInstance: {fileID: 1647407579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1651614255
 PrefabInstance:
   m_ObjectHideFlags: 0
