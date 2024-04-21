@@ -2005,6 +2005,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DP 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7296944590365929191, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.35714293
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296944590365929191, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296944590365929191, guid: 0f779dc4e8d4d43a0822291f9ec148f2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
