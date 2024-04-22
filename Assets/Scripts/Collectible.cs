@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
     public int value = 1;
     [SerializeField] private List<TextMeshProUGUI> ListofText; // Assuming these are UI elements to enable/disable
     [SerializeField] private List<GameObject> ListofCanvas; // Assuming these are UI elements to enable/disable
+    public static bool timeFreezeCollected = false;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class Collectible : MonoBehaviour
             {
                 playerControl.EnableTimeFreeze();
                 Debug.Log("Time Freeze Enabled!");
+                timeFreezeCollected = true;
 
                 // Enable related UI elements
                 foreach (var text in ListofText)
