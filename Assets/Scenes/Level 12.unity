@@ -7767,9 +7767,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4254801380786267994, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -422.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6045394393690921533, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Name
       value: CooldownCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665631696542835370, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -422.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

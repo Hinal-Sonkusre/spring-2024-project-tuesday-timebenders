@@ -496,15 +496,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1633844208541538475, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Color.b
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1633844208541538475, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Color.g
-      value: 0.50980395
+      value: 0.7058824
       objectReference: {fileID: 0}
     - target: {fileID: 1633844208541538475, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.19215687
       objectReference: {fileID: 0}
     - target: {fileID: 1633844208541538475, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Material
@@ -524,11 +524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254801380786267994, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -435.99817
+      value: -424.39813
       objectReference: {fileID: 0}
     - target: {fileID: 4254801380786267994, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -264.99667
+      value: -272.39667
       objectReference: {fileID: 0}
     - target: {fileID: 6045394393690921533, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_Name
@@ -564,11 +564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7665631696542835370, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -436
+      value: -424.4
       objectReference: {fileID: 0}
     - target: {fileID: 7665631696542835370, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -265
+      value: -272.4
       objectReference: {fileID: 0}
     - target: {fileID: 7904254056931038836, guid: 46de5be07a62e4ece8a2c769396190ac, type: 3}
       propertyPath: m_FillAmount
