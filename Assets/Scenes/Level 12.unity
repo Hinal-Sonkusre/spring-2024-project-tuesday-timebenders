@@ -2564,7 +2564,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1706007831015658989, guid: 3d680963265434f77b7345e2e4616174, type: 3}
       propertyPath: TTLimit
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2141646609440460825, guid: 3d680963265434f77b7345e2e4616174, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7400,7 +7400,7 @@ PrefabInstance:
       objectReference: {fileID: 3634684029299800686}
     - target: {fileID: 505260363865774704, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
       propertyPath: TTLimit
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1081534297958891016, guid: 2b78ebf92c78b4eed8d3a06a82f44c75, type: 3}
       propertyPath: m_SizeDelta.x
