@@ -949,6 +949,8 @@ GameObject:
   - component: {fileID: 2790964543214650325}
   - component: {fileID: 6570285644679830816}
   - component: {fileID: 6827684565112350025}
+  - component: {fileID: 1172144893388884480}
+  - component: {fileID: 3826368874317470744}
   m_Layer: 5
   m_Name: Level Complete Menu Canvas
   m_TagString: Untagged
@@ -1041,6 +1043,44 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!222 &1172144893388884480
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961522479642919686}
+  m_CullTransparentMesh: 1
+--- !u!114 &3826368874317470744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961522479642919686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7169200862626110039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: 240.48573}
+  m_AnchoredPosition: {x: 11, y: 224.48575}
   m_SizeDelta: {x: 169.6461, y: 40.4286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4359979429682816405
@@ -1321,11 +1361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4660541252240069652, guid: 3060860c2029b49a696a0fb74def3588, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18
+      value: 6.0000086
       objectReference: {fileID: 0}
     - target: {fileID: 4660541252240069652, guid: 3060860c2029b49a696a0fb74def3588, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 131
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 4660541252240069652, guid: 3060860c2029b49a696a0fb74def3588, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
