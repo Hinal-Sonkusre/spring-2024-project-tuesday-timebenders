@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'X 10
+  m_text: 'X 5
 
 '
   m_isRightToLeft: 0
@@ -3279,7 +3279,7 @@ PrefabInstance:
       objectReference: {fileID: 275110839}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelLimit
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8311638663812699027, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: m_Name
