@@ -50,6 +50,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void GoToLevelSelection()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level Selection");
+    }
+
     // Function to be called when the pause button is clicked
     public void OnPauseButtonClicked()
     {
