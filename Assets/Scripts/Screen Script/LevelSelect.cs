@@ -81,4 +81,34 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene("Level 11");
         Time.timeScale = 1f; // Resume the game
     }
+
+    public void GoToLevel12()
+    {
+        SceneManager.LoadScene("Level 12");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel13()
+    {
+        SceneManager.LoadScene("Level 13");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel14()
+    {
+        SceneManager.LoadScene("Level 14");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel15()
+    {
+        SceneManager.LoadScene("Level 15");
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void GoToLevel16()
+    {
+        SceneManager.LoadScene("Level 16");
+        Time.timeScale = 1f; // Resume the game
+    }
 }
