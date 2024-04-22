@@ -2361,7 +2361,7 @@ PrefabInstance:
       objectReference: {fileID: 1481256920}
     - target: {fileID: 7819910459866175721, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: timeTravelLimit
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8311638663812699027, guid: 50d2ca3afd71648c0a9c29efa8002f50, type: 3}
       propertyPath: m_Name
