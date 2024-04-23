@@ -122,7 +122,8 @@ public class PlayerControl : MonoBehaviour {
         HandleDash();
 
         if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown) {
-            Debug.Log(isTimeFrozen);
+            Debug.Log(isTimeFrozen); 
+            
             StartCoroutine(FreezeTimeRoutine());
             isCooldown = true;
             imageCooldown.fillAmount = 1; // Start the cooldown UI as full
