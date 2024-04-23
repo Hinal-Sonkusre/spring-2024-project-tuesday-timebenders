@@ -122,10 +122,6 @@ public class PlayerControl : MonoBehaviour {
         HandleDash();
 
         if (Input.GetKeyDown(KeyCode.F) && canFreezeTime && !isCooldown) {
-            string positionString = $"{rb.position.x}, {rb.position.y}";
-            int currentLevel = LevelManager.Instance.CurrentLevelNumber;
-            analyticsScript = GameObject.FindGameObjectWithTag("TagA").GetComponent<AnalyticsScript>();
-            analyticsScript.RecordTimeFreezePosition(currentLevel,positionString);
             Debug.Log(isTimeFrozen);
             StartCoroutine(FreezeTimeRoutine());
             isCooldown = true;

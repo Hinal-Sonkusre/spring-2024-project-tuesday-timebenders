@@ -25,11 +25,6 @@ public class AnalyticsScript : MonoBehaviour
     private string entryIdForPlayerId3 = "entry.320752607";
     private string entryIdForLevelNumber3 = "entry.621891126";
     private string entryIdForClonesUsed3 = "entry.1033664906";
-
-    private string formUrl4 = "https://docs.google.com/forms/d/e/1FAIpQLSeetdHOHGJUJ6mBRsCElN6H7dOy8KtSfzFHeKFX002oK2kw5A/formResponse";
-    private string entryIdForLevelNumber4 = "entry.1999521488";
-    private string entryIdForpos = "entry.105677257";
-
     // Call this method when a level starts
     public void TrackLevelStart(string playerId, int para_level)
     {
@@ -50,11 +45,6 @@ public class AnalyticsScript : MonoBehaviour
     public void TrackCloneAnalytics(string playerId, int levelNumber, int clonesUsed)
     {
         StartCoroutine(SendCloneAnalyticsToGoogleForm(playerId, levelNumber, clonesUsed));
-    }
-
-    public void RecordTimeFreezePosition(int levelNumber, string position)
-    {
-        StartCoroutine(SendPositionToGoogleForm(levelNumber,position));
     }
 
     private IEnumerator SendDataToGoogleForm(string playerId, int levelNumber)
@@ -141,27 +131,6 @@ public class AnalyticsScript : MonoBehaviour
             else
             {
                 Debug.Log("Level completion form submitted successfully.");
-            }
-        }
-    }
-
-    public IEnumerator SendPositionToGoogleForm(int levelNumber, string position)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField(entryIdForLevelNumber4, levelNumber.ToString());
-        form.AddField(entryIdForpos, position.ToString()); // Add clones used to form
-
-        using (UnityWebRequest www = UnityWebRequest.Post(formUrl4, form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError("form submit error: " + www.error);
-            }
-            else
-            {
-                Debug.Log("form submitted successfully.");
             }
         }
     }
