@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour {
-    public AnalyticsScript analyticsScript;
+     public AnalyticsScript analyticsScript;
     // Replace the single command list with a list of command lists, each for a session.
     public List<List<ActionCommand>> commandSessions = new List<List<ActionCommand>>();
     private int currentSessionIndex = -1; // Initialize to -1 to indicate no session has started.
